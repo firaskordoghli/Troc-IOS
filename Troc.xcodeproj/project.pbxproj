@@ -1,0 +1,602 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BF913EA421AAD2D0001A76BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF913EA321AAD2D0001A76BA /* AppDelegate.swift */; };
+		BF913EA621AAD2D0001A76BA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF913EA521AAD2D0001A76BA /* ViewController.swift */; };
+		BF913EA921AAD2D0001A76BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF913EA721AAD2D0001A76BA /* Main.storyboard */; };
+		BF913EAC21AAD2D0001A76BA /* Troc.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BF913EAA21AAD2D0001A76BA /* Troc.xcdatamodeld */; };
+		BF913EAE21AAD2D2001A76BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF913EAD21AAD2D2001A76BA /* Assets.xcassets */; };
+		BF913EB121AAD2D2001A76BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF913EAF21AAD2D2001A76BA /* LaunchScreen.storyboard */; };
+		BF913EBC21AAD2D2001A76BA /* TrocTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF913EBB21AAD2D2001A76BA /* TrocTests.swift */; };
+		BF913EC721AAD2D2001A76BA /* TrocUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF913EC621AAD2D2001A76BA /* TrocUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BF913EB821AAD2D2001A76BA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF913E9821AAD2D0001A76BA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF913E9F21AAD2D0001A76BA;
+			remoteInfo = Troc;
+		};
+		BF913EC321AAD2D2001A76BA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF913E9821AAD2D0001A76BA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF913E9F21AAD2D0001A76BA;
+			remoteInfo = Troc;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BF913EA021AAD2D0001A76BA /* Troc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Troc.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF913EA321AAD2D0001A76BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BF913EA521AAD2D0001A76BA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BF913EA821AAD2D0001A76BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BF913EAB21AAD2D0001A76BA /* Troc.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Troc.xcdatamodel; sourceTree = "<group>"; };
+		BF913EAD21AAD2D2001A76BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BF913EB021AAD2D2001A76BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BF913EB221AAD2D2001A76BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF913EB721AAD2D2001A76BA /* TrocTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrocTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF913EBB21AAD2D2001A76BA /* TrocTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrocTests.swift; sourceTree = "<group>"; };
+		BF913EBD21AAD2D2001A76BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF913EC221AAD2D2001A76BA /* TrocUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrocUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF913EC621AAD2D2001A76BA /* TrocUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrocUITests.swift; sourceTree = "<group>"; };
+		BF913EC821AAD2D2001A76BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BF913E9D21AAD2D0001A76BA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF913EB421AAD2D2001A76BA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF913EBF21AAD2D2001A76BA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BF913E9721AAD2D0001A76BA = {
+			isa = PBXGroup;
+			children = (
+				BF913EA221AAD2D0001A76BA /* Troc */,
+				BF913EBA21AAD2D2001A76BA /* TrocTests */,
+				BF913EC521AAD2D2001A76BA /* TrocUITests */,
+				BF913EA121AAD2D0001A76BA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BF913EA121AAD2D0001A76BA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BF913EA021AAD2D0001A76BA /* Troc.app */,
+				BF913EB721AAD2D2001A76BA /* TrocTests.xctest */,
+				BF913EC221AAD2D2001A76BA /* TrocUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BF913EA221AAD2D0001A76BA /* Troc */ = {
+			isa = PBXGroup;
+			children = (
+				BF913EA321AAD2D0001A76BA /* AppDelegate.swift */,
+				BF913EA521AAD2D0001A76BA /* ViewController.swift */,
+				BF913EA721AAD2D0001A76BA /* Main.storyboard */,
+				BF913EAD21AAD2D2001A76BA /* Assets.xcassets */,
+				BF913EAF21AAD2D2001A76BA /* LaunchScreen.storyboard */,
+				BF913EB221AAD2D2001A76BA /* Info.plist */,
+				BF913EAA21AAD2D0001A76BA /* Troc.xcdatamodeld */,
+			);
+			path = Troc;
+			sourceTree = "<group>";
+		};
+		BF913EBA21AAD2D2001A76BA /* TrocTests */ = {
+			isa = PBXGroup;
+			children = (
+				BF913EBB21AAD2D2001A76BA /* TrocTests.swift */,
+				BF913EBD21AAD2D2001A76BA /* Info.plist */,
+			);
+			path = TrocTests;
+			sourceTree = "<group>";
+		};
+		BF913EC521AAD2D2001A76BA /* TrocUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BF913EC621AAD2D2001A76BA /* TrocUITests.swift */,
+				BF913EC821AAD2D2001A76BA /* Info.plist */,
+			);
+			path = TrocUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BF913E9F21AAD2D0001A76BA /* Troc */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF913ECB21AAD2D2001A76BA /* Build configuration list for PBXNativeTarget "Troc" */;
+			buildPhases = (
+				BF913E9C21AAD2D0001A76BA /* Sources */,
+				BF913E9D21AAD2D0001A76BA /* Frameworks */,
+				BF913E9E21AAD2D0001A76BA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Troc;
+			productName = Troc;
+			productReference = BF913EA021AAD2D0001A76BA /* Troc.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BF913EB621AAD2D2001A76BA /* TrocTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF913ECE21AAD2D2001A76BA /* Build configuration list for PBXNativeTarget "TrocTests" */;
+			buildPhases = (
+				BF913EB321AAD2D2001A76BA /* Sources */,
+				BF913EB421AAD2D2001A76BA /* Frameworks */,
+				BF913EB521AAD2D2001A76BA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BF913EB921AAD2D2001A76BA /* PBXTargetDependency */,
+			);
+			name = TrocTests;
+			productName = TrocTests;
+			productReference = BF913EB721AAD2D2001A76BA /* TrocTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BF913EC121AAD2D2001A76BA /* TrocUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF913ED121AAD2D2001A76BA /* Build configuration list for PBXNativeTarget "TrocUITests" */;
+			buildPhases = (
+				BF913EBE21AAD2D2001A76BA /* Sources */,
+				BF913EBF21AAD2D2001A76BA /* Frameworks */,
+				BF913EC021AAD2D2001A76BA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BF913EC421AAD2D2001A76BA /* PBXTargetDependency */,
+			);
+			name = TrocUITests;
+			productName = TrocUITests;
+			productReference = BF913EC221AAD2D2001A76BA /* TrocUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BF913E9821AAD2D0001A76BA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = firas.kordoghli;
+				TargetAttributes = {
+					BF913E9F21AAD2D0001A76BA = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					BF913EB621AAD2D2001A76BA = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = BF913E9F21AAD2D0001A76BA;
+					};
+					BF913EC121AAD2D2001A76BA = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = BF913E9F21AAD2D0001A76BA;
+					};
+				};
+			};
+			buildConfigurationList = BF913E9B21AAD2D0001A76BA /* Build configuration list for PBXProject "Troc" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BF913E9721AAD2D0001A76BA;
+			productRefGroup = BF913EA121AAD2D0001A76BA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BF913E9F21AAD2D0001A76BA /* Troc */,
+				BF913EB621AAD2D2001A76BA /* TrocTests */,
+				BF913EC121AAD2D2001A76BA /* TrocUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BF913E9E21AAD2D0001A76BA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF913EB121AAD2D2001A76BA /* LaunchScreen.storyboard in Resources */,
+				BF913EAE21AAD2D2001A76BA /* Assets.xcassets in Resources */,
+				BF913EA921AAD2D0001A76BA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF913EB521AAD2D2001A76BA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF913EC021AAD2D2001A76BA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BF913E9C21AAD2D0001A76BA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF913EA621AAD2D0001A76BA /* ViewController.swift in Sources */,
+				BF913EAC21AAD2D0001A76BA /* Troc.xcdatamodeld in Sources */,
+				BF913EA421AAD2D0001A76BA /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF913EB321AAD2D2001A76BA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF913EBC21AAD2D2001A76BA /* TrocTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF913EBE21AAD2D2001A76BA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF913EC721AAD2D2001A76BA /* TrocUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BF913EB921AAD2D2001A76BA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BF913E9F21AAD2D0001A76BA /* Troc */;
+			targetProxy = BF913EB821AAD2D2001A76BA /* PBXContainerItemProxy */;
+		};
+		BF913EC421AAD2D2001A76BA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BF913E9F21AAD2D0001A76BA /* Troc */;
+			targetProxy = BF913EC321AAD2D2001A76BA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BF913EA721AAD2D0001A76BA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF913EA821AAD2D0001A76BA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BF913EAF21AAD2D2001A76BA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF913EB021AAD2D2001A76BA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BF913EC921AAD2D2001A76BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BF913ECA21AAD2D2001A76BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BF913ECC21AAD2D2001A76BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Troc/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = firas.kordoghli.Troc;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BF913ECD21AAD2D2001A76BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Troc/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = firas.kordoghli.Troc;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BF913ECF21AAD2D2001A76BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TrocTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = firas.kordoghli.TrocTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Troc.app/Troc";
+			};
+			name = Debug;
+		};
+		BF913ED021AAD2D2001A76BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TrocTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = firas.kordoghli.TrocTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Troc.app/Troc";
+			};
+			name = Release;
+		};
+		BF913ED221AAD2D2001A76BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TrocUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = firas.kordoghli.TrocUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Troc;
+			};
+			name = Debug;
+		};
+		BF913ED321AAD2D2001A76BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TrocUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = firas.kordoghli.TrocUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Troc;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BF913E9B21AAD2D0001A76BA /* Build configuration list for PBXProject "Troc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF913EC921AAD2D2001A76BA /* Debug */,
+				BF913ECA21AAD2D2001A76BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF913ECB21AAD2D2001A76BA /* Build configuration list for PBXNativeTarget "Troc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF913ECC21AAD2D2001A76BA /* Debug */,
+				BF913ECD21AAD2D2001A76BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF913ECE21AAD2D2001A76BA /* Build configuration list for PBXNativeTarget "TrocTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF913ECF21AAD2D2001A76BA /* Debug */,
+				BF913ED021AAD2D2001A76BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF913ED121AAD2D2001A76BA /* Build configuration list for PBXNativeTarget "TrocUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF913ED221AAD2D2001A76BA /* Debug */,
+				BF913ED321AAD2D2001A76BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BF913EAA21AAD2D0001A76BA /* Troc.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BF913EAB21AAD2D0001A76BA /* Troc.xcdatamodel */,
+			);
+			currentVersion = BF913EAB21AAD2D0001A76BA /* Troc.xcdatamodel */;
+			path = Troc.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = BF913E9821AAD2D0001A76BA /* Project object */;
+}
