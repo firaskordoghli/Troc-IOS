@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0678016CDDD0A0251E123684 /* Pods_TrocUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C16992C939D78F921F013265 /* Pods_TrocUITests.framework */; };
+		35791937435EDE58F329EC22 /* Pods_TrocTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8A8ECFDA8A19FF826FA16EC /* Pods_TrocTests.framework */; };
+		8612280BAAFBC093C8804FEA /* Pods_Troc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA4466EE7D6B0B6F149C75C0 /* Pods_Troc.framework */; };
 		BF913EA421AAD2D0001A76BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF913EA321AAD2D0001A76BA /* AppDelegate.swift */; };
 		BF913EA621AAD2D0001A76BA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF913EA521AAD2D0001A76BA /* ViewController.swift */; };
 		BF913EA921AAD2D0001A76BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF913EA721AAD2D0001A76BA /* Main.storyboard */; };
@@ -35,6 +38,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		253D003DF40430B9892B4813 /* Pods-TrocUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrocUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrocUITests/Pods-TrocUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		4DCCB025224E93B16AC023FD /* Pods-Troc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Troc.release.xcconfig"; path = "Pods/Target Support Files/Pods-Troc/Pods-Troc.release.xcconfig"; sourceTree = "<group>"; };
+		532B3BBE3D1792AE455E8916 /* Pods-Troc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Troc.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Troc/Pods-Troc.debug.xcconfig"; sourceTree = "<group>"; };
+		BA4466EE7D6B0B6F149C75C0 /* Pods_Troc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Troc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF913EA021AAD2D0001A76BA /* Troc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Troc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF913EA321AAD2D0001A76BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF913EA521AAD2D0001A76BA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +56,11 @@
 		BF913EC221AAD2D2001A76BA /* TrocUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrocUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF913EC621AAD2D2001A76BA /* TrocUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrocUITests.swift; sourceTree = "<group>"; };
 		BF913EC821AAD2D2001A76BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C16992C939D78F921F013265 /* Pods_TrocUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrocUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD0E65CB7882A4C4B0D15FA5 /* Pods-TrocTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrocTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrocTests/Pods-TrocTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E1C78B24DF74924AAD53B59C /* Pods-TrocUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrocUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrocUITests/Pods-TrocUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E213109DEF290C04D9662A03 /* Pods-TrocTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrocTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrocTests/Pods-TrocTests.release.xcconfig"; sourceTree = "<group>"; };
+		F8A8ECFDA8A19FF826FA16EC /* Pods_TrocTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrocTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8612280BAAFBC093C8804FEA /* Pods_Troc.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35791937435EDE58F329EC22 /* Pods_TrocTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +84,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0678016CDDD0A0251E123684 /* Pods_TrocUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8FE32385DA7DC896DDE57B85 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BA4466EE7D6B0B6F149C75C0 /* Pods_Troc.framework */,
+				F8A8ECFDA8A19FF826FA16EC /* Pods_TrocTests.framework */,
+				C16992C939D78F921F013265 /* Pods_TrocUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A6EBEC7933859D3DB46DF9E9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				532B3BBE3D1792AE455E8916 /* Pods-Troc.debug.xcconfig */,
+				4DCCB025224E93B16AC023FD /* Pods-Troc.release.xcconfig */,
+				DD0E65CB7882A4C4B0D15FA5 /* Pods-TrocTests.debug.xcconfig */,
+				E213109DEF290C04D9662A03 /* Pods-TrocTests.release.xcconfig */,
+				253D003DF40430B9892B4813 /* Pods-TrocUITests.debug.xcconfig */,
+				E1C78B24DF74924AAD53B59C /* Pods-TrocUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		BF913E9721AAD2D0001A76BA = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +121,8 @@
 				BF913EBA21AAD2D2001A76BA /* TrocTests */,
 				BF913EC521AAD2D2001A76BA /* TrocUITests */,
 				BF913EA121AAD2D0001A76BA /* Products */,
+				A6EBEC7933859D3DB46DF9E9 /* Pods */,
+				8FE32385DA7DC896DDE57B85 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -135,9 +175,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BF913ECB21AAD2D2001A76BA /* Build configuration list for PBXNativeTarget "Troc" */;
 			buildPhases = (
+				9E67E47068F1D005D243B1CD /* [CP] Check Pods Manifest.lock */,
 				BF913E9C21AAD2D0001A76BA /* Sources */,
 				BF913E9D21AAD2D0001A76BA /* Frameworks */,
 				BF913E9E21AAD2D0001A76BA /* Resources */,
+				5722222762C40150D9354658 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -152,6 +194,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BF913ECE21AAD2D2001A76BA /* Build configuration list for PBXNativeTarget "TrocTests" */;
 			buildPhases = (
+				8BA0777B6BCC2F5981668CDC /* [CP] Check Pods Manifest.lock */,
 				BF913EB321AAD2D2001A76BA /* Sources */,
 				BF913EB421AAD2D2001A76BA /* Frameworks */,
 				BF913EB521AAD2D2001A76BA /* Resources */,
@@ -170,6 +213,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BF913ED121AAD2D2001A76BA /* Build configuration list for PBXNativeTarget "TrocUITests" */;
 			buildPhases = (
+				57D04B24C4E103A9C99423A6 /* [CP] Check Pods Manifest.lock */,
 				BF913EBE21AAD2D2001A76BA /* Sources */,
 				BF913EBF21AAD2D2001A76BA /* Frameworks */,
 				BF913EC021AAD2D2001A76BA /* Resources */,
@@ -253,6 +297,97 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5722222762C40150D9354658 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Troc/Pods-Troc-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Troc/Pods-Troc-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		57D04B24C4E103A9C99423A6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TrocUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8BA0777B6BCC2F5981668CDC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TrocTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9E67E47068F1D005D243B1CD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Troc-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BF913E9C21AAD2D0001A76BA /* Sources */ = {
@@ -434,6 +569,7 @@
 		};
 		BF913ECC21AAD2D2001A76BA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 532B3BBE3D1792AE455E8916 /* Pods-Troc.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -451,6 +587,7 @@
 		};
 		BF913ECD21AAD2D2001A76BA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4DCCB025224E93B16AC023FD /* Pods-Troc.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -468,6 +605,7 @@
 		};
 		BF913ECF21AAD2D2001A76BA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD0E65CB7882A4C4B0D15FA5 /* Pods-TrocTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -488,6 +626,7 @@
 		};
 		BF913ED021AAD2D2001A76BA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E213109DEF290C04D9662A03 /* Pods-TrocTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -508,6 +647,7 @@
 		};
 		BF913ED221AAD2D2001A76BA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 253D003DF40430B9892B4813 /* Pods-TrocUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -527,6 +667,7 @@
 		};
 		BF913ED321AAD2D2001A76BA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1C78B24DF74924AAD53B59C /* Pods-TrocUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
