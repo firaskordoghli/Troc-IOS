@@ -229,20 +229,55 @@
             </objects>
             <point key="canvasLocation" x="1121" y="360"/>
         </scene>
-        <!--Accueil View Controller-->
-        <scene sceneID="Czc-fG-sY7">
+        <!--View Controller-->
+        <scene sceneID="vRQ-6D-NFq">
             <objects>
-                <viewController id="jN3-Qh-7x7" customClass="AccueilViewController" customModule="Troc" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="r2R-oY-6yE">
+                <viewController id="IlP-aU-kgZ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xnN-2o-HRh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="tfJ-hs-Pfi"/>
+                        <viewLayoutGuide key="safeArea" id="EQ8-DO-1Nx"/>
                     </view>
+                    <tabBarItem key="tabBarItem" systemItem="more" id="5pn-X3-rNd"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="k8K-gu-f7m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sza-XL-Ulh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2223" y="359"/>
+            <point key="canvasLocation" x="2995" y="280"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="aVG-x4-5ch">
+            <objects>
+                <viewController id="acW-nd-xJz" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XVV-Dg-Kzq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="3YJ-4r-Izq"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="history" id="sON-b4-1MP"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W8y-88-0kG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2995" y="-385"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="9bJ-p9-Yib">
+            <objects>
+                <tabBarController storyboardIdentifier="TabBarController" id="P5d-I5-Ykn" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="D0K-It-I5o">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="acW-nd-xJz" kind="relationship" relationship="viewControllers" id="QxW-JP-PYI"/>
+                        <segue destination="IlP-aU-kgZ" kind="relationship" relationship="viewControllers" id="TQS-1p-NPb"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z8j-tA-1sf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2049" y="52"/>
         </scene>
     </scenes>
 </document>

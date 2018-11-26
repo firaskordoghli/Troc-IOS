@@ -23,6 +23,7 @@ class AuthentificationViewController: UIViewController {
     @IBAction func login(_ sender: Any) {
         
         
+        
         let parameters: Parameters = ["username": username.text!,"password": password.text!]
         
         Alamofire.request( URL_SIGNUP, method: .post, parameters: parameters).responseJSON { response in
@@ -37,11 +38,23 @@ class AuthentificationViewController: UIViewController {
             if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
                 print("Data: \(utf8Text)") // original server data as UTF8 string
             }
-        
+             
+            switch(response.result) {
+            case .success(_):
+                let next = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+                self.present(next, animated: true, completion: nil)
+                
+            case .failure(_):
+                
+                print("echec")
+                
+            }
+        }
+            
         
     }
         
-    }
+    
     
     
     override func viewDidLoad() {
