@@ -11,6 +11,7 @@
 		BF02930821AB3CE300B2FB37 /* AccueilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF02930721AB3CE300B2FB37 /* AccueilViewController.swift */; };
 		BF02930A21AB3E1700B2FB37 /* AuthentificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF02930921AB3E1700B2FB37 /* AuthentificationViewController.swift */; };
 		BF02930C21AB481C00B2FB37 /* InscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF02930B21AB481C00B2FB37 /* InscriptionViewController.swift */; };
+		BF806B8C21ABFE2A005F4F17 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF806B8B21ABFE2A005F4F17 /* Extentions.swift */; };
 		BF913EA421AAD2D0001A76BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF913EA321AAD2D0001A76BA /* AppDelegate.swift */; };
 		BF913EA621AAD2D0001A76BA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF913EA521AAD2D0001A76BA /* LoginViewController.swift */; };
 		BF913EA921AAD2D0001A76BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF913EA721AAD2D0001A76BA /* Main.storyboard */; };
@@ -45,6 +46,7 @@
 		BF02930721AB3CE300B2FB37 /* AccueilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccueilViewController.swift; sourceTree = "<group>"; };
 		BF02930921AB3E1700B2FB37 /* AuthentificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthentificationViewController.swift; sourceTree = "<group>"; };
 		BF02930B21AB481C00B2FB37 /* InscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InscriptionViewController.swift; sourceTree = "<group>"; };
+		BF806B8B21ABFE2A005F4F17 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		BF913EA021AAD2D0001A76BA /* Troc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Troc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF913EA321AAD2D0001A76BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF913EA521AAD2D0001A76BA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			children = (
 				BF913EA321AAD2D0001A76BA /* AppDelegate.swift */,
 				BF913EA521AAD2D0001A76BA /* LoginViewController.swift */,
+				BF806B8B21ABFE2A005F4F17 /* Extentions.swift */,
 				BF913EA721AAD2D0001A76BA /* Main.storyboard */,
 				BF02930B21AB481C00B2FB37 /* InscriptionViewController.swift */,
 				BF02930921AB3E1700B2FB37 /* AuthentificationViewController.swift */,
@@ -343,6 +346,7 @@
 				BF02930A21AB3E1700B2FB37 /* AuthentificationViewController.swift in Sources */,
 				BF913EA421AAD2D0001A76BA /* AppDelegate.swift in Sources */,
 				BF02930C21AB481C00B2FB37 /* InscriptionViewController.swift in Sources */,
+				BF806B8C21ABFE2A005F4F17 /* Extentions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
