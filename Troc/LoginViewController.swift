@@ -13,7 +13,8 @@ import FBSDKLoginKit
 class LoginViewController: UIViewController {
     
 
-  
+    let defaults = UserDefaults.standard
+    
     @IBOutlet weak var fbButton: FBSDKLoginButton!
     
     
@@ -52,7 +53,11 @@ class LoginViewController: UIViewController {
         let buttonText = NSAttributedString(string: "Continuer avec facebook")
         fbButton.setAttributedTitle(buttonText, for: .normal)
        
-       
+        var logged = defaults.bool(forKey: "log")
+        if logged == true {
+            let next = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+            self.present(next, animated: true, completion: nil)
+        }
     }
     
     ////Navigation bar control//////

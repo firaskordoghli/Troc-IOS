@@ -29,7 +29,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="Troc" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginView" id="BYZ-38-t0r" customClass="LoginViewController" customModule="Troc" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -208,7 +208,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.70588235294117641" green="0.0" blue="0.21568627450980393" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="epT-ow-JTI">
                                 <rect key="frame" x="16" y="565" width="343" height="40"/>
@@ -226,11 +226,15 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.70588235294117641" green="0.0" blue="0.21568627450980393" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="username"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="C08-7F-CZA"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="fJJ-m8-yn5" appends="YES" id="aT3-00-mgF"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="password" destination="sHr-vY-rK3" id="Bly-ce-bRf"/>
@@ -238,13 +242,18 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UIU-qG-XZs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="fJJ-m8-yn5">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="V4T-4U-gvf" id="AIL-Bf-Kyz"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1120.8" y="359.37031484257875"/>
         </scene>
-        <!--View Controller-->
+        <!--Ajout Service View Controller-->
         <scene sceneID="vRQ-6D-NFq">
             <objects>
-                <viewController id="IlP-aU-kgZ" sceneMemberID="viewController">
+                <viewController id="IlP-aU-kgZ" customClass="AjoutServiceViewController" customModule="Troc" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xnN-2o-HRh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -291,13 +300,72 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Type:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0jx-wV-OO4">
+                                <rect key="frame" x="16" y="465" width="343" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pIh-Yh-zDO">
+                                <rect key="frame" x="80" y="364" width="214" height="93"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="IlP-aU-kgZ" id="8Z5-zt-oec"/>
+                                    <outlet property="delegate" destination="IlP-aU-kgZ" id="Vhi-6D-AlH"/>
+                                </connections>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lq6-HW-aOT">
+                                <rect key="frame" x="291" y="569" width="70" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Ajouter"/>
+                                <connections>
+                                    <action selector="addService:" destination="IlP-aU-kgZ" eventType="touchUpInside" id="Jgx-VJ-L1R"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Hbz-eR-ot4">
+                                <rect key="frame" x="80" y="513" width="214" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Bien"/>
+                                    <segment title="Service"/>
+                                </segments>
+                                <connections>
+                                    <action selector="getType:" destination="IlP-aU-kgZ" eventType="valueChanged" id="RVb-Yp-RSI"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zUD-Hv-Hf5">
+                                <rect key="frame" x="291" y="30" width="90" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Deconnexion"/>
+                                <connections>
+                                    <action selector="deconnexion:" destination="IlP-aU-kgZ" eventType="touchUpInside" id="ADC-zG-2pK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="EQ8-DO-1Nx"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="mGh-bn-ZZo" appends="YES" id="atY-tR-rkO"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="more" id="5pn-X3-rNd"/>
+                    <connections>
+                        <outlet property="categorie" destination="pIh-Yh-zDO" id="H9r-yn-daS"/>
+                        <outlet property="desc" destination="hmY-qj-Hiv" id="5tk-zj-fOg"/>
+                        <outlet property="titre" destination="EW0-Rh-rXt" id="LtM-TE-edX"/>
+                        <outlet property="type" destination="Hbz-eR-ot4" id="8YS-4I-Q40"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sza-XL-Ulh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="mGh-bn-ZZo">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="IlP-aU-kgZ" id="eYg-Tf-b4F"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2994.4000000000001" y="279.31034482758622"/>
         </scene>

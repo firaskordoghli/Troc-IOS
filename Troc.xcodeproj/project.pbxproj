@@ -20,6 +20,7 @@
 		BF913EB121AAD2D2001A76BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF913EAF21AAD2D2001A76BA /* LaunchScreen.storyboard */; };
 		BF913EBC21AAD2D2001A76BA /* TrocTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF913EBB21AAD2D2001A76BA /* TrocTests.swift */; };
 		BF913EC721AAD2D2001A76BA /* TrocUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF913EC621AAD2D2001A76BA /* TrocUITests.swift */; };
+		FC69EC7E21B1F51F00EF6492 /* AjoutServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC69EC7D21B1F51F00EF6492 /* AjoutServiceViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		BF913EC821AAD2D2001A76BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C16992C939D78F921F013265 /* Pods_TrocUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrocUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8A8ECFDA8A19FF826FA16EC /* Pods_TrocTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrocTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC69EC7D21B1F51F00EF6492 /* AjoutServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AjoutServiceViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 				BF913EA521AAD2D0001A76BA /* LoginViewController.swift */,
 				BF806B8B21ABFE2A005F4F17 /* Extentions.swift */,
 				BF913EA721AAD2D0001A76BA /* Main.storyboard */,
+				FC69EC7D21B1F51F00EF6492 /* AjoutServiceViewController.swift */,
 				BF02930B21AB481C00B2FB37 /* InscriptionViewController.swift */,
 				BF02930921AB3E1700B2FB37 /* AuthentificationViewController.swift */,
 				BF02930721AB3CE300B2FB37 /* AccueilViewController.swift */,
@@ -350,6 +353,7 @@
 				BF913EA621AAD2D0001A76BA /* LoginViewController.swift in Sources */,
 				BF913EAC21AAD2D0001A76BA /* Troc.xcdatamodeld in Sources */,
 				BF02930A21AB3E1700B2FB37 /* AuthentificationViewController.swift in Sources */,
+				FC69EC7E21B1F51F00EF6492 /* AjoutServiceViewController.swift in Sources */,
 				BF913EA421AAD2D0001A76BA /* AppDelegate.swift in Sources */,
 				BF02930C21AB481C00B2FB37 /* InscriptionViewController.swift in Sources */,
 				BF806B8C21ABFE2A005F4F17 /* Extentions.swift in Sources */,

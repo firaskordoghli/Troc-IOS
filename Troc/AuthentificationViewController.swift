@@ -10,15 +10,20 @@ import UIKit
 import Alamofire
 
 
-class AuthentificationViewController: UIViewController {
+class AuthentificationViewController: UIViewController, UITextViewDelegate {
 
     //textfields
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var username: UITextField!
     //utils
     let URL_SIGNUP = "http://localhost:3000/login"
+    let defaults = UserDefaults.standard
+   
     
-    
+    @IBAction func dismissKeyboard(_ sender: Any) {
+        username.resignFirstResponder()
+        password.resignFirstResponder()
+    }
     
     @IBAction func login(_ sender: Any) {
         
@@ -43,6 +48,12 @@ class AuthentificationViewController: UIViewController {
             case .success(_):
                 let next = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
                 self.present(next, animated: true, completion: nil)
+               
+                self.defaults.set(true, forKey: "log")
+               
+                
+               
+
                 
             case .failure(_):
                 
@@ -53,13 +64,13 @@ class AuthentificationViewController: UIViewController {
             
         
     }
-        
     
+ 
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
