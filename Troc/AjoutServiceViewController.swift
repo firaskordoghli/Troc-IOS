@@ -30,6 +30,7 @@ class AjoutServiceViewController: UIViewController, UIPickerViewDelegate, UIPick
         self.present(next, animated: true, completion: nil)
         
         self.defaults.set(false,forKey: "log")
+        self.defaults.removeObject(forKey: "username")
         
         
         
@@ -76,8 +77,9 @@ class AjoutServiceViewController: UIViewController, UIPickerViewDelegate, UIPick
     
     //Action pour ajouter le service
     @IBAction func addService(_ sender: Any) {
-        
-        let parameters: Parameters = ["titre": titre.text!,"description": desc.text!,"categorie": categories!,"type":types! ]
+        let username = defaults.string(forKey: "username")
+        print(username!)
+        let parameters: Parameters = ["titre": titre.text!,"description": desc.text!,"categorie": categories!,"type":types!,"username":username! ]
         
         Alamofire.request( URL_SIGNUP, method: .post, parameters: parameters).responseJSON { response in
             print("Request: \(String(describing: response.request))")   // original url request

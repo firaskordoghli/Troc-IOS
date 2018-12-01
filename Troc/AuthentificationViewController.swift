@@ -51,7 +51,7 @@ class AuthentificationViewController: UIViewController, UITextViewDelegate {
                
                 self.defaults.set(true, forKey: "log")
                
-                
+                self.defaults.set(self.username.text!, forKey: "username")
                
 
                 
