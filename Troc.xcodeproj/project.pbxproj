@@ -21,6 +21,8 @@
 		BF913EBC21AAD2D2001A76BA /* TrocTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF913EBB21AAD2D2001A76BA /* TrocTests.swift */; };
 		BF913EC721AAD2D2001A76BA /* TrocUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF913EC621AAD2D2001A76BA /* TrocUITests.swift */; };
 		FC69EC7E21B1F51F00EF6492 /* AjoutServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC69EC7D21B1F51F00EF6492 /* AjoutServiceViewController.swift */; };
+		FC6FE67421B47540004D24CF /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6FE67321B47540004D24CF /* DetailsViewController.swift */; };
+		FC6FE67621B4B94D004D24CF /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6FE67521B4B94C004D24CF /* BookmarksViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,8 @@
 		C16992C939D78F921F013265 /* Pods_TrocUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrocUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8A8ECFDA8A19FF826FA16EC /* Pods_TrocTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrocTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC69EC7D21B1F51F00EF6492 /* AjoutServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AjoutServiceViewController.swift; sourceTree = "<group>"; };
+		FC6FE67321B47540004D24CF /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		FC6FE67521B4B94C004D24CF /* BookmarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +145,8 @@
 				BF913EA521AAD2D0001A76BA /* LoginViewController.swift */,
 				BF806B8B21ABFE2A005F4F17 /* Extentions.swift */,
 				BF913EA721AAD2D0001A76BA /* Main.storyboard */,
+				FC6FE67521B4B94C004D24CF /* BookmarksViewController.swift */,
+				FC6FE67321B47540004D24CF /* DetailsViewController.swift */,
 				FC69EC7D21B1F51F00EF6492 /* AjoutServiceViewController.swift */,
 				BF02930B21AB481C00B2FB37 /* InscriptionViewController.swift */,
 				BF02930921AB3E1700B2FB37 /* AuthentificationViewController.swift */,
@@ -311,6 +317,7 @@
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -318,6 +325,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -349,8 +357,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC6FE67621B4B94D004D24CF /* BookmarksViewController.swift in Sources */,
 				BF02930821AB3CE300B2FB37 /* AccueilViewController.swift in Sources */,
 				BF913EA621AAD2D0001A76BA /* LoginViewController.swift in Sources */,
+				FC6FE67421B47540004D24CF /* DetailsViewController.swift in Sources */,
 				BF913EAC21AAD2D0001A76BA /* Troc.xcdatamodeld in Sources */,
 				BF02930A21AB3E1700B2FB37 /* AuthentificationViewController.swift in Sources */,
 				FC69EC7E21B1F51F00EF6492 /* AjoutServiceViewController.swift in Sources */,

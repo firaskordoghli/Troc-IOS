@@ -7,12 +7,93 @@
 //
 
 import UIKit
+import Alamofire
 
-class AccueilViewController: UIViewController {
+class AccueilViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    let url = "http://localhost:3000/getService"
+    
+    var listeServices : NSArray = []
+    var serviceId: Int?
+    var serviceCategorie: String?
 
+    @IBOutlet weak var tableView: UITableView!
+    
+    
+    
+    func FetchData() {
+        Alamofire.request(url).responseJSON{
+            response in
+            // print(response)
+            
+            self.listeServices = response.result.value as! NSArray
+            
+            
+            
+            self.tableView.reloadData()
+            
+        }
+        
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return listeServices.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Services")
+        
+        let contentView = cell?.viewWithTag(0)
+        
+        let serviceTitre = contentView?.viewWithTag(1) as! UILabel
+        
+        let serviceDesc = contentView?.viewWithTag(2) as! UILabel
+        
+        let listeService  = listeServices[indexPath.item] as! Dictionary<String,Any>
+        
+        serviceTitre.text = listeService["titre"] as! String
+        serviceDesc.text = listeService["description"] as! String
+       
+        return cell!
+
+    }
+    
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let index = sender as? NSIndexPath
+        
+        let serviceshow  = listeServices[ index!.item] as! Dictionary<String,Any>
+      
+        serviceId = serviceshow["id"] as! Int
+        serviceCategorie = serviceshow["categorie"] as! String
+        if segue.identifier == "toDetails"{
+            
+            if let destinationViewController =  segue.destination as? DetailsViewController{
+                
+                
+                // destinationViewController.movieNam = moviesNames[index!.item]
+                
+                // destinationViewController.movieImg = moviesImg[index!.item]
+                
+                destinationViewController.previousService = serviceId
+                destinationViewController.previousCategorie = serviceCategorie
+               
+                
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        performSegue(withIdentifier: "toDetails", sender: indexPath)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        FetchData()
         // Do any additional setup after loading the view.
     }
     

@@ -5,4 +5,5 @@ use_frameworks!
 target 'Troc' do
     pod 'Alamofire', '~> 4.7'
     pod 'FBSDKLoginKit'
+    pod 'SwiftyJSON', '~> 4.0'
 end

@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import SwiftyJSON
 
 
 class AuthentificationViewController: UIViewController, UITextViewDelegate {
@@ -18,7 +19,7 @@ class AuthentificationViewController: UIViewController, UITextViewDelegate {
     //utils
     let URL_SIGNUP = "http://localhost:3000/login"
     let defaults = UserDefaults.standard
-   
+    var Infos : String?
     
     @IBAction func dismissKeyboard(_ sender: Any) {
         username.resignFirstResponder()
@@ -38,11 +39,16 @@ class AuthentificationViewController: UIViewController, UITextViewDelegate {
             
             if let json = response.result.value {
                 print("JSON: \(json)") // serialized json response
+                
             }
+          
             
             if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
                 print("Data: \(utf8Text)") // original server data as UTF8 string
+                
+                
             }
+           
              
             switch(response.result) {
             case .success(_):
@@ -60,6 +66,8 @@ class AuthentificationViewController: UIViewController, UITextViewDelegate {
                 print("echec")
                 
             }
+            
+        
         }
             
         
