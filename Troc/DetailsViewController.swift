@@ -30,7 +30,7 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
     
     
     
-    func FetchData2() {
+    func FetchDataSim() {
         let url = "http://localhost:3000/getSim/"
         let parameters: Parameters = ["categorie":String("'"+previousCategorie!+"'")]
         Alamofire.request( url, method: .post, parameters: parameters).responseJSON { response in
@@ -142,7 +142,7 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
     override func viewDidLoad() {
         super.viewDidLoad()
        FetchData()
-        FetchData2()
+        FetchDataSim()
         // Do any additional setup after loading the view.
     }
     
