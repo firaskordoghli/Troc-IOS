@@ -26,6 +26,9 @@ class AuthentificationViewController: UIViewController, UITextViewDelegate {
         password.resignFirstResponder()
     }
     
+    @IBAction func retour(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     @IBAction func login(_ sender: Any) {
         
         

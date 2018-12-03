@@ -106,21 +106,11 @@ class AjoutServiceViewController: UIViewController, UIPickerViewDelegate, UIPick
     override func viewDidLoad() {
         super.viewDidLoad()
         categorieData = ["Alimentation", "Animaux", "Arts et spectacle", "Collectionneurs", "Coup de main", "Bricolage", "Beauté/Bien être", "Enfance", "Informatique/Multimédia", "Jardin et plantes", "Maison", "Vacances/Weekend", "Livre/CD/DVD", "Vêtements et accessoires",  "Sports et loisirs", "Transports/Véhicules",  "Autre"]
-       
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+
         
     }
-    ////Navigation bar control//////
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        // Show the Navigation Bar
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
-        // Hide the Navigation Bar
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
-    }
+   
 
     
 

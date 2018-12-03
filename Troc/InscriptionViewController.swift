@@ -23,6 +23,9 @@ class InscriptionViewController: UIViewController {
     
     
     
+    @IBAction func retour(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     
     @IBAction func Inscription(_ sender: Any) {
         
