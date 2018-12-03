@@ -109,6 +109,19 @@ class AjoutServiceViewController: UIViewController, UIPickerViewDelegate, UIPick
        
         
     }
+    ////Navigation bar control//////
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        // Show the Navigation Bar
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        // Hide the Navigation Bar
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+
     
 
 

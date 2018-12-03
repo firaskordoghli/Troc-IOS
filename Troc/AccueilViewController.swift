@@ -12,7 +12,7 @@ import Alamofire
 class AccueilViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let url = "http://localhost:3000/getService"
-    
+    let defaults = UserDefaults.standard
     var listeServices : NSArray = []
     var serviceId: Int?
     var serviceCategorie: String?
@@ -51,8 +51,8 @@ class AccueilViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let listeService  = listeServices[indexPath.item] as! Dictionary<String,Any>
         
-        serviceTitre.text = listeService["titre"] as! String
-        serviceDesc.text = listeService["description"] as! String
+        serviceTitre.text = (listeService["titre"] as! String)
+        serviceDesc.text = (listeService["description"] as! String)
        
         return cell!
 
@@ -66,8 +66,8 @@ class AccueilViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let serviceshow  = listeServices[ index!.item] as! Dictionary<String,Any>
       
-        serviceId = serviceshow["id"] as! Int
-        serviceCategorie = serviceshow["categorie"] as! String
+        serviceId = (serviceshow["id"] as! Int)
+        serviceCategorie = (serviceshow["categorie"] as! String)
         if segue.identifier == "toDetails"{
             
             if let destinationViewController =  segue.destination as? DetailsViewController{
@@ -93,9 +93,31 @@ class AccueilViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        FetchData()
+        
+        var logged = defaults.bool(forKey: "log")
+        if logged == true {
+            FetchData()
+        }else{
+            let next = self.storyboard?.instantiateViewController(withIdentifier: "LoginView") as! UIViewController
+            self.present(next, animated: true, completion: nil)
+        }
+        
         // Do any additional setup after loading the view.
     }
+    
+    ////Navigation bar control//////
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        // Show the Navigation Bar
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        // Hide the Navigation Bar
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+
     
 
     /*

@@ -61,8 +61,8 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
         let serviceDesc = contentView?.viewWithTag(2) as! UITextView
         let similareshow  = similaresshow[ indexPath.item] as! Dictionary<String,Any>
         
-        serviceTitre.text = similareshow["titre"] as! String
-        serviceDesc.text = similareshow["description"] as! String
+        serviceTitre.text = (similareshow["titre"] as! String)
+        serviceDesc.text = (similareshow["description"] as! String)
         
         return cell
     }
@@ -92,7 +92,7 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
             if resultArray.count == 0 {
                 let movieDesc = NSEntityDescription.entity(forEntityName: "Service", in: context)
                 
-                var newService = NSManagedObject (entity: movieDesc!, insertInto: context)
+                let newService = NSManagedObject (entity: movieDesc!, insertInto: context)
                 
                 newService.setValue(serviceNam, forKey: "titre")
                 newService.setValue(serviceText, forKey: "desc")
@@ -130,8 +130,8 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
             
             self.servicesshow = response.result.value as! NSArray
             let serviceshow = self.servicesshow[0] as! Dictionary<String,Any>
-            self.serviceName.text = serviceshow["titre"] as! String
-            self.serviceDesc.text = serviceshow["description"] as! String
+            self.serviceName.text = (serviceshow["titre"] as! String)
+            self.serviceDesc.text = (serviceshow["description"] as! String)
             
             
         }
@@ -145,6 +145,20 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
         FetchDataSim()
         // Do any additional setup after loading the view.
     }
+    
+    ////Navigation bar control//////
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        // Show the Navigation Bar
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        // Hide the Navigation Bar
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+
     
 
    

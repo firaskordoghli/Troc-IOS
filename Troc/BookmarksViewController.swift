@@ -24,8 +24,8 @@ class BookmarksViewController: UIViewController,UITableViewDataSource, UITableVi
         let servicesTitre = content!.viewWithTag(1) as! UILabel
         let servicesDesc = content!.viewWithTag(2) as! UILabel
         let service = servicesArray[indexPath.row]
-        servicesTitre.text =  service.value(forKey: "titre") as! String
-        servicesDesc.text = service.value(forKey: "desc") as! String
+        servicesTitre.text =  (service.value(forKey: "titre") as! String)
+        servicesDesc.text = (service.value(forKey: "desc") as! String)
         
         return cell
     }
@@ -73,6 +73,19 @@ class BookmarksViewController: UIViewController,UITableViewDataSource, UITableVi
         // Do any additional setup after loading the view.
     }
     
+    ////Navigation bar control//////
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        // Show the Navigation Bar
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        // Hide the Navigation Bar
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+
 
     /*
     // MARK: - Navigation
