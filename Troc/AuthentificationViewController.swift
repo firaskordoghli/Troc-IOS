@@ -20,6 +20,7 @@ class AuthentificationViewController: UIViewController, UITextViewDelegate {
     let URL_SIGNUP = "http://localhost:3000/login"
     let defaults = UserDefaults.standard
     var Infos : String?
+    var loginInf : NSArray = []
     
     @IBAction func dismissKeyboard(_ sender: Any) {
         username.resignFirstResponder()
@@ -39,7 +40,7 @@ class AuthentificationViewController: UIViewController, UITextViewDelegate {
             print("Request: \(String(describing: response.request))")   // original url request
             print("Response: \(String(describing: response.response))") // http url response
             print("Result: \(response.result)")                         // response serialization result
-            
+            self.loginInf = response.result.value as! NSArray
             if let json = response.result.value {
                 print("JSON: \(json)") // serialized json response
                 
@@ -58,9 +59,8 @@ class AuthentificationViewController: UIViewController, UITextViewDelegate {
                 let next = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
                 self.present(next, animated: true, completion: nil)
                
-                self.defaults.set(true, forKey: "log")
-               
-                self.defaults.set(self.username.text!, forKey: "username")
+                let loginsh  = self.loginInf[0] as! Dictionary<String,Any>
+               Defaults.saveLogAndId("true",loginsh["id"] as! String)
                
 
                 

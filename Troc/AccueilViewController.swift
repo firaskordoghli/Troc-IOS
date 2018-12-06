@@ -12,7 +12,7 @@ import Alamofire
 class AccueilViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     let url = "http://localhost:3000/getService"
-    let defaults = UserDefaults.standard
+ 
     var listeServices : NSArray = []
     var serviceId: Int?
     var serviceCategorie: String?
@@ -27,8 +27,6 @@ class AccueilViewController: UIViewController, UITableViewDelegate, UITableViewD
             // print(response)
             
             self.listeServices = response.result.value as! NSArray
-            
-            
             
             self.tableView.reloadData()
             
@@ -91,24 +89,22 @@ class AccueilViewController: UIViewController, UITableViewDelegate, UITableViewD
         
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        var logged = defaults.bool(forKey: "log")
-        if logged == true {
-            FetchData()
-        }else{
-            let next = self.storyboard?.instantiateViewController(withIdentifier: "LoginView") as! UIViewController
-            self.present(next, animated: true, completion: nil)
-        }
+       
+      
         
         // Do any additional setup after loading the view.
     }
+    
+    
     
     ////Navigation bar control//////
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         // Show the Navigation Bar
+        FetchData()
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
@@ -129,5 +125,6 @@ class AccueilViewController: UIViewController, UITableViewDelegate, UITableViewD
         // Pass the selected object to the new view controller.
     }
     */
+   
 
 }

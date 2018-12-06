@@ -34,3 +34,36 @@ import  UIKit
         
     }
  }
+
+ 
+ struct Defaults {
+    static let (logKey, idKey) = ("log", "id")
+    static let userSessionKey = "com.save.usersession"
+    
+    struct Model {
+        var log: String?
+        var id: String?
+        
+        
+        init(_ json: [String: String]) {
+            self.log = json[logKey]
+            self.id = json[idKey]
+        }
+    }
+    static var saveLog = { (log: String) in
+        UserDefaults.standard.set([logKey: log], forKey: userSessionKey)
+    }
+    
+    static var saveLogAndId = { (log: String, id: String) in
+        UserDefaults.standard.set([logKey: log, idKey: id], forKey: userSessionKey)
+    }
+    
+    
+    static var getLogAndId = { _ -> Model in
+        return Model((UserDefaults.standard.value(forKey: userSessionKey) as? [String: String]) ?? [:])
+    }(())
+    
+    static func clearUserData(){
+        UserDefaults.standard.removeObject(forKey: userSessionKey)
+    }
+ }
