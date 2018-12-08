@@ -59,7 +59,7 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
         let serviceTitre = contentView?.viewWithTag(1) as! UILabel
         
         let serviceDesc = contentView?.viewWithTag(2) as! UITextView
-        let similareshow  = similaresshow[ indexPath.item] as! Dictionary<String,Any>
+        let similareshow  = similaresshow[indexPath.item] as! Dictionary<String,Any>
         
         serviceTitre.text = (similareshow["titre"] as! String)
         serviceDesc.text = (similareshow["description"] as! String)

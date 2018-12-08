@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		8612280BAAFBC093C8804FEA /* Pods_Troc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA4466EE7D6B0B6F149C75C0 /* Pods_Troc.framework */; };
 		BF02930821AB3CE300B2FB37 /* AccueilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF02930721AB3CE300B2FB37 /* AccueilViewController.swift */; };
-		BF02930A21AB3E1700B2FB37 /* AuthentificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF02930921AB3E1700B2FB37 /* AuthentificationViewController.swift */; };
 		BF02930C21AB481C00B2FB37 /* InscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF02930B21AB481C00B2FB37 /* InscriptionViewController.swift */; };
 		BF806B8C21ABFE2A005F4F17 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF806B8B21ABFE2A005F4F17 /* Extentions.swift */; };
 		BF913EA421AAD2D0001A76BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF913EA321AAD2D0001A76BA /* AppDelegate.swift */; };
@@ -20,6 +19,8 @@
 		BF913EB121AAD2D2001A76BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF913EAF21AAD2D2001A76BA /* LaunchScreen.storyboard */; };
 		BF913EBC21AAD2D2001A76BA /* TrocTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF913EBB21AAD2D2001A76BA /* TrocTests.swift */; };
 		BF913EC721AAD2D2001A76BA /* TrocUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF913EC621AAD2D2001A76BA /* TrocUITests.swift */; };
+		FC116A8D21BB307F0073ED8E /* AccueilTrocViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC116A8C21BB307F0073ED8E /* AccueilTrocViewController.swift */; };
+		FC116A8F21BB33500073ED8E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC116A8E21BB33500073ED8E /* ProfileViewController.swift */; };
 		FC69EC7E21B1F51F00EF6492 /* AjoutServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC69EC7D21B1F51F00EF6492 /* AjoutServiceViewController.swift */; };
 		FC6FE67421B47540004D24CF /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6FE67321B47540004D24CF /* DetailsViewController.swift */; };
 		FC6FE67621B4B94D004D24CF /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6FE67521B4B94C004D24CF /* BookmarksViewController.swift */; };
@@ -47,7 +48,6 @@
 		532B3BBE3D1792AE455E8916 /* Pods-Troc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Troc.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Troc/Pods-Troc.debug.xcconfig"; sourceTree = "<group>"; };
 		BA4466EE7D6B0B6F149C75C0 /* Pods_Troc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Troc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF02930721AB3CE300B2FB37 /* AccueilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccueilViewController.swift; sourceTree = "<group>"; };
-		BF02930921AB3E1700B2FB37 /* AuthentificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthentificationViewController.swift; sourceTree = "<group>"; };
 		BF02930B21AB481C00B2FB37 /* InscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InscriptionViewController.swift; sourceTree = "<group>"; };
 		BF806B8B21ABFE2A005F4F17 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		BF913EA021AAD2D0001A76BA /* Troc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Troc.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +66,8 @@
 		BF913EC821AAD2D2001A76BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C16992C939D78F921F013265 /* Pods_TrocUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrocUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8A8ECFDA8A19FF826FA16EC /* Pods_TrocTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrocTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC116A8C21BB307F0073ED8E /* AccueilTrocViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccueilTrocViewController.swift; sourceTree = "<group>"; };
+		FC116A8E21BB33500073ED8E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FC69EC7D21B1F51F00EF6492 /* AjoutServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AjoutServiceViewController.swift; sourceTree = "<group>"; };
 		FC6FE67321B47540004D24CF /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		FC6FE67521B4B94C004D24CF /* BookmarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
@@ -145,11 +147,12 @@
 				BF913EA521AAD2D0001A76BA /* LoginViewController.swift */,
 				BF806B8B21ABFE2A005F4F17 /* Extentions.swift */,
 				BF913EA721AAD2D0001A76BA /* Main.storyboard */,
+				FC116A8E21BB33500073ED8E /* ProfileViewController.swift */,
 				FC6FE67521B4B94C004D24CF /* BookmarksViewController.swift */,
 				FC6FE67321B47540004D24CF /* DetailsViewController.swift */,
+				FC116A8C21BB307F0073ED8E /* AccueilTrocViewController.swift */,
 				FC69EC7D21B1F51F00EF6492 /* AjoutServiceViewController.swift */,
 				BF02930B21AB481C00B2FB37 /* InscriptionViewController.swift */,
-				BF02930921AB3E1700B2FB37 /* AuthentificationViewController.swift */,
 				BF02930721AB3CE300B2FB37 /* AccueilViewController.swift */,
 				BF913EAD21AAD2D2001A76BA /* Assets.xcassets */,
 				BF913EAF21AAD2D2001A76BA /* LaunchScreen.storyboard */,
@@ -317,6 +320,7 @@
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -325,6 +329,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -360,9 +365,10 @@
 				FC6FE67621B4B94D004D24CF /* BookmarksViewController.swift in Sources */,
 				BF02930821AB3CE300B2FB37 /* AccueilViewController.swift in Sources */,
 				BF913EA621AAD2D0001A76BA /* LoginViewController.swift in Sources */,
+				FC116A8D21BB307F0073ED8E /* AccueilTrocViewController.swift in Sources */,
 				FC6FE67421B47540004D24CF /* DetailsViewController.swift in Sources */,
 				BF913EAC21AAD2D0001A76BA /* Troc.xcdatamodeld in Sources */,
-				BF02930A21AB3E1700B2FB37 /* AuthentificationViewController.swift in Sources */,
+				FC116A8F21BB33500073ED8E /* ProfileViewController.swift in Sources */,
 				FC69EC7E21B1F51F00EF6492 /* AjoutServiceViewController.swift in Sources */,
 				BF913EA421AAD2D0001A76BA /* AppDelegate.swift in Sources */,
 				BF02930C21AB481C00B2FB37 /* InscriptionViewController.swift in Sources */,

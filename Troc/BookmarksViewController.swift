@@ -19,15 +19,15 @@ class BookmarksViewController: UIViewController,UITableViewDataSource, UITableVi
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Services") as! UITableViewCell
-        let content = cell.viewWithTag(0)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Services") 
+        let content = cell!.viewWithTag(0)
         let servicesTitre = content!.viewWithTag(1) as! UILabel
         let servicesDesc = content!.viewWithTag(2) as! UILabel
         let service = servicesArray[indexPath.row]
         servicesTitre.text =  (service.value(forKey: "titre") as! String)
         servicesDesc.text = (service.value(forKey: "desc") as! String)
         
-        return cell
+        return cell!
     }
     
     

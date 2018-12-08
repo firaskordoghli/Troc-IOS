@@ -21,21 +21,11 @@ class AjoutServiceViewController: UIViewController, UIPickerViewDelegate, UIPick
     var categorieData : [String] = [String]()
     var categories : String?
     var types : String?
-    var username : String!
-    /////
-    let defaults = UserDefaults.standard
     
-    @IBAction func deconnexion(_ sender: Any) {
-        let next = self.storyboard!.instantiateViewController(withIdentifier: "LoginView")
-        self.present(next, animated: true, completion: nil)
-        
-        self.defaults.set(false,forKey: "log")
-        self.defaults.removeObject(forKey: "username")
-        
-        
-        
-    }
-    @IBOutlet weak var deconnexion: UIButton!
+
+    
+    
+    
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -79,7 +69,7 @@ class AjoutServiceViewController: UIViewController, UIPickerViewDelegate, UIPick
     @IBAction func addService(_ sender: Any) {
         
         
-        let parameters: Parameters = ["titre": titre.text!,"description": desc.text!,"categorie": categories!,"type":types!,"username":username! ]
+        let parameters: Parameters = ["titre": titre.text!,"description": desc.text!,"categorie": categories!,"type":types!,"id":Defaults.getLogAndId.id! ]
         
         Alamofire.request( URL_SIGNUP, method: .post, parameters: parameters).responseJSON { response in
             print("Request: \(String(describing: response.request))")   // original url request
@@ -96,8 +86,8 @@ class AjoutServiceViewController: UIViewController, UIPickerViewDelegate, UIPick
             switch(response.result) {
             case .success(_):
             self.dismiss(animated: true, completion: nil)
-            let next = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController!
-            self.present(next!, animated: true, completion: nil)
+            let next = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+            self.present(next, animated: true, completion: nil)
                 case .failure(_):
                     let alert = UIAlertController(title: "Echec", message: "Votre n'a pas été ajouter, veuillez vérifier vos données", preferredStyle: .alert)
                     let action = UIAlertAction(title: "ok", style: .cancel, handler: nil)
