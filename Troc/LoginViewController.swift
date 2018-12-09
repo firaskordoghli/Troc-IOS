@@ -25,6 +25,11 @@ class LoginViewController: UIViewController {
     let URL_TEST = "http://localhost:3000/testemail"
     let defaults = UserDefaults.standard
     var Infos : String?
+    var emailfb : String = ""
+    var first_namefb : String = ""
+    var last_namefb : String = ""
+    var usernamefb : String = ""
+    
     var logind : NSArray = []
     
     
@@ -83,27 +88,9 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func loginFacebookAction(_ sender: Any) {
-        let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
-        
-        fbLoginManager.logIn(withReadPermissions: ["email"], from: self) { (result, error) -> Void in
-            if (error == nil){
-                let fbloginresult : FBSDKLoginManagerLoginResult = result!
-                // if user cancel the login
-                if (result?.isCancelled)!{
-                    return
-                }
-                if(fbloginresult.grantedPermissions.contains("email"))
-                {
-                    
-                    self.getFBUserData()
-                    
-                    
-                    
-                }
-            }
-        }
+       getFBUserData()
     }
-    
+   
     func getFBUserData(){
         if((FBSDKAccessToken.current()) != nil){
             FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
@@ -111,8 +98,14 @@ class LoginViewController: UIViewController {
                     self.dict = (result as! [String : AnyObject])
                     print(result!)
                     print(self.dict)
-                    let emailfb = (self.dict["email"] as! String)
-                    print(emailfb)
+                    self.emailfb = (self.dict["email"] as! String)
+                    print(self.emailfb)
+                    self.first_namefb = (self.dict["first_name"] as! String)
+                    print(self.first_namefb)
+                    self.last_namefb = (self.dict["last_name"] as! String)
+                    print(self.last_namefb)
+                    self.usernamefb = (self.dict["name"] as! String)
+                    print(self.usernamefb)
                     
                 }
             })
@@ -120,8 +113,52 @@ class LoginViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        let buttonText = NSAttributedString(string: "Continuer avec facebook")
-        fbButton.setAttributedTitle(buttonText, for: .normal)
+        
+    }
+   
+    
+    
+    ////Navigation bar control//////
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        // Show the Navigation Bar
+        getFBUserData()
+        /*self.navigationController?.setNavigationBarHidden(true, animated: true)
+        fbButton.readPermissions = ["public_profile", "email"]
+        if (FBSDKAccessToken.current() != nil) {
+            
+            
+            let parameters: Parameters = ["email": self.emailfb]
+            
+            Alamofire.request( URL_TEST, method: .post, parameters: parameters).responseJSON { response in
+                print("Request: \(String(describing: response.request))")   // original url request
+                print("Response: \(String(describing: response.response))") // http url response
+                print("Result: \(response.result)")                         // response serialization result
+                
+                
+                switch(response.result) {
+                case .success(_):
+                    
+                    let next = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+                    self.present(next, animated: true, completion: nil)
+                    
+                    
+                    
+                    Defaults.saveLog("true")
+                    
+                    
+                    
+                case .failure(_):
+                    self.getFBUserData()
+                    self.performSegue(withIdentifier: "toInscription", sender: self)
+                    
+                }
+                
+                
+            }
+            
+        }*/
+        
         let logged = Defaults.getLogAndId.log
         if logged != nil {
             self.dismiss(animated: true, completion: nil)
@@ -129,17 +166,6 @@ class LoginViewController: UIViewController {
             self.present(next, animated: true, completion: nil)
         }
        
-        
-            
-        
-        
-    }
-    
-    ////Navigation bar control//////
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        // Show the Navigation Bar
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -147,7 +173,28 @@ class LoginViewController: UIViewController {
         // Hide the Navigation Bar
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        
+        
+        if segue.identifier == "toInscription"{
+            
+            if let destinationViewController =  segue.destination as? InscriptionViewController{
+                
+                
+                // destinationViewController.movieNam = moviesNames[index!.item]
+                
+                // destinationViewController.movieImg = moviesImg[index!.item]
+                
+                destinationViewController.first_nam = self.first_namefb
+                destinationViewController.last_nam = self.last_namefb
+                destinationViewController.emaill = self.emailfb
+                destinationViewController.usernam = self.usernamefb
+                
+                
+            }
+        }
+    }
 
 }
 

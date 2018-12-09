@@ -7,4 +7,5 @@ target 'Troc' do
     pod 'FBSDKLoginKit'
     pod 'SwiftyJSON', '~> 4.0'
     pod 'IQKeyboardManagerSwift'
+    pod 'Cosmos', '~> 17.0'
 end

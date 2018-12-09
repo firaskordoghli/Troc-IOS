@@ -9,12 +9,14 @@
 import UIKit
 import Alamofire
 import CoreData
+import Cosmos
 class DetailsViewController: UIViewController, UICollectionViewDataSource,UICollectionViewDelegate {
    
     @IBOutlet weak var imageBanner: UIImageView!
     @IBOutlet weak var serviceName: UILabel!
     @IBOutlet weak var serviceDesc: UITextView!
     
+    @IBOutlet weak var rating: CosmosView!
     @IBOutlet weak var collectionView: UICollectionView!
     
     var serviceNam:String?
@@ -27,6 +29,7 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
     @IBAction func retour(_ sender: Any) {
          dismiss(animated: true, completion: nil)
     }
+    
     
     
     
@@ -119,7 +122,7 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
     
     
     func FetchData() {
-        let url = "http://localhost:3000/getService/" 
+        let url = "http://localhost:3000/getService/"
             let parameters: Parameters = ["id": String(previousService!)]
         Alamofire.request( url, method: .post, parameters: parameters).responseJSON { response in
             print("Request: \(String(describing: response.request))")   // original url request
@@ -143,6 +146,20 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
         super.viewDidLoad()
        FetchData()
         FetchDataSim()
+        rating.didTouchCosmos = { rating in
+            let url = "http://localhost:3000/ajoutAvis"
+            let parameters: Parameters = ["id_user": Defaults.getLogAndId.id!, "id_service": self.previousService!,"note": rating]
+            Alamofire.request( url, method: .post, parameters: parameters).responseJSON { response in
+                print("Request: \(String(describing: response.request))")   // original url request
+                print("Response: \(String(describing: response.response))") // http url response
+                print("Result: \(response.result)")
+                // print(response)
+                //print(response.result.value)
+               
+            
+            }
+            
+        }
         // Do any additional setup after loading the view.
     }
     

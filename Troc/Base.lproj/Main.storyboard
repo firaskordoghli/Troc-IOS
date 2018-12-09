@@ -63,7 +63,7 @@
                                     <color key="titleColor" red="0.70588235294117641" green="0.0" blue="0.21568627450980393" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Txq-9r-QRW" kind="showDetail" id="qBf-2Q-JCg"/>
+                                    <segue destination="Txq-9r-QRW" kind="showDetail" identifier="" id="qBf-2Q-JCg"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xw1-24-ECm">
@@ -74,7 +74,7 @@
                                 <rect key="frame" x="16" y="379" width="343" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="loginFacebookAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GUa-GM-IIN"/>
+                                    <action selector="loginFacebookAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fwf-Rd-Unh"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Mot De Passe" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uaA-4D-iPv">
@@ -123,6 +123,7 @@
                         <outlet property="email" destination="Owv-a8-OvZ" id="cnl-nU-ngy"/>
                         <outlet property="fbButton" destination="F8g-ev-ywL" id="Rw2-aZ-NHt"/>
                         <outlet property="password" destination="uaA-4D-iPv" id="Y0S-8A-fJ0"/>
+                        <segue destination="Txq-9r-QRW" kind="show" identifier="toInscription" id="baC-6r-qif"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -346,16 +347,31 @@
             </objects>
             <point key="canvasLocation" x="2992.8000000000002" y="358.4707646176912"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="WAF-lh-C7W">
+            <objects>
+                <viewController id="2yO-Hd-NIY" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qlt-Xa-cQY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="0bv-Mg-7Oz"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0zA-U1-yjy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4073" y="358"/>
+        </scene>
         <!--Item-->
         <scene sceneID="Ldh-B6-vtL">
             <objects>
-                <tableViewController id="eko-eX-ukb" sceneMemberID="viewController">
+                <tableViewController id="eko-eX-ukb" customClass="AccueilTrocTableViewController" customModule="Troc" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="157" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="USC-Mb-ST2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="210" id="4AR-J9-CQa">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Info" rowHeight="210" id="4AR-J9-CQa">
                                 <rect key="frame" x="0.0" y="28" width="375" height="210"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4AR-J9-CQa" id="kdY-El-qBq">
@@ -386,15 +402,32 @@
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                         <rect key="frame" x="0.0" y="0.0" width="213" height="142"/>
                                                         <autoresizingMask key="autoresizingMask"/>
+                                                        <subviews>
+                                                            <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Lk-oj-iFn">
+                                                                <rect key="frame" x="38" y="10" width="137" height="73"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="avd-ch-MHR">
+                                                                <rect key="frame" x="85" y="101" width="42" height="21"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
                                                     </view>
                                                     <size key="customSize" width="213" height="142"/>
                                                 </collectionViewCell>
                                             </cells>
+                                            <connections>
+                                                <outlet property="dataSource" destination="eko-eX-ukb" id="ibJ-dT-vmb"/>
+                                                <outlet property="delegate" destination="eko-eX-ukb" id="21y-m5-n48"/>
+                                            </connections>
                                         </collectionView>
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="210" id="yf2-30-ZYw">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="mieuxnot" rowHeight="210" id="yf2-30-ZYw">
                                 <rect key="frame" x="0.0" y="238" width="375" height="210"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yf2-30-ZYw" id="jTC-YK-e8O">
@@ -433,7 +466,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="210" id="DPs-TE-ayP">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cate" rowHeight="210" id="DPs-TE-ayP">
                                 <rect key="frame" x="0.0" y="448" width="375" height="210"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DPs-TE-ayP" id="Hyo-QM-IXE">
@@ -472,7 +505,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="210" id="tjh-Vi-2ip">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="serv" rowHeight="210" id="tjh-Vi-2ip">
                                 <rect key="frame" x="0.0" y="658" width="375" height="210"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tjh-Vi-2ip" id="6qX-Ge-Z7i">
@@ -776,7 +809,7 @@
                                 </items>
                             </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="nokia" translatesAutoresizingMaskIntoConstraints="NO" id="AWD-et-DKK">
-                                <rect key="frame" x="41" y="80" width="300" height="196"/>
+                                <rect key="frame" x="75" y="88" width="224" height="146"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Y4R-F6-ZOP">
@@ -848,6 +881,16 @@
                                     <outlet property="delegate" destination="Qjn-PJ-DSf" id="rQs-Za-nvu"/>
                                 </connections>
                             </collectionView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dee-02-F4f" customClass="CosmosView" customModule="Cosmos">
+                                <rect key="frame" x="128" y="264" width="119" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
+                                        <color key="value" red="0.9135699498422527" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="lqN-c2-itB"/>
@@ -855,6 +898,7 @@
                     <connections>
                         <outlet property="collectionView" destination="W3I-M7-Knd" id="0Gg-f6-gPP"/>
                         <outlet property="imageBanner" destination="AWD-et-DKK" id="GDJ-Ar-PPI"/>
+                        <outlet property="rating" destination="Dee-02-F4f" id="KxK-Do-r8C"/>
                         <outlet property="serviceDesc" destination="Y4R-F6-ZOP" id="joS-33-rr3"/>
                         <outlet property="serviceName" destination="p93-2N-A6E" id="TqD-uu-mer"/>
                     </connections>
@@ -878,7 +922,6 @@
                         <segue destination="IlP-aU-kgZ" kind="relationship" relationship="viewControllers" id="TQS-1p-NPb"/>
                         <segue destination="Hr8-2P-zBk" kind="relationship" relationship="viewControllers" id="mq9-0N-3mW"/>
                         <segue destination="qxD-SK-N58" kind="relationship" relationship="viewControllers" id="ceb-yx-zPc"/>
-                        <segue destination="eko-eX-ukb" kind="relationship" relationship="viewControllers" id="gYN-qn-r6K"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z8j-tA-1sf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -889,4 +932,7 @@
     <resources>
         <image name="nokia" width="300" height="450"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="baC-6r-qif"/>
+    </inferredMetricsTieBreakers>
 </document>

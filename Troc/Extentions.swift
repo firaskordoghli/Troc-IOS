@@ -37,18 +37,29 @@ import  UIKit
 
  
  struct Defaults {
-    static let (logKey, idKey) = ("log", "id")
+    static let (logKey, idKey,namefbKey, last_namefbKey,usernamefbKey, emailfbKey) = ("log", "id","namefb", "last_namefb","usernamefb", "emailfb")
     static let userSessionKey = "com.save.usersession"
     
     struct Model {
         var log: String?
         var id: String?
+        var namefb: String?
+        var last_namefb: String?
+        var usernamefb: String?
+        var emailfb: String?
         
         
         init(_ json: [String: String]) {
             self.log = json[logKey]
             self.id = json[idKey]
+            self.namefb = json[namefbKey]
+            self.last_namefb = json[last_namefbKey]
+            self.usernamefb = json[usernamefbKey]
+            self.emailfb = json[emailfbKey]
         }
+    }
+    static var savefb = { (namefb: String, last_namefb: String,usernamefb: String, emailfb: String) in
+        UserDefaults.standard.set([namefbKey: namefb, last_namefbKey: last_namefb, usernamefbKey: usernamefb, emailfbKey: emailfb], forKey: userSessionKey)
     }
     static var saveLog = { (log: String) in
         UserDefaults.standard.set([logKey: log], forKey: userSessionKey)

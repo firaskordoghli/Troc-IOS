@@ -20,8 +20,10 @@ class InscriptionViewController: UIViewController {
     @IBOutlet weak var telephone: UITextField!
     // utils
     let URL_SIGNUP = "http://localhost:3000/signup"
-    
-    
+    var first_nam:String?
+    var last_nam:String?
+    var emaill:String?
+    var usernam:String?
     
     @IBAction func retour(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -71,11 +73,14 @@ class InscriptionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        nom.text = first_nam!
+        prenom.text = last_nam!
+        email.text =  emaill!
+        indentifiant.text = usernam!
+        print(first_nam!)
         // Do any additional setup after loading the view.
     }
-    
-
+   
     /*
     // MARK: - Navigation
 
