@@ -35,6 +35,8 @@ class ProfileViewController: UIViewController {
             let profil  = self.profils[0] as! Dictionary<String,Any>
             self.username.text = (profil["username"] as! String)
             self.email.text = (profil["email"] as! String)
+            self.nom.text = (profil["last_name"] as! String)
+            self.prenom.text = (profil["first_name"] as! String)
             
             
         }

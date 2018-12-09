@@ -24,6 +24,7 @@
 		FC69EC7E21B1F51F00EF6492 /* AjoutServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC69EC7D21B1F51F00EF6492 /* AjoutServiceViewController.swift */; };
 		FC6FE67421B47540004D24CF /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6FE67321B47540004D24CF /* DetailsViewController.swift */; };
 		FC6FE67621B4B94D004D24CF /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6FE67521B4B94C004D24CF /* BookmarksViewController.swift */; };
+		FCE89F3421BC991300C1120D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCE89F3321BC991300C1120D /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,8 @@
 		FC69EC7D21B1F51F00EF6492 /* AjoutServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AjoutServiceViewController.swift; sourceTree = "<group>"; };
 		FC6FE67321B47540004D24CF /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		FC6FE67521B4B94C004D24CF /* BookmarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
+		FCE89F3321BC991300C1120D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		FCE89F3521BC9D9600C1120D /* Troc.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Troc.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCE89F3421BC991300C1120D /* MapKit.framework in Frameworks */,
 				8612280BAAFBC093C8804FEA /* Pods_Troc.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -102,6 +106,7 @@
 		8FE32385DA7DC896DDE57B85 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FCE89F3321BC991300C1120D /* MapKit.framework */,
 				BA4466EE7D6B0B6F149C75C0 /* Pods_Troc.framework */,
 				F8A8ECFDA8A19FF826FA16EC /* Pods_TrocTests.framework */,
 				C16992C939D78F921F013265 /* Pods_TrocUITests.framework */,
@@ -143,6 +148,7 @@
 		BF913EA221AAD2D0001A76BA /* Troc */ = {
 			isa = PBXGroup;
 			children = (
+				FCE89F3521BC9D9600C1120D /* Troc.entitlements */,
 				BF913EA321AAD2D0001A76BA /* AppDelegate.swift */,
 				BF913EA521AAD2D0001A76BA /* LoginViewController.swift */,
 				BF806B8B21ABFE2A005F4F17 /* Extentions.swift */,
@@ -250,6 +256,14 @@
 				TargetAttributes = {
 					BF913E9F21AAD2D0001A76BA = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 0;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					BF913EB621AAD2D2001A76BA = {
 						CreatedOnToolsVersion = 10.1;
@@ -549,6 +563,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Troc/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -567,6 +582,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Troc/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

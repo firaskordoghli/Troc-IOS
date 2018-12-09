@@ -29,7 +29,7 @@ class InscriptionViewController: UIViewController {
     
     @IBAction func Inscription(_ sender: Any) {
         
-        let parameters: Parameters = ["username": indentifiant.text!,"email": email.text!,"password": mdp.text!]
+        let parameters: Parameters = ["first_name": prenom.text!,"last_name": nom.text!,"username": indentifiant.text!,"email": email.text!,"password": mdp.text!,"phone": telephone.text!]
 
         Alamofire.request( URL_SIGNUP, method: .post, parameters: parameters).responseJSON { response in
             print("Request: \(String(describing: response.request))")   // original url request
@@ -43,6 +43,23 @@ class InscriptionViewController: UIViewController {
             if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
                 print("Data: \(utf8Text)") // original server data as UTF8 string
             }
+            switch(response.result) {
+            case .success(_):
+                let alert = UIAlertController(title: "Succès", message: "Votre compte à été crée avec succès", preferredStyle: .alert)
+                let action = UIAlertAction(title: "ok", style: .cancel, handler: {(UIAlertAction) in let next = self.storyboard?.instantiateViewController(withIdentifier: "LoginView")
+                    self.present(next!, animated: true, completion: nil)})
+                alert.addAction(action)
+                self.present(alert,animated: true,completion: nil)
+                
+                
+                
+                
+            case .failure(_):
+                
+                print("echec")
+                
+            }
+            
         }
         print(nom.text!)
         print(prenom.text!)
