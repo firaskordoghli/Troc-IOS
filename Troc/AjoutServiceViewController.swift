@@ -18,12 +18,29 @@ class AjoutServiceViewController: UIViewController, UIPickerViewDelegate, UIPick
     @IBOutlet weak var type: UISegmentedControl!
     //utils
     let URL_SIGNUP = "http://localhost:3000/addService"
+    let URL_CAT = "http://localhost:3000/getcategories"
+    var categoriesGet : NSArray = []
     var categorieData : [String] = [String]()
     var categories : String?
     var types : String?
     
 
-    
+    func FetchData() {
+        Alamofire.request(URL_CAT).responseJSON{
+            response in
+             print(response)
+            
+            self.categoriesGet = response.result.value as! NSArray
+            print(self.categoriesGet)
+            
+            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+                print("Data: \(utf8Text)") // original server data as UTF8 string
+                
+                
+            }
+        }
+        
+    }
     
     
     
@@ -106,6 +123,7 @@ class AjoutServiceViewController: UIViewController, UIPickerViewDelegate, UIPick
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        FetchData()
         categorieData = ["Alimentation", "Animaux", "Arts et spectacle", "Collectionneurs", "Coup de main", "Bricolage", "Beauté/Bien être", "Enfance", "Informatique/Multimédia", "Jardin et plantes", "Maison", "Vacances/Weekend", "Livre/CD/DVD", "Vêtements et accessoires",  "Sports et loisirs", "Transports/Véhicules",  "Autre"]
         self.navigationController?.setNavigationBarHidden(true, animated: true)
 

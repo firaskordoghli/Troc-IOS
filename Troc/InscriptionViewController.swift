@@ -73,11 +73,7 @@ class InscriptionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        nom.text = first_nam!
-        prenom.text = last_nam!
-        email.text =  emaill!
-        indentifiant.text = usernam!
-        print(first_nam!)
+        
         // Do any additional setup after loading the view.
     }
    

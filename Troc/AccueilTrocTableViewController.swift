@@ -9,39 +9,60 @@
 import UIKit
 import Alamofire
 
-class AccueilTrocTableViewController: UITableViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+
+
+
+class AccueilTrocTableViewController: UITableViewController,UICollectionViewDelegate,UICollectionViewDataSource {
+    
+   var similaresshow : NSArray = []
+   var similaresserv : NSArray = []
+   var categories : NSArray = []
+   var serviceId: Int?
+   var serviceCategorie: String?
+   
+    
+    
+    @IBOutlet weak var collecInf: UICollectionView!
+    @IBOutlet weak var collecCatg: UICollectionView!
+    @IBOutlet weak var collecServ: UICollectionView!
     
     
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return similaresshow.count
+    var categorieInf = "Informatique/Multimédia"
+    var typeserv = "Service"
+    
+    func Fetchcategories() {
+        let url = "http://localhost:3000/getcategories"
+        Alamofire.request(url).responseJSON{
+            response in
+            print(response)
+            self.categories = response.result.value as! NSArray
+            self.collecCatg.reloadData()
+            
+        }
+        
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Informatiques", for: indexPath)
+    func FetchDataServ() {
+        let url = "http://localhost:3000/getServType/"
+        let parameters: Parameters = ["type":"'"+typeserv+"'"]
+        Alamofire.request( url, method: .post, parameters: parameters).responseJSON { response in
+            print("Request: \(String(describing: response.request))")   // original url request
+            print("Response: \(String(describing: response.response))") // http url response
+            print("Result: \(response.result)")
+            // print(response)
+            //print(response.result.value)
+            
+            self.similaresserv = response.result.value as! NSArray
+            self.collecServ.reloadData()
+            
+        }
         
-        let contentView = cell.viewWithTag(0)
-        
-        
-        
-        let serviceTitre = contentView?.viewWithTag(2) as! UILabel
-        let similareshow  = similaresshow[indexPath.item] as! Dictionary<String,Any>
-        
-        serviceTitre.text = (similareshow["titre"] as! String)
-       
-        
-        return cell
     }
-    
-    
-    
-    
-    var similaresshow : NSArray = []
-    
     
     func FetchDataSim() {
         let url = "http://localhost:3000/getSim/"
-        let parameters: Parameters = ["categorie":"Informatique/Multimédia"]
+        let parameters: Parameters = ["categorie":"'"+categorieInf+"'"]
         Alamofire.request( url, method: .post, parameters: parameters).responseJSON { response in
             print("Request: \(String(describing: response.request))")   // original url request
             print("Response: \(String(describing: response.response))") // http url response
@@ -50,88 +71,117 @@ class AccueilTrocTableViewController: UITableViewController, UICollectionViewDel
             //print(response.result.value)
             
             self.similaresshow = response.result.value as! NSArray
+            self.collecInf.reloadData()
             
         }
+         
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView == collecInf{
+        return similaresshow.count
+        }else if collectionView == collecServ {
+            return similaresserv.count
+        }else{
+            return categories.count
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+        
+        
+        if collectionView == collecInf {
+            let cellA = collectionView.dequeueReusableCell(withReuseIdentifier: "Informatiques", for: indexPath)
+            
+            let contentView = cellA.viewWithTag(0)
+            let serviceTitre = contentView?.viewWithTag(2) as! UILabel
+            let similareshow  = similaresshow[indexPath.item] as! Dictionary<String,Any>
+            
+            serviceTitre.text = (similareshow["titre"] as! String)
+        
+            return cellA
+        }
+        else if collectionView == collecServ{
+            let cellB = collectionView.dequeueReusableCell(withReuseIdentifier: "Services", for: indexPath)
+            
+            let contentView = cellB.viewWithTag(0)
+            let serviceTitre2 = contentView?.viewWithTag(4) as! UILabel
+            let similareserv  = similaresserv[indexPath.item] as! Dictionary<String,Any>
+            
+            serviceTitre2.text = (similareserv["titre"] as! String)
+            
+            return cellB
+        }
+        else {
+            let cellC = collectionView.dequeueReusableCell(withReuseIdentifier: "Categories", for: indexPath)
+            cellC.layer.borderColor = UIColor.black.cgColor
+            cellC.layer.borderWidth = 0.5
+            let contentView = cellC.viewWithTag(0)
+            let serviceTitre2 = contentView?.viewWithTag(5) as! UILabel
+            let categorie  = categories[indexPath.item] as! Dictionary<String,Any>
+            
+            serviceTitre2.text = (categorie["categorie"] as! String)
+            
+            return cellC
+        }
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == collecInf{
+         performSegue(withIdentifier: "accueilDetails", sender: indexPath)
+        }else{
+            performSegue(withIdentifier: "serviceDetails", sender: indexPath)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let index = sender as? NSIndexPath
+        
+        let serviceshow  = similaresshow[ index!.item] as! Dictionary<String,Any>
+        let similareserv  = similaresserv[ index!.item] as! Dictionary<String,Any>
+        
+        
+        
+        if segue.identifier == "accueilDetails"{
+            serviceId = (serviceshow["id"] as! Int)
+            serviceCategorie = (serviceshow["categorie"] as! String)
+            if let destinationViewController =  segue.destination as? DetailsViewController{
+                
+                
+                // destinationViewController.movieNam = moviesNames[index!.item]
+                
+                // destinationViewController.movieImg = moviesImg[index!.item]
+                
+                destinationViewController.previousService = serviceId
+                destinationViewController.previousCategorie = serviceCategorie
+                
+                
+            }
+        }else if segue.identifier == "serviceDetails"{
+            serviceId = (similareserv["id"] as! Int)
+            serviceCategorie = (similareserv["categorie"] as! String)
+            if let destinationViewController =  segue.destination as? DetailsViewController{
+                
+                destinationViewController.previousService = serviceId
+                destinationViewController.previousCategorie = serviceCategorie
+                
+            }
+        }
     }
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        FetchDataServ()
         FetchDataSim()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        Fetchcategories()
+        
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 4
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 4
-    }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
+  
 
 }

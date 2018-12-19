@@ -39,6 +39,7 @@ class LoginViewController: UIViewController {
         password.resignFirstResponder()
     }
     @IBAction func login(_ sender: Any) {
+        
         let parameters: Parameters = ["email": email.text!,"password": password.text!]
         
         Alamofire.request( URL_SIGNUP, method: .post, parameters: parameters).responseJSON { response in
@@ -46,9 +47,18 @@ class LoginViewController: UIViewController {
             print("Response: \(String(describing: response.response))") // http url response
             print("Result: \(response.result)")                         // response serialization result
             
+            if response.result.value == nil {
+                let alert = UIAlertController(title: "Echec", message: "Echec", preferredStyle: .alert)
+                let action = UIAlertAction(title: "ok", style: .cancel, handler: nil)
+                alert.addAction(action)
+                self.present(alert,animated: true,completion: nil)
+            }else{
             self.logind = response.result.value as! NSArray
+                
             let loginsh = self.logind[0] as! Dictionary<String,Any>
             let idInf = (loginsh["Id"]! as! Int)
+            
+            
             
             
             if let json = response.result.value {
@@ -66,22 +76,19 @@ class LoginViewController: UIViewController {
             
             switch(response.result) {
             case .success(_):
+                Defaults.saveLogAndId("true",String(idInf))
                 let next = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
                 self.present(next, animated: true, completion: nil)
-                
-                
-                
-                Defaults.saveLogAndId("true",String(idInf))
-                
-                
-                
+               
             case .failure(_):
-                
-                print("echec")
+                let alert = UIAlertController(title: "Echec", message: "L'email ou le mot de passe est incorrect", preferredStyle: .alert)
+                let action = UIAlertAction(title: "ok", style: .cancel, handler: nil)
+                alert.addAction(action)
+                self.present(alert,animated: true,completion: nil)
                 
             }
             
-            
+            }
         }
         
     }
@@ -113,6 +120,12 @@ class LoginViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        let logged = Defaults.getLogAndId.log
+        if logged != nil {
+            self.dismiss(animated: true, completion: nil)
+            let next = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+            self.present(next, animated: true, completion: nil)
+        }
         
     }
    
@@ -123,49 +136,20 @@ class LoginViewController: UIViewController {
         super.viewWillAppear(true)
         // Show the Navigation Bar
         getFBUserData()
-        /*self.navigationController?.setNavigationBarHidden(true, animated: true)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
         fbButton.readPermissions = ["public_profile", "email"]
         if (FBSDKAccessToken.current() != nil) {
             
-            
-            let parameters: Parameters = ["email": self.emailfb]
-            
-            Alamofire.request( URL_TEST, method: .post, parameters: parameters).responseJSON { response in
-                print("Request: \(String(describing: response.request))")   // original url request
-                print("Response: \(String(describing: response.response))") // http url response
-                print("Result: \(response.result)")                         // response serialization result
-                
-                
-                switch(response.result) {
-                case .success(_):
-                    
+           
                     let next = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
                     self.present(next, animated: true, completion: nil)
                     
                     
-                    
-                    Defaults.saveLog("true")
-                    
-                    
-                    
-                case .failure(_):
-                    self.getFBUserData()
-                    self.performSegue(withIdentifier: "toInscription", sender: self)
-                    
-                }
-                
-                
-            }
+               
             
-        }*/
-        
-        let logged = Defaults.getLogAndId.log
-        if logged != nil {
-            self.dismiss(animated: true, completion: nil)
-            let next = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
-            self.present(next, animated: true, completion: nil)
         }
-       
+        
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -173,7 +157,7 @@ class LoginViewController: UIViewController {
         // Hide the Navigation Bar
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         
         
@@ -194,7 +178,7 @@ class LoginViewController: UIViewController {
                 
             }
         }
-    }
+    }*/
 
 }
 

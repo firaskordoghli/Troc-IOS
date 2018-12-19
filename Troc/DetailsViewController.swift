@@ -137,6 +137,7 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
             self.serviceDesc.text = (serviceshow["description"] as! String)
             
             
+            
         }
         
     }
@@ -153,6 +154,24 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
                 print("Request: \(String(describing: response.request))")   // original url request
                 print("Response: \(String(describing: response.response))") // http url response
                 print("Result: \(response.result)")
+                
+                switch(response.result) {
+                case .success(_):
+                    let alert = UIAlertController(title: "Succés", message: "Votre avis à été ajouter avec succés", preferredStyle: .alert)
+                    let action = UIAlertAction(title: "ok", style: .cancel, handler: nil)
+                    alert.addAction(action)
+                    self.present(alert,animated: true,completion: nil)
+                    
+                    
+                    
+                case .failure(_):
+                    let alert = UIAlertController(title: "Echec", message: "Votre n'a pas pu être ajouter", preferredStyle: .alert)
+                    let action = UIAlertAction(title: "ok", style: .cancel, handler: nil)
+                    alert.addAction(action)
+                    self.present(alert,animated: true,completion: nil)
+                    
+                }
+                
                 // print(response)
                 //print(response.result.value)
                

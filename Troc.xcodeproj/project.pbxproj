@@ -258,7 +258,7 @@
 						CreatedOnToolsVersion = 10.1;
 						SystemCapabilities = {
 							com.apple.Keychain = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.Maps.iOS = {
 								enabled = 1;
@@ -564,7 +564,6 @@
 			baseConfigurationReference = 532B3BBE3D1792AE455E8916 /* Pods-Troc.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Troc/Troc.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 56D5PMZ47U;
 				INFOPLIST_FILE = Troc/Info.plist;
@@ -585,7 +584,6 @@
 			baseConfigurationReference = 4DCCB025224E93B16AC023FD /* Pods-Troc.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Troc/Troc.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 56D5PMZ47U;
 				INFOPLIST_FILE = Troc/Info.plist;
