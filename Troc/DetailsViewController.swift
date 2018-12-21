@@ -25,6 +25,7 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
     var previousCategorie:String?
     var servicesshow : NSArray = []
     var similaresshow : NSArray = []
+    let UserDefault = UserDefaults.standard
     
     @IBAction func retour(_ sender: Any) {
          dismiss(animated: true, completion: nil)
@@ -149,7 +150,7 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
         FetchDataSim()
         rating.didTouchCosmos = { rating in
             let url = "http://localhost:3000/ajoutAvis"
-            let parameters: Parameters = ["id_user": Defaults.getLogAndId.id!, "id_service": self.previousService!,"note": rating]
+            let parameters: Parameters = ["id_user": self.UserDefault.string(forKey: "id")!, "id_service": self.previousService!,"note": rating]
             Alamofire.request( url, method: .post, parameters: parameters).responseJSON { response in
                 print("Request: \(String(describing: response.request))")   // original url request
                 print("Response: \(String(describing: response.response))") // http url response

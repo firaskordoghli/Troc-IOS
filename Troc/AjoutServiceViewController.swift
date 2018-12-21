@@ -23,6 +23,7 @@ class AjoutServiceViewController: UIViewController, UIPickerViewDelegate, UIPick
     var categorieData : [String] = [String]()
     var categories : String?
     var types : String?
+    let UserDefault = UserDefaults.standard
     
 
     func FetchData() {
@@ -86,7 +87,7 @@ class AjoutServiceViewController: UIViewController, UIPickerViewDelegate, UIPick
     @IBAction func addService(_ sender: Any) {
         
         
-        let parameters: Parameters = ["titre": titre.text!,"description": desc.text!,"categorie": categories!,"type":types!,"id":Defaults.getLogAndId.id! ]
+        let parameters: Parameters = ["titre": titre.text!,"description": desc.text!,"categorie": categories!,"type":types!,"id":self.UserDefault.string(forKey: "id")! ]
         
         Alamofire.request( URL_SIGNUP, method: .post, parameters: parameters).responseJSON { response in
             print("Request: \(String(describing: response.request))")   // original url request

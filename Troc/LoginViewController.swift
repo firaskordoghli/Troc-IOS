@@ -23,14 +23,14 @@ class LoginViewController: UIViewController {
     var dict : [String : AnyObject]!
     let URL_SIGNUP = "http://localhost:3000/login"
     let URL_TEST = "http://localhost:3000/testemail"
-    let defaults = UserDefaults.standard
     var Infos : String?
     var emailfb : String = ""
     var first_namefb : String = ""
     var last_namefb : String = ""
     var usernamefb : String = ""
-    
+    let UserDefault = UserDefaults.standard
     var logind : NSArray = []
+    var status : String?
     
     
     
@@ -48,40 +48,53 @@ class LoginViewController: UIViewController {
             print("Result: \(response.result)")                         // response serialization result
             
             if response.result.value == nil {
-                let alert = UIAlertController(title: "Echec", message: "Echec", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Echec", message: "Echec d'envoie des données", preferredStyle: .alert)
                 let action = UIAlertAction(title: "ok", style: .cancel, handler: nil)
                 alert.addAction(action)
                 self.present(alert,animated: true,completion: nil)
             }else{
-            self.logind = response.result.value as! NSArray
+            
+            
                 
-            let loginsh = self.logind[0] as! Dictionary<String,Any>
-            let idInf = (loginsh["Id"]! as! Int)
-            
-            
             
             
             if let json = response.result.value {
                 print("JSON: \(json)") // serialized json response
-                
+               
             }
             
             
             if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
                 print("Data: \(utf8Text)") // original server data as UTF8 string
-                
-                
+                //self.status = (utf8Text["msg"] as! String)
             }
-            
+               
+                
             
             switch(response.result) {
             case .success(_):
-                Defaults.saveLogAndId("true",String(idInf))
-                let next = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
-                self.present(next, animated: true, completion: nil)
+              /* if self.status == "bad credentials"{
+                    let alert = UIAlertController(title: "Erreur", message: "Email ou le mot de passe est incorrect", preferredStyle: .alert)
+                    let action = UIAlertAction(title: "ok", style: .cancel, handler: nil)
+                    alert.addAction(action)
+                    self.present(alert,animated: true,completion: nil)
+                }else{*/
+                    self.logind = response.result.value as! NSArray
+                
+                    let loginsh = self.logind[0] as! Dictionary<String,Any>
+                    let idInf = (loginsh["Id"]! as! Int)
+                    //Defaults.saveLogAndId("true",String(idInf))
+                    self.UserDefault.set(String(idInf), forKey: "id")
+                    self.UserDefault.set("true", forKey: "login")
+                    self.UserDefault.synchronize()
+                    if  self.UserDefault.string(forKey: "id") != nil{
+                            let next = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+                            self.present(next, animated: true, completion: nil)
+                    }
+                //}
                
             case .failure(_):
-                let alert = UIAlertController(title: "Echec", message: "L'email ou le mot de passe est incorrect", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Echec", message: "Echec d'envoie des données", preferredStyle: .alert)
                 let action = UIAlertAction(title: "ok", style: .cancel, handler: nil)
                 alert.addAction(action)
                 self.present(alert,animated: true,completion: nil)
@@ -120,8 +133,9 @@ class LoginViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        let logged = Defaults.getLogAndId.log
-        if logged != nil {
+        //let logged = Defaults.getLogAndId.log
+        //if logged != nil
+            if self.UserDefault.string(forKey: "login") != nil {
             self.dismiss(animated: true, completion: nil)
             let next = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
             self.present(next, animated: true, completion: nil)

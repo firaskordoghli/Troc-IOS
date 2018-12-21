@@ -52,10 +52,16 @@ class AccueilTrocTableViewController: UITableViewController,UICollectionViewDele
             print("Result: \(response.result)")
             // print(response)
             //print(response.result.value)
-            
+            if response.result.value == nil {
+                let alert = UIAlertController(title: "Echec", message: "La connexion au serveur à échoué", preferredStyle: .alert)
+                let action = UIAlertAction(title: "ok", style: .cancel, handler: nil)
+                alert.addAction(action)
+                self.present(alert,animated: true,completion: nil)
+                
+            }else{
             self.similaresserv = response.result.value as! NSArray
             self.collecServ.reloadData()
-            
+            }
         }
         
     }

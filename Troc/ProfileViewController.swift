@@ -19,11 +19,13 @@ class ProfileViewController: UIViewController {
     //Web service
     let url = "http://localhost:3000/UserById"
     var profils : NSArray = []
+    let UserDefault = UserDefaults.standard
     
     
     func FetchData() {
         let url = "http://localhost:3000/getUserById/"
-        let parameters: Parameters = ["id":String("'"+Defaults.getLogAndId.id!+"'")]
+        //let parameters: Parameters = ["id":String("'"+Defaults.getLogAndId.id!+"'")]
+        let parameters: Parameters = ["id":String("'"+UserDefault.string(forKey: "id")!+"'")]
         Alamofire.request( url, method: .post, parameters: parameters).responseJSON { response in
             print("Request: \(String(describing: response.request))")   // original url request
             print("Response: \(String(describing: response.response))") // http url response
@@ -49,10 +51,14 @@ class ProfileViewController: UIViewController {
     
     //Deconnexion
     @IBAction func deconnexion(_ sender: Any) {
+        UserDefault.removeObject(forKey: "id")
+        UserDefault.removeObject(forKey: "login")
+        if UserDefault.string(forKey: "login") == nil {
         let next = self.storyboard!.instantiateViewController(withIdentifier: "LoginView")
         self.present(next, animated: true, completion: nil)
+        }
+        //Defaults.clearUserData()
         
-        Defaults.clearUserData()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
