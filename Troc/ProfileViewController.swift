@@ -17,13 +17,13 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var nom: UILabel!
     @IBOutlet weak var prenom: UILabel!
     //Web service
-    let url = "http://localhost:3000/UserById"
+    let url = "http://192.168.1.8:3000/getUserById/"
     var profils : NSArray = []
     let UserDefault = UserDefaults.standard
     
     
     func FetchData() {
-        let url = "http://localhost:3000/getUserById/"
+        
         //let parameters: Parameters = ["id":String("'"+Defaults.getLogAndId.id!+"'")]
         let parameters: Parameters = ["id":String("'"+UserDefault.string(forKey: "id")!+"'")]
         Alamofire.request( url, method: .post, parameters: parameters).responseJSON { response in

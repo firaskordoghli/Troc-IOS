@@ -19,11 +19,14 @@ class InscriptionViewController: UIViewController {
     @IBOutlet weak var mdp: UITextField!
     @IBOutlet weak var telephone: UITextField!
     // utils
-    let URL_SIGNUP = "http://localhost:3000/signup"
+    let URL_SIGNUP = "http://192.168.1.8:3000/signup"
+    let URL_LOGIN = "http://192.168.1.8:3000/login"
     var first_nam:String?
     var last_nam:String?
     var emaill:String?
     var usernam:String?
+    let UserDefault = UserDefaults.standard
+    var logind : NSArray = []
     
     @IBAction func retour(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -48,15 +51,40 @@ class InscriptionViewController: UIViewController {
             switch(response.result) {
             case .success(_):
                 let alert = UIAlertController(title: "Succès", message: "Votre compte à été crée avec succès", preferredStyle: .alert)
-                let action = UIAlertAction(title: "ok", style: .cancel, handler: {(UIAlertAction) in let next = self.storyboard?.instantiateViewController(withIdentifier: "LoginView")
-                    self.present(next!, animated: true, completion: nil)})
+                let action = UIAlertAction(title: "ok", style: .cancel, handler: {(UIAlertAction) in
+                    let parameters: Parameters = ["email": self.email.text!,"password": self.mdp.text!]
+                    
+                    Alamofire.request( self.URL_LOGIN, method: .post, parameters: parameters).responseJSON { response in
+                        print("Request: \(String(describing: response.request))")   // original url request
+                        print("Response: \(String(describing: response.response))") // http url response
+                        print("Result: \(response.result)")                         // response serialization result
+                        if let json = response.result.value {
+                                print("JSON: \(json)") // serialized json response
+                                
+                            }
+                            
+                            
+                            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+                                print("Data: \(utf8Text)") // original server data as UTF8 string
+                                //self.status = (utf8Text["msg"] as! String)
+                            }
+                        self.logind = response.result.value as! NSArray
+                        
+                        let loginsh = self.logind[0] as! Dictionary<String,Any>
+                        let idInf = (loginsh["Id"]! as! Int)
+                        //Defaults.saveLogAndId("true",String(idInf))
+                        self.UserDefault.set(String(idInf), forKey: "id")
+                        self.UserDefault.set("true", forKey: "login")
+                        self.UserDefault.synchronize()
+                        if  self.UserDefault.string(forKey: "id") != nil{
+                            let next = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+                            self.present(next, animated: true, completion: nil)
+                            
+                        }
+                    }})
                 alert.addAction(action)
                 self.present(alert,animated: true,completion: nil)
-                
-                
-                
-                
-            case .failure(_):
+           case .failure(_):
                 
                 print("echec")
                 
@@ -74,6 +102,10 @@ class InscriptionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        nom.text = first_nam
+        prenom.text = last_nam
+        email.text = emaill
+        indentifiant.text = usernam
         // Do any additional setup after loading the view.
     }
    

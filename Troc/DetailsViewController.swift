@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import CoreData
 import Cosmos
+
 class DetailsViewController: UIViewController, UICollectionViewDataSource,UICollectionViewDelegate {
    
     @IBOutlet weak var imageBanner: UIImageView!
@@ -35,7 +36,7 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
     
     
     func FetchDataSim() {
-        let url = "http://localhost:3000/getSim/"
+        let url = "http://192.168.1.8:3000/getSim/"
         let parameters: Parameters = ["categorie":String("'"+previousCategorie!+"'")]
         Alamofire.request( url, method: .post, parameters: parameters).responseJSON { response in
             print("Request: \(String(describing: response.request))")   // original url request
@@ -123,7 +124,7 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
     
     
     func FetchData() {
-        let url = "http://localhost:3000/getService/"
+        let url = "http://192.168.1.8:3000/getService/"
             let parameters: Parameters = ["id": String(previousService!)]
         Alamofire.request( url, method: .post, parameters: parameters).responseJSON { response in
             print("Request: \(String(describing: response.request))")   // original url request
@@ -149,7 +150,7 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
        FetchData()
         FetchDataSim()
         rating.didTouchCosmos = { rating in
-            let url = "http://localhost:3000/ajoutAvis"
+            let url = "http://192.168.1.8:3000/ajoutAvis"
             let parameters: Parameters = ["id_user": self.UserDefault.string(forKey: "id")!, "id_service": self.previousService!,"note": rating]
             Alamofire.request( url, method: .post, parameters: parameters).responseJSON { response in
                 print("Request: \(String(describing: response.request))")   // original url request

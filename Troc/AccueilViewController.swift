@@ -11,7 +11,7 @@ import Alamofire
 
 class AccueilViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let url = "http://localhost:3000/getService"
+    let url = "http://192.168.1.8:3000/getService"
  
     var listeServices : NSArray = []
     var serviceId: Int?
