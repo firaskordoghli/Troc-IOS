@@ -31,8 +31,9 @@ class AccueilTrocTableViewController: UITableViewController,UICollectionViewDele
     var categorieInf = "Informatique/Multimédia"
     var typeserv = "Service"
     
+    //Afficher les catégories
     func Fetchcategories() {
-        let url = "http://192.168.1.8:3000/getcategories"
+        let url = "http://192.168.1.7:3000/getcategories"
         Alamofire.request(url).responseJSON{
             response in
             print(response)
@@ -43,8 +44,9 @@ class AccueilTrocTableViewController: UITableViewController,UICollectionViewDele
         
     }
     
+    //Afficher les services ayant un type 'Services'
     func FetchDataServ() {
-        let url = "http://192.168.1.8:3000/getServType/"
+        let url = "http://192.168.1.7:3000/getServType/"
         let parameters: Parameters = ["type":"'"+typeserv+"'"]
         Alamofire.request( url, method: .post, parameters: parameters).responseJSON { response in
             print("Request: \(String(describing: response.request))")   // original url request
@@ -66,8 +68,9 @@ class AccueilTrocTableViewController: UITableViewController,UICollectionViewDele
         
     }
     
+    //Afficher les services ayant comme catégorie Informatique/multimédia
     func FetchDataSim() {
-        let url = "http://192.168.1.8:3000/getSim/"
+        let url = "http://192.168.1.7:3000/getSim/"
         let parameters: Parameters = ["categorie":"'"+categorieInf+"'"]
         Alamofire.request( url, method: .post, parameters: parameters).responseJSON { response in
             print("Request: \(String(describing: response.request))")   // original url request
