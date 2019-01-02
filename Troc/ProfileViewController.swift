@@ -17,7 +17,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var nom: UILabel!
     @IBOutlet weak var prenom: UILabel!
     //Web service
-    let url = "http://192.168.1.7:3000/getUserById/"
+    let url = "http://192.168.1.9:3000/getUserById/"
     var profils : NSArray = []
     let UserDefault = UserDefaults.standard
     

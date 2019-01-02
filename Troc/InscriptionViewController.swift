@@ -19,8 +19,8 @@ class InscriptionViewController: UIViewController {
     @IBOutlet weak var mdp: UITextField!
     @IBOutlet weak var telephone: UITextField!
     // utils
-    let URL_SIGNUP = "http://192.168.1.7:3000/signup"
-    let URL_LOGIN = "http://192.168.1.7:3000/login"
+    let URL_SIGNUP = "http://192.168.1.9:3000/signup"
+    let URL_LOGIN = "http://192.168.1.9:3000/login"
     var first_nam:String?
     var last_nam:String?
     var emaill:String?

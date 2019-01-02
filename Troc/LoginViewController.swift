@@ -21,8 +21,8 @@ class LoginViewController: UIViewController {
     //Utils
     //utils
     var dict : [String : AnyObject]!
-    let URL_SIGNUP = "http://192.168.1.7:3000/login"
-    let URL_TEST = "http://192.168.1.8:7000/testemail"
+    let URL_SIGNUP = "http://192.168.1.9:3000/login"
+    let URL_TEST = "http://192.168.1.9:3000/testemail"
     var Infos : String?
     var emailfb : String = ""
     var first_namefb : String = ""
@@ -154,7 +154,18 @@ class LoginViewController: UIViewController {
                                 let next = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
                                 self.present(next, animated: true, completion: nil)
                             }else{
-                                self.performSegue(withIdentifier: "toInscription", sender: self)
+                                let refreshAlert = UIAlertController(title: "Inscription", message: "Continuer l'inscription", preferredStyle: UIAlertController.Style.alert)
+                                
+                                refreshAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+                                    self.performSegue(withIdentifier: "toInscription", sender: self)
+                                }))
+                                
+                                refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+                                    FBSDKLoginManager().logOut()
+                                }))
+                                
+                                self.present(refreshAlert, animated: true, completion: nil)
+                               
                             }
                         case .failure(_):
                             let alert = UIAlertController(title: "Echec", message: "Echec d'envoie des données", preferredStyle: .alert)
@@ -190,6 +201,7 @@ class LoginViewController: UIViewController {
         // Show the Navigation Bar
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         fbButton.readPermissions = ["public_profile", "email"]
+        getFBUserData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
