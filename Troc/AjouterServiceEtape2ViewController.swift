@@ -20,9 +20,9 @@ class AjouterServiceEtape2ViewController: UIViewController,UIImagePickerControll
     var categories : String?
     var titre : String?
     var descriptionserv: String?
-    var categories : String?
     var type : String?
     
+    //Outlets
     @IBOutlet weak var imageServiceImgView: UIImageView!
     
     
@@ -44,7 +44,6 @@ class AjouterServiceEtape2ViewController: UIViewController,UIImagePickerControll
         let fileUrl = info[UIImagePickerController.InfoKey.imageURL] as! URL
         print(fileUrl.lastPathComponent)
         self.imageServiceImgView.image = pickedImageProduct
-        
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func addImage(_ sender: Any) {
@@ -57,39 +56,43 @@ class AjouterServiceEtape2ViewController: UIViewController,UIImagePickerControll
     override func viewDidLoad() {
         super.viewDidLoad()
         imagePicker.delegate = self
+        
 
         // Do any additional setup after loading the view.
     }
     
     @IBAction func etapeSuivante(_ sender: Any) {
-        
-       
-        guard let imageData = pickedImageProduct.jpegData(compressionQuality: 0.5) else {
-            print("Could not get JPEG representation of UIImage")
-            return
-        }
-        let headers: HTTPHeaders = [:]
-        Alamofire.upload(
-            multipartFormData: { multipartFormData in
-                multipartFormData.append(imageData, withName: "file", fileName:"image.jpg" , mimeType: "image/jpeg")
-        },
-            to: Connexion.adresse + "/UploadImage/service",
-            headers: headers,
-            encodingCompletion: { encodingResult in
-                switch encodingResult {
-                case .success(let upload, _, _):
-                    print(encodingResult)
-                    upload.responseJSON { response in
-                        debugPrint(response)
-                        // self.imageName = response.result.value as! String*/
-                    }
-                case .failure(let encodingError):
-                    print(encodingError)
-                }
-                
-        })
-        
+        if (pickedImageProduct == nil){
+            let alert = UIAlertController(title: "Echec", message: "Il faut ajouter une image", preferredStyle: .alert)
+            let action = UIAlertAction(title: "ok", style: .cancel, handler: nil)
+            alert.addAction(action)
+            self.present(alert,animated: true,completion: nil)
+        }else{
+        self.performSegue(withIdentifier: "etape3", sender: self)
     }
+    }
+    
+
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        
+        
+        if segue.identifier == "etape3"{
+            
+            if let destinationViewController =  segue.destination as? AjouterServiceEtape3ViewController{
+                
+                destinationViewController.categories = self.categories!
+                destinationViewController.descriptionserv = self.descriptionserv!
+                destinationViewController.titre = self.titre!
+                destinationViewController.type = self.type!
+                destinationViewController.image = self.pickedImageProduct
+                
+                
+            }
+        }
+    }
+    
     
     /*
     // MARK: - Navigation

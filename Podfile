@@ -9,4 +9,5 @@ target 'Troc' do
     pod 'SwiftyJSON', '~> 4.0'
     pod 'IQKeyboardManagerSwift'
     pod 'Cosmos', '~> 17.0'
+    pod 'Mapbox-iOS-SDK', '~> 4.5'
 end

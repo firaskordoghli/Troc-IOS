@@ -14,6 +14,7 @@ PODS:
   - FBSDKLoginKit (4.38.1):
     - FBSDKCoreKit
   - IQKeyboardManagerSwift (6.2.0)
+  - Mapbox-iOS-SDK (4.5.0)
   - SwiftyJSON (4.2.0)
 
 DEPENDENCIES:
@@ -22,6 +23,7 @@ DEPENDENCIES:
   - Cosmos (~> 17.0)
   - FBSDKLoginKit
   - IQKeyboardManagerSwift
+  - Mapbox-iOS-SDK (~> 4.5)
   - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
@@ -33,6 +35,7 @@ SPEC REPOS:
     - FBSDKCoreKit
     - FBSDKLoginKit
     - IQKeyboardManagerSwift
+    - Mapbox-iOS-SDK
     - SwiftyJSON
 
 SPEC CHECKSUMS:
@@ -43,8 +46,9 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: 8d47857400e2f5bdea697a80daff882e91c84ef6
   FBSDKLoginKit: 4621c690d9dd8628031a4791497062183ea34b0d
   IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
+  Mapbox-iOS-SDK: fb9dde66106a8f10d351f9697ac198049c8e5511
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: 9fdf3544ca7f4cb13755b03bc20b0b8f0c93de29
+PODFILE CHECKSUM: 8a255686af3198405e4911aed0bd89f6efbae753
 
 COCOAPODS: 1.5.3

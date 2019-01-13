@@ -13,10 +13,10 @@ import Cosmos
 
 class DetailsViewController: UIViewController, UICollectionViewDataSource,UICollectionViewDelegate {
    
+    //Outlets
     @IBOutlet weak var imageBanner: UIImageView!
     @IBOutlet weak var serviceName: UILabel!
     @IBOutlet weak var serviceDesc: UITextView!
-    
     @IBOutlet weak var avis: UILabel!
     @IBOutlet weak var rating: CosmosView!
     @IBOutlet weak var collectionView: UICollectionView!

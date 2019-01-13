@@ -48,26 +48,31 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-    <key>CFBundleURLTypes</key>
-    <array>
-        <dict>
-            <key>CFBundleURLSchemes</key>
-            <array>
-                <string>fb195113411425628</string>
-            </array>
-        </dict>
-    </array>
-    <key>FacebookAppID</key>
-    <string>195113411425628</string>
-    <key>FacebookDisplayName</key>
-    <string>Troc</string>
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-        <string>fbapi</string>
-        <string>fb-messenger-share-api</string>
-        <string>fbauth2</string>
-        <string>fbshareextension</string>
-    </array>
-    
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb195113411425628</string>
+			</array>
+		</dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>195113411425628</string>
+	<key>FacebookDisplayName</key>
+	<string>Troc</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-share-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+	</array>
+	<key>MGLMapboxAccessToken</key>
+	<string>pk.eyJ1IjoiYmVsaGFzc2VuIiwiYSI6ImNqcXV3c2NjdzBvenk0NG1oM2F5MHJ5Y2YifQ.Y9u4nawfk1pnQz7O3SuwzA</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Shows your location on the map and helps improve OpenStreetMap.</string>
+	<key>userLocationVisible</key>
+	<true/>
 </dict>
 </plist>

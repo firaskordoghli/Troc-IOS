@@ -86,7 +86,7 @@ class AjoutServiceViewController: UIViewController, UIPickerViewDelegate, UIPick
     //Action pour ajouter le service
     @IBAction func addService(_ sender: Any) {
         
-        
+       /*
         let parameters: Parameters = ["titre": titre.text!,"description": desc.text!,"categorie": categories!,"type":types!,"id":self.UserDefault.string(forKey: "id")! ]
         
         Alamofire.request( URL_SIGNUP, method: .post, parameters: parameters).responseJSON { response in
@@ -113,7 +113,33 @@ class AjoutServiceViewController: UIViewController, UIPickerViewDelegate, UIPick
                     self.present(alert,animated: true,completion: nil)
             }
         }
+ */
+        if(titre.text! != "" || desc.text! != "") {
+        self.performSegue(withIdentifier: "etape2", sender: self)
+        }else{
+            let alert = UIAlertController(title: "Echec", message: "Veuillez remplir tous les champs", preferredStyle: .alert)
+            let action = UIAlertAction(title: "ok", style: .cancel, handler: nil)
+            alert.addAction(action)
+            self.present(alert,animated: true,completion: nil)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+        
+        
+        if segue.identifier == "etape2"{
+            
+            if let destinationViewController =  segue.destination as? AjouterServiceEtape2ViewController{
+                
+                destinationViewController.categories = self.categories!
+                destinationViewController.descriptionserv = self.desc.text!
+                destinationViewController.titre = self.titre.text!
+                destinationViewController.type = self.types!
+                
+                
+            }
+        }
     }
     
     

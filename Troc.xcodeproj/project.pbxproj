@@ -25,6 +25,9 @@
 		FC6FE67421B47540004D24CF /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6FE67321B47540004D24CF /* DetailsViewController.swift */; };
 		FC6FE67621B4B94D004D24CF /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6FE67521B4B94C004D24CF /* BookmarksViewController.swift */; };
 		FC9380D221EB526800797A8E /* AjouterServiceEtape2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9380D121EB526800797A8E /* AjouterServiceEtape2ViewController.swift */; };
+		FC9380D421EB785900797A8E /* AjouterServiceEtape3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9380D321EB785900797A8E /* AjouterServiceEtape3ViewController.swift */; };
+		FC9380D621EB897400797A8E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9380D521EB897400797A8E /* MapViewController.swift */; };
+		FC9380D821EB9A1B00797A8E /* AjoutServiceFinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9380D721EB9A1B00797A8E /* AjoutServiceFinViewController.swift */; };
 		FCE5B8FC21EB45530010AE1A /* Connexion.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE5B8FB21EB45530010AE1A /* Connexion.swift */; };
 		FCE89F3421BC991300C1120D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCE89F3321BC991300C1120D /* MapKit.framework */; };
 /* End PBXBuildFile section */
@@ -75,6 +78,9 @@
 		FC6FE67321B47540004D24CF /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		FC6FE67521B4B94C004D24CF /* BookmarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
 		FC9380D121EB526800797A8E /* AjouterServiceEtape2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AjouterServiceEtape2ViewController.swift; sourceTree = "<group>"; };
+		FC9380D321EB785900797A8E /* AjouterServiceEtape3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AjouterServiceEtape3ViewController.swift; sourceTree = "<group>"; };
+		FC9380D521EB897400797A8E /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		FC9380D721EB9A1B00797A8E /* AjoutServiceFinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AjoutServiceFinViewController.swift; sourceTree = "<group>"; };
 		FCE5B8FB21EB45530010AE1A /* Connexion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connexion.swift; sourceTree = "<group>"; };
 		FCE89F3321BC991300C1120D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		FCE89F3521BC9D9600C1120D /* Troc.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Troc.entitlements; sourceTree = "<group>"; };
@@ -158,6 +164,9 @@
 				FCE5B8FB21EB45530010AE1A /* Connexion.swift */,
 				BF806B8B21ABFE2A005F4F17 /* Extentions.swift */,
 				BF913EA721AAD2D0001A76BA /* Main.storyboard */,
+				FC9380D721EB9A1B00797A8E /* AjoutServiceFinViewController.swift */,
+				FC9380D521EB897400797A8E /* MapViewController.swift */,
+				FC9380D321EB785900797A8E /* AjouterServiceEtape3ViewController.swift */,
 				FC9380D121EB526800797A8E /* AjouterServiceEtape2ViewController.swift */,
 				FC41F5CF21BD767100C8157D /* AccueilTrocTableViewController.swift */,
 				FC116A8E21BB33500073ED8E /* ProfileViewController.swift */,
@@ -343,6 +352,8 @@
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -354,6 +365,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
+				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -389,6 +402,7 @@
 				FC9380D221EB526800797A8E /* AjouterServiceEtape2ViewController.swift in Sources */,
 				FC6FE67621B4B94D004D24CF /* BookmarksViewController.swift in Sources */,
 				BF02930821AB3CE300B2FB37 /* AccueilViewController.swift in Sources */,
+				FC9380D421EB785900797A8E /* AjouterServiceEtape3ViewController.swift in Sources */,
 				BF913EA621AAD2D0001A76BA /* LoginViewController.swift in Sources */,
 				FC41F5D021BD767100C8157D /* AccueilTrocTableViewController.swift in Sources */,
 				FC6FE67421B47540004D24CF /* DetailsViewController.swift in Sources */,
@@ -398,6 +412,8 @@
 				FC69EC7E21B1F51F00EF6492 /* AjoutServiceViewController.swift in Sources */,
 				BF913EA421AAD2D0001A76BA /* AppDelegate.swift in Sources */,
 				BF02930C21AB481C00B2FB37 /* InscriptionViewController.swift in Sources */,
+				FC9380D621EB897400797A8E /* MapViewController.swift in Sources */,
+				FC9380D821EB9A1B00797A8E /* AjoutServiceFinViewController.swift in Sources */,
 				BF806B8C21ABFE2A005F4F17 /* Extentions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
