@@ -1,5 +1,7 @@
 PODS:
   - Alamofire (4.7.3)
+  - AlamofireImage (3.4.1):
+    - Alamofire (~> 4.7)
   - Bolts (1.9.0):
     - Bolts/AppLinks (= 1.9.0)
     - Bolts/Tasks (= 1.9.0)
@@ -16,6 +18,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
+  - AlamofireImage
   - Cosmos (~> 17.0)
   - FBSDKLoginKit
   - IQKeyboardManagerSwift
@@ -24,6 +27,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - AlamofireImage
     - Bolts
     - Cosmos
     - FBSDKCoreKit
@@ -33,6 +37,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  AlamofireImage: 78d67ccbb763d87ba44b21583d2153500a195630
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   Cosmos: 309e489f21ffc91a1eeecfebef7f817cd2fcfba6
   FBSDKCoreKit: 8d47857400e2f5bdea697a80daff882e91c84ef6
@@ -40,6 +45,6 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: 20a0cd33a46d93af080ec026d9b86a4916676411
+PODFILE CHECKSUM: 9fdf3544ca7f4cb13755b03bc20b0b8f0c93de29
 
 COCOAPODS: 1.5.3

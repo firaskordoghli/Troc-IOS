@@ -17,7 +17,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var nom: UILabel!
     @IBOutlet weak var prenom: UILabel!
     //Web service
-    let url = "http://192.168.1.9:3000/getUserById/"
+    let url_profile = Connexion.adresse + "/getUserById/"
     var profils : NSArray = []
     let UserDefault = UserDefaults.standard
     
@@ -26,7 +26,7 @@ class ProfileViewController: UIViewController {
         
         //let parameters: Parameters = ["id":String("'"+Defaults.getLogAndId.id!+"'")]
         let parameters: Parameters = ["id":String("'"+UserDefault.string(forKey: "id")!+"'")]
-        Alamofire.request( url, method: .post, parameters: parameters).responseJSON { response in
+        Alamofire.request( url_profile, method: .post, parameters: parameters).responseJSON { response in
             print("Request: \(String(describing: response.request))")   // original url request
             print("Response: \(String(describing: response.response))") // http url response
             print("Result: \(response.result)")

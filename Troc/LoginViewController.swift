@@ -21,8 +21,8 @@ class LoginViewController: UIViewController {
     //Utils
     //utils
     var dict : [String : AnyObject]!
-    let URL_SIGNUP = "http://192.168.1.9:3000/login"
-    let URL_TEST = "http://192.168.1.9:3000/testemail"
+    let URL_SIGNUP = Connexion.adresse + "/login"
+    let URL_TEST = Connexion.adresse + "/testemail"
     var Infos : String?
     var emailfb : String = ""
     var first_namefb : String = ""

@@ -24,6 +24,8 @@
 		FC69EC7E21B1F51F00EF6492 /* AjoutServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC69EC7D21B1F51F00EF6492 /* AjoutServiceViewController.swift */; };
 		FC6FE67421B47540004D24CF /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6FE67321B47540004D24CF /* DetailsViewController.swift */; };
 		FC6FE67621B4B94D004D24CF /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6FE67521B4B94C004D24CF /* BookmarksViewController.swift */; };
+		FC9380D221EB526800797A8E /* AjouterServiceEtape2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9380D121EB526800797A8E /* AjouterServiceEtape2ViewController.swift */; };
+		FCE5B8FC21EB45530010AE1A /* Connexion.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE5B8FB21EB45530010AE1A /* Connexion.swift */; };
 		FCE89F3421BC991300C1120D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCE89F3321BC991300C1120D /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +74,8 @@
 		FC69EC7D21B1F51F00EF6492 /* AjoutServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AjoutServiceViewController.swift; sourceTree = "<group>"; };
 		FC6FE67321B47540004D24CF /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		FC6FE67521B4B94C004D24CF /* BookmarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
+		FC9380D121EB526800797A8E /* AjouterServiceEtape2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AjouterServiceEtape2ViewController.swift; sourceTree = "<group>"; };
+		FCE5B8FB21EB45530010AE1A /* Connexion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connexion.swift; sourceTree = "<group>"; };
 		FCE89F3321BC991300C1120D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		FCE89F3521BC9D9600C1120D /* Troc.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Troc.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -151,8 +155,10 @@
 				FCE89F3521BC9D9600C1120D /* Troc.entitlements */,
 				BF913EA321AAD2D0001A76BA /* AppDelegate.swift */,
 				BF913EA521AAD2D0001A76BA /* LoginViewController.swift */,
+				FCE5B8FB21EB45530010AE1A /* Connexion.swift */,
 				BF806B8B21ABFE2A005F4F17 /* Extentions.swift */,
 				BF913EA721AAD2D0001A76BA /* Main.storyboard */,
+				FC9380D121EB526800797A8E /* AjouterServiceEtape2ViewController.swift */,
 				FC41F5CF21BD767100C8157D /* AccueilTrocTableViewController.swift */,
 				FC116A8E21BB33500073ED8E /* ProfileViewController.swift */,
 				FC6FE67521B4B94C004D24CF /* BookmarksViewController.swift */,
@@ -331,6 +337,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Troc/Pods-Troc-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
@@ -341,6 +348,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cosmos.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
@@ -378,6 +386,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC9380D221EB526800797A8E /* AjouterServiceEtape2ViewController.swift in Sources */,
 				FC6FE67621B4B94D004D24CF /* BookmarksViewController.swift in Sources */,
 				BF02930821AB3CE300B2FB37 /* AccueilViewController.swift in Sources */,
 				BF913EA621AAD2D0001A76BA /* LoginViewController.swift in Sources */,
@@ -385,6 +394,7 @@
 				FC6FE67421B47540004D24CF /* DetailsViewController.swift in Sources */,
 				BF913EAC21AAD2D0001A76BA /* Troc.xcdatamodeld in Sources */,
 				FC116A8F21BB33500073ED8E /* ProfileViewController.swift in Sources */,
+				FCE5B8FC21EB45530010AE1A /* Connexion.swift in Sources */,
 				FC69EC7E21B1F51F00EF6492 /* AjoutServiceViewController.swift in Sources */,
 				BF913EA421AAD2D0001A76BA /* AppDelegate.swift in Sources */,
 				BF02930C21AB481C00B2FB37 /* InscriptionViewController.swift in Sources */,

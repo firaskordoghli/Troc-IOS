@@ -19,8 +19,9 @@ class AccueilTrocTableViewController: UITableViewController,UICollectionViewDele
    var categories : NSArray = []
    var serviceId: Int?
    var serviceCategorie: String?
-   
-    
+   let url_Cat = Connexion.adresse + "/getcategories"
+   let url_serv = Connexion.adresse + "/getServType/"
+   let url_Inf = Connexion.adresse + "/getSim/"
     
     @IBOutlet weak var collecInf: UICollectionView!
     @IBOutlet weak var collecCatg: UICollectionView!
@@ -33,8 +34,8 @@ class AccueilTrocTableViewController: UITableViewController,UICollectionViewDele
     
     //Afficher les catégories
     func Fetchcategories() {
-        let url = "http://192.168.1.9:3000/getcategories"
-        Alamofire.request(url).responseJSON{
+        
+        Alamofire.request(url_Cat).responseJSON{
             response in
             print(response)
             self.categories = response.result.value as! NSArray
@@ -46,9 +47,9 @@ class AccueilTrocTableViewController: UITableViewController,UICollectionViewDele
     
     //Afficher les services ayant un type 'Services'
     func FetchDataServ() {
-        let url = "http://192.168.1.9:3000/getServType/"
+        
         let parameters: Parameters = ["type":"'"+typeserv+"'"]
-        Alamofire.request( url, method: .post, parameters: parameters).responseJSON { response in
+        Alamofire.request( url_serv, method: .post, parameters: parameters).responseJSON { response in
             print("Request: \(String(describing: response.request))")   // original url request
             print("Response: \(String(describing: response.response))") // http url response
             print("Result: \(response.result)")
@@ -70,9 +71,9 @@ class AccueilTrocTableViewController: UITableViewController,UICollectionViewDele
     
     //Afficher les services ayant comme catégorie Informatique/multimédia
     func FetchDataSim() {
-        let url = "http://192.168.1.9:3000/getSim/"
+        
         let parameters: Parameters = ["categorie":"'"+categorieInf+"'"]
-        Alamofire.request( url, method: .post, parameters: parameters).responseJSON { response in
+        Alamofire.request( url_Inf, method: .post, parameters: parameters).responseJSON { response in
             print("Request: \(String(describing: response.request))")   // original url request
             print("Response: \(String(describing: response.response))") // http url response
             print("Result: \(response.result)")

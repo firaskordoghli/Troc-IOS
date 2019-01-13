@@ -17,8 +17,8 @@ class AjoutServiceViewController: UIViewController, UIPickerViewDelegate, UIPick
     @IBOutlet weak var categorie: UIPickerView!
     @IBOutlet weak var type: UISegmentedControl!
     //utils
-    let URL_SIGNUP = "http://192.168.1.9:3000/addService"
-    let URL_CAT = "http://192.168.1.9:3000/getcategories"
+    let URL_SIGNUP = Connexion.adresse + "/addService"
+    let URL_CAT =    Connexion.adresse + "/getcategories"
     var categoriesGet : NSArray = []
     var categorieData : [String] = [String]()
     var categories : String?

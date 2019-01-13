@@ -4,6 +4,7 @@ use_frameworks!
 
 target 'Troc' do
     pod 'Alamofire', '~> 4.7'
+    pod 'AlamofireImage'
     pod 'FBSDKLoginKit'
     pod 'SwiftyJSON', '~> 4.0'
     pod 'IQKeyboardManagerSwift'

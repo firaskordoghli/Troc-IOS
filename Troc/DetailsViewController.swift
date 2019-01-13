@@ -21,8 +21,11 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
     @IBOutlet weak var rating: CosmosView!
     @IBOutlet weak var collectionView: UICollectionView!
     //utils
-    let URL_TestAvis = "http://192.168.1.9:3000/testavis"
-    let URL_GetAvisById = "http://192.168.1.9:3000/getavisById"
+    let URL_TestAvis = Connexion.adresse + "/testavis"
+    let URL_GetAvisById = Connexion.adresse + "/getavisById"
+    let url_simserv = Connexion.adresse + "/getSim/"
+    let url_getserv = Connexion.adresse + "/getService/"
+    let url_addavis = Connexion.adresse + "/ajoutAvis"
     var serviceNam:String?
     var serviceText:String?
     var previousService:Int?
@@ -109,9 +112,9 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
     
     //Récupérer les services ayant une catégorie similaire
     func AffichCatSim() {
-        let url = "http://192.168.1.9:3000/getSim/"
+        
         let parameters: Parameters = ["categorie":String("'"+previousCategorie!+"'")]
-        Alamofire.request( url, method: .post, parameters: parameters).responseJSON { response in
+        Alamofire.request( url_simserv, method: .post, parameters: parameters).responseJSON { response in
             print("Request: \(String(describing: response.request))")   // original url request
             print("Response: \(String(describing: response.response))") // http url response
             print("Result: \(response.result)")
@@ -197,9 +200,9 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
     
     //Afficher le service
     func AfficheService() {
-        let url = "http://192.168.1.9:3000/getService/"
+       
             let parameters: Parameters = ["id": String(previousService!)]
-        Alamofire.request( url, method: .post, parameters: parameters).responseJSON { response in
+        Alamofire.request( url_getserv, method: .post, parameters: parameters).responseJSON { response in
             print("Request: \(String(describing: response.request))")   // original url request
             print("Response: \(String(describing: response.response))") // http url response
             print("Result: \(response.result)")
@@ -224,9 +227,9 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
         AfficheService()
         AffichCatSim()
         rating.didFinishTouchingCosmos = { rating in
-            let url = "http://192.168.1.9:3000/ajoutAvis"
+            
             let parameters: Parameters = ["id_user": self.UserDefault.string(forKey: "id")!, "id_service": self.previousService!,"note": rating]
-            Alamofire.request( url, method: .post, parameters: parameters).responseJSON { response in
+            Alamofire.request( self.url_addavis, method: .post, parameters: parameters).responseJSON { response in
                 print("Request: \(String(describing: response.request))")   // original url request
                 print("Response: \(String(describing: response.response))") // http url response
                 print("Result: \(response.result)")
