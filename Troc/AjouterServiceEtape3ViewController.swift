@@ -39,11 +39,13 @@ class AjouterServiceEtape3ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
     @IBAction func suivant(_ sender: Any) {
         self.performSegue(withIdentifier: "derniereEtape", sender: self)
     }
     
     @IBAction func retour(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         

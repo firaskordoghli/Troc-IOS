@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import AlamofireImage
 import CoreData
 import Cosmos
 
@@ -20,14 +21,12 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
     @IBOutlet weak var avis: UILabel!
     @IBOutlet weak var rating: CosmosView!
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var textcommnt: UITextField!
-    //utils
+    //Utils
     let URL_TestAvis = Connexion.adresse + "/testavis"
     let URL_GetAvisById = Connexion.adresse + "/getavisById"
     let url_simserv = Connexion.adresse + "/getCategorieByCategorie/"
     let url_getserv = Connexion.adresse + "/getServiceWithId/"
     let url_addavis = Connexion.adresse + "/ajoutAvis"
-    let url_addcomm = Connexion.adresse + "/addCommentaire"
     var serviceNam:String?
     var serviceText:String?
     var previousService:Int?
@@ -35,7 +34,6 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
     var servicesshow : NSArray = []
     var similaresshow : NSArray = []
     var avisshow : NSArray = []
-    
     let UserDefault = UserDefaults.standard
     
     //Retourner à la page précédente
@@ -45,23 +43,7 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
     
     //Aller à la page des commentaire
     @IBAction func voirCom(_ sender: Any) {
-         performSegue(withIdentifier: "afficherCommentaire", sender: indexPath)
-    }
-    
-    
-    //AJouter commentaire
-    @IBAction func ajouterCommentaire(_ sender: Any) {
-        
-        let parameters: Parameters = ["commentaires": textcommnt.text!, "name": self.UserDefault.string(forKey: "username")!,"id_annonce": self.previousService!,"id_utilisateur": self.UserDefault.string(forKey: "id")!]
-        Alamofire.request( url_addcomm, method: .post, parameters: parameters).responseJSON { response in
-            print("Request: \(String(describing: response.request))")   // original url request
-            print("Response: \(String(describing: response.response))") // http url response
-            print("Result: \(response.result)")
-            // print(response)
-            //print(response.result.value)
-            self.textcommnt.text = ""
-        }
-            
+         performSegue(withIdentifier: "afficherCommentaire", sender: self)
     }
     
     
@@ -96,11 +78,6 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
         }
         
     }
-    
-    
-    
-    
-    
     
     
     //Récupérer l'avis de l'utilisateur'
@@ -175,7 +152,6 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
     
     
     
-    
     //fonction ajouter le service aux favoris
     @IBAction func insertCoreData(_ sender: Any) {
         serviceNam = serviceName.text
@@ -238,8 +214,7 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
             let serviceshow = self.servicesshow[0] as! Dictionary<String,Any>
             self.serviceName.text = (serviceshow["titre"] as! String)
             self.serviceDesc.text = (serviceshow["description"] as! String)
-            
-            
+            self.imageBanner.af_setImage(withURL:URL(string: Connexion.adresse + "/Ressources/Services/" + (serviceshow["image"] as! String))!)
             
         }
         
@@ -286,7 +261,7 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
                     
                     
                 case .failure(_):
-                    let alert = UIAlertController(title: "Echec", message: "Votre n'a pas pu être ajouter", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "Echec", message: "Votre avis n'a pas pu être ajouter", preferredStyle: .alert)
                     let action = UIAlertAction(title: "ok", style: .cancel, handler: nil)
                     alert.addAction(action)
                     self.present(alert,animated: true,completion: nil)

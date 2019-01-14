@@ -15,7 +15,6 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var email: UILabel!
     @IBOutlet weak var nom: UILabel!
-    @IBOutlet weak var prenom: UILabel!
     //Web service
     let url_profile = Connexion.adresse + "/getUserWithId/"
     var profils : NSArray = []
@@ -38,8 +37,7 @@ class ProfileViewController: UIViewController {
             let profil  = self.profils[0] as! Dictionary<String,Any>
             self.username.text = (profil["username"] as! String)
             self.email.text = (profil["email"] as! String)
-            self.nom.text = (profil["last_name"] as! String)
-            self.prenom.text = (profil["first_name"] as! String)
+            self.nom.text = (profil["phone"] as! String)
             
             
         }

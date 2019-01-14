@@ -114,13 +114,14 @@ class AjoutServiceViewController: UIViewController, UIPickerViewDelegate, UIPick
             }
         }
  */
-        if(titre.text! != "" || desc.text! != "") {
-        self.performSegue(withIdentifier: "etape2", sender: self)
-        }else{
+        if(titre.text! == "" || desc.text! == "") {
             let alert = UIAlertController(title: "Echec", message: "Veuillez remplir tous les champs", preferredStyle: .alert)
             let action = UIAlertAction(title: "ok", style: .cancel, handler: nil)
             alert.addAction(action)
             self.present(alert,animated: true,completion: nil)
+        }else{
+            self.performSegue(withIdentifier: "etape2", sender: self)
+            
         }
     }
     

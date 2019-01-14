@@ -88,13 +88,13 @@ class AccueilTrocTableViewController: UITableViewController,UICollectionViewDele
             let cellA = collectionView.dequeueReusableCell(withReuseIdentifier: "Informatiques", for: indexPath)
             
             let contentView = cellA.viewWithTag(0)
-            let serviceImage = contentView?.viewWithTag(1) as! UIImageView
+            //let serviceImage = contentView?.viewWithTag(1) as! UIImageView
             let serviceTitre = contentView?.viewWithTag(2) as! UILabel
             let similareshow  = similaresshow[indexPath.item] as! Dictionary<String,Any>
-            serviceImage.af_setImage(withURL:URL(string: Connexion.adresse + "/Ressources/Services/" + (similareshow["image"] as! String))!)
             serviceTitre.text = (similareshow["titre"] as! String)
+           /* serviceImage.af_setImage(withURL:URL(string: Connexion.adresse + "/Ressources/Services/" + (similareshow["image"] as! String))!)
             let pathPicture = similareshow["image"] as! String
-            serviceImage.af_setImage(withURL: URL(string: pathPicture)!)
+            serviceImage.af_setImage(withURL: URL(string: pathPicture)!)*/
             return cellA
         }
         else if collectionView == collecServ{
