@@ -33,8 +33,7 @@ class AjouterServiceEtape3ViewController: UIViewController {
             }
         latitude = currentLocation.coordinate.latitude
         longitude = currentLocation.coordinate.longitude
-            print(latitude)
-            print(longitude)
+            
         
         }
         // Do any additional setup after loading the view.

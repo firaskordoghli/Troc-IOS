@@ -17,11 +17,12 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var nom: UILabel!
     @IBOutlet weak var prenom: UILabel!
     //Web service
-    let url_profile = Connexion.adresse + "/getUserById/"
+    let url_profile = Connexion.adresse + "/getUserWithId/"
     var profils : NSArray = []
     let UserDefault = UserDefaults.standard
     
     
+    //Get des données du profile
     func FetchData() {
         
         //let parameters: Parameters = ["id":String("'"+Defaults.getLogAndId.id!+"'")]

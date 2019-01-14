@@ -39,6 +39,7 @@ class AjoutServiceFinViewController: UIViewController {
     
     @IBAction func enregistrer(_ sender: Any) {
         
+        //Ajouter image sous serveur
         guard let imageData = image.jpegData(compressionQuality: 0.5) else {
             print("Could not get JPEG representation of UIImage")
             return
@@ -57,6 +58,8 @@ class AjoutServiceFinViewController: UIViewController {
                     upload.responseJSON { response in
                         debugPrint(response)
                         self.imageName = response.result.value as! String
+                        
+                        //Ajout service
                         let parameters: Parameters = ["titre": self.titreService.text!,"description": self.descriptionService.text!,"categorie": self.categorieService.text!,"type": self.typeService.text!,"image":self.imageName,"longitude":self.longitude!,"latitude":self.latitude!,"idUser":self.UserDefault.string(forKey: "id")! ]
                         
                         Alamofire.request( self.URL_SIGNUP, method: .post, parameters: parameters).responseJSON { response in

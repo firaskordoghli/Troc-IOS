@@ -24,6 +24,8 @@
 		FC69EC7E21B1F51F00EF6492 /* AjoutServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC69EC7D21B1F51F00EF6492 /* AjoutServiceViewController.swift */; };
 		FC6FE67421B47540004D24CF /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6FE67321B47540004D24CF /* DetailsViewController.swift */; };
 		FC6FE67621B4B94D004D24CF /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6FE67521B4B94C004D24CF /* BookmarksViewController.swift */; };
+		FC7DC47C21ECA07600A9AF36 /* MapAccueilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7DC47B21ECA07600A9AF36 /* MapAccueilViewController.swift */; };
+		FC7DC47E21ED069C00A9AF36 /* AfficherCommentaireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7DC47D21ED069B00A9AF36 /* AfficherCommentaireViewController.swift */; };
 		FC9380D221EB526800797A8E /* AjouterServiceEtape2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9380D121EB526800797A8E /* AjouterServiceEtape2ViewController.swift */; };
 		FC9380D421EB785900797A8E /* AjouterServiceEtape3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9380D321EB785900797A8E /* AjouterServiceEtape3ViewController.swift */; };
 		FC9380D621EB897400797A8E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9380D521EB897400797A8E /* MapViewController.swift */; };
@@ -77,6 +79,8 @@
 		FC69EC7D21B1F51F00EF6492 /* AjoutServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AjoutServiceViewController.swift; sourceTree = "<group>"; };
 		FC6FE67321B47540004D24CF /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		FC6FE67521B4B94C004D24CF /* BookmarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
+		FC7DC47B21ECA07600A9AF36 /* MapAccueilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAccueilViewController.swift; sourceTree = "<group>"; };
+		FC7DC47D21ED069B00A9AF36 /* AfficherCommentaireViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfficherCommentaireViewController.swift; sourceTree = "<group>"; };
 		FC9380D121EB526800797A8E /* AjouterServiceEtape2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AjouterServiceEtape2ViewController.swift; sourceTree = "<group>"; };
 		FC9380D321EB785900797A8E /* AjouterServiceEtape3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AjouterServiceEtape3ViewController.swift; sourceTree = "<group>"; };
 		FC9380D521EB897400797A8E /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -164,6 +168,8 @@
 				FCE5B8FB21EB45530010AE1A /* Connexion.swift */,
 				BF806B8B21ABFE2A005F4F17 /* Extentions.swift */,
 				BF913EA721AAD2D0001A76BA /* Main.storyboard */,
+				FC7DC47D21ED069B00A9AF36 /* AfficherCommentaireViewController.swift */,
+				FC7DC47B21ECA07600A9AF36 /* MapAccueilViewController.swift */,
 				FC9380D721EB9A1B00797A8E /* AjoutServiceFinViewController.swift */,
 				FC9380D521EB897400797A8E /* MapViewController.swift */,
 				FC9380D321EB785900797A8E /* AjouterServiceEtape3ViewController.swift */,
@@ -408,7 +414,9 @@
 				FC6FE67421B47540004D24CF /* DetailsViewController.swift in Sources */,
 				BF913EAC21AAD2D0001A76BA /* Troc.xcdatamodeld in Sources */,
 				FC116A8F21BB33500073ED8E /* ProfileViewController.swift in Sources */,
+				FC7DC47E21ED069C00A9AF36 /* AfficherCommentaireViewController.swift in Sources */,
 				FCE5B8FC21EB45530010AE1A /* Connexion.swift in Sources */,
+				FC7DC47C21ECA07600A9AF36 /* MapAccueilViewController.swift in Sources */,
 				FC69EC7E21B1F51F00EF6492 /* AjoutServiceViewController.swift in Sources */,
 				BF913EA421AAD2D0001A76BA /* AppDelegate.swift in Sources */,
 				BF02930C21AB481C00B2FB37 /* InscriptionViewController.swift in Sources */,

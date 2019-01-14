@@ -8,29 +8,31 @@
 
 import UIKit
 import Alamofire
+import AlamofireImage
 
 
 
 
 class AccueilTrocTableViewController: UITableViewController,UICollectionViewDelegate,UICollectionViewDataSource {
-    
+   
+   //Utils
    var similaresshow : NSArray = []
    var similaresserv : NSArray = []
    var categories : NSArray = []
    var serviceId: Int?
    var serviceCategorie: String?
-   let url_Cat = Connexion.adresse + "/getcategories"
-   let url_serv = Connexion.adresse + "/getServType/"
-   let url_Inf = Connexion.adresse + "/getSim/"
+   let url_Cat = Connexion.adresse + "/getcategorie"
+   let url_ani = Connexion.adresse + "/getCategorieAnimaux"
+   let url_Inf = Connexion.adresse + "/getCategorieInformatique"
+   //Outlets
+   @IBOutlet weak var collecInf: UICollectionView!
+   @IBOutlet weak var collecCatg: UICollectionView!
+   @IBOutlet weak var collecServ: UICollectionView!
     
-    @IBOutlet weak var collecInf: UICollectionView!
-    @IBOutlet weak var collecCatg: UICollectionView!
-    @IBOutlet weak var collecServ: UICollectionView!
     
     
     
-    var categorieInf = "Informatique/Multimédia"
-    var typeserv = "Service"
+    
     
     //Afficher les catégories
     func Fetchcategories() {
@@ -45,41 +47,22 @@ class AccueilTrocTableViewController: UITableViewController,UICollectionViewDele
         
     }
     
-    //Afficher les services ayant un type 'Services'
-    func FetchDataServ() {
+    //Afficher les services ayant comme catégorie 'Animaux'
+    func FetchDataAni() {
         
-        let parameters: Parameters = ["type":"'"+typeserv+"'"]
-        Alamofire.request( url_serv, method: .post, parameters: parameters).responseJSON { response in
-            print("Request: \(String(describing: response.request))")   // original url request
-            print("Response: \(String(describing: response.response))") // http url response
-            print("Result: \(response.result)")
-            // print(response)
-            //print(response.result.value)
-            if response.result.value == nil {
-                let alert = UIAlertController(title: "Echec", message: "La connexion au serveur à échoué", preferredStyle: .alert)
-                let action = UIAlertAction(title: "ok", style: .cancel, handler: nil)
-                alert.addAction(action)
-                self.present(alert,animated: true,completion: nil)
-                
-            }else{
+        Alamofire.request(url_ani).responseJSON{
+            response in
+            print(response)
             self.similaresserv = response.result.value as! NSArray
             self.collecServ.reloadData()
             }
-        }
-        
     }
     
-    //Afficher les services ayant comme catégorie Informatique/multimédia
-    func FetchDataSim() {
-        
-        let parameters: Parameters = ["categorie":"'"+categorieInf+"'"]
-        Alamofire.request( url_Inf, method: .post, parameters: parameters).responseJSON { response in
-            print("Request: \(String(describing: response.request))")   // original url request
-            print("Response: \(String(describing: response.response))") // http url response
-            print("Result: \(response.result)")
-            // print(response)
-            //print(response.result.value)
-            
+    //Afficher les services ayant comme catégorie 'Informatique/multimédia'
+    func FetchDataInf() {
+        Alamofire.request(url_Inf).responseJSON{
+            response in
+            print(response)
             self.similaresshow = response.result.value as! NSArray
             self.collecInf.reloadData()
             
@@ -105,11 +88,13 @@ class AccueilTrocTableViewController: UITableViewController,UICollectionViewDele
             let cellA = collectionView.dequeueReusableCell(withReuseIdentifier: "Informatiques", for: indexPath)
             
             let contentView = cellA.viewWithTag(0)
+            let serviceImage = contentView?.viewWithTag(1) as! UIImageView
             let serviceTitre = contentView?.viewWithTag(2) as! UILabel
             let similareshow  = similaresshow[indexPath.item] as! Dictionary<String,Any>
-            
+            serviceImage.af_setImage(withURL:URL(string: Connexion.adresse + "/Ressources/Services/" + (similareshow["image"] as! String))!)
             serviceTitre.text = (similareshow["titre"] as! String)
-        
+            let pathPicture = similareshow["image"] as! String
+            serviceImage.af_setImage(withURL: URL(string: pathPicture)!)
             return cellA
         }
         else if collectionView == collecServ{
@@ -130,7 +115,6 @@ class AccueilTrocTableViewController: UITableViewController,UICollectionViewDele
             let contentView = cellC.viewWithTag(0)
             let serviceTitre2 = contentView?.viewWithTag(5) as! UILabel
             let categorie  = categories[indexPath.item] as! Dictionary<String,Any>
-            
             serviceTitre2.text = (categorie["categorie"] as! String)
             
             return cellC
@@ -141,17 +125,21 @@ class AccueilTrocTableViewController: UITableViewController,UICollectionViewDele
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == collecInf{
          performSegue(withIdentifier: "accueilDetails", sender: indexPath)
+        }else if collectionView == collecServ{
+         performSegue(withIdentifier: "serviceDetails", sender: indexPath)
         }else{
-            performSegue(withIdentifier: "serviceDetails", sender: indexPath)
+         performSegue(withIdentifier: "afficherPlus", sender: indexPath)
         }
     }
     
+    //Donner à envoyer à la prochaine view
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         let index = sender as? NSIndexPath
         
         let serviceshow  = similaresshow[ index!.item] as! Dictionary<String,Any>
         let similareserv  = similaresserv[ index!.item] as! Dictionary<String,Any>
+        let categorie  = categories[index!.row] as! Dictionary<String,Any>
         
         
         
@@ -159,11 +147,6 @@ class AccueilTrocTableViewController: UITableViewController,UICollectionViewDele
             serviceId = (serviceshow["id"] as! Int)
             serviceCategorie = (serviceshow["categorie"] as! String)
             if let destinationViewController =  segue.destination as? DetailsViewController{
-                
-                
-                // destinationViewController.movieNam = moviesNames[index!.item]
-                
-                // destinationViewController.movieImg = moviesImg[index!.item]
                 
                 destinationViewController.previousService = serviceId
                 destinationViewController.previousCategorie = serviceCategorie
@@ -180,16 +163,26 @@ class AccueilTrocTableViewController: UITableViewController,UICollectionViewDele
                 
             }
         }
+        else if segue.identifier == "afficherPlus"{
+            serviceCategorie = (categorie["categorie"] as! String)
+            if let destinationViewController =  segue.destination as? AccueilViewController{
+                destinationViewController.previousCategorie = serviceCategorie
+                
+            }
+        }
     }
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        FetchDataServ()
-        FetchDataSim()
-        Fetchcategories()
         
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        FetchDataAni()
+        FetchDataInf()
+        Fetchcategories()
     }
     
   

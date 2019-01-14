@@ -11,31 +11,34 @@ import Alamofire
 
 class AccueilViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let url = Connexion.adresse + "/getService"
- 
-    var listeServices : NSArray = []
+    let url_simserv = Connexion.adresse + "/getCategorieByCategorie/"
+    var similaresshow : NSArray = []
     var serviceId: Int?
     var serviceCategorie: String?
+    var previousCategorie:String?
 
     @IBOutlet weak var tableView: UITableView!
     
     
-    
-    func FetchData() {
-        Alamofire.request(url).responseJSON{
-            response in
+    //Récupérer les services ayant une catégorie similaire
+    func AffichCatSim() {
+        print(previousCategorie!)
+        let parameters: Parameters = ["categorie":previousCategorie!]
+        Alamofire.request( url_simserv, method: .post, parameters: parameters).responseJSON { response in
+            print("Request: \(String(describing: response.request))")   // original url request
+            print("Response: \(String(describing: response.response))") // http url response
+            print("Result: \(response.result)")
             // print(response)
+            //print(response.result.value)
             
-            self.listeServices = response.result.value as! NSArray
-            
+            self.similaresshow = response.result.value as! NSArray
             self.tableView.reloadData()
-            
         }
         
     }
-    
+  
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listeServices.count
+        return similaresshow.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -47,7 +50,7 @@ class AccueilViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let serviceDesc = contentView?.viewWithTag(2) as! UILabel
         
-        let listeService  = listeServices[indexPath.item] as! Dictionary<String,Any>
+        let listeService  = similaresshow[indexPath.item] as! Dictionary<String,Any>
         
         serviceTitre.text = (listeService["titre"] as! String)
         serviceDesc.text = (listeService["description"] as! String)
@@ -57,12 +60,15 @@ class AccueilViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     
+    @IBAction func retour(_ sender: Any) {
+         dismiss(animated: true, completion: nil)
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         let index = sender as? NSIndexPath
         
-        let serviceshow  = listeServices[ index!.item] as! Dictionary<String,Any>
+        let serviceshow  = similaresshow[ index!.item] as! Dictionary<String,Any>
       
         serviceId = (serviceshow["id"] as! Int)
         serviceCategorie = (serviceshow["categorie"] as! String)
@@ -92,7 +98,7 @@ class AccueilViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+       AffichCatSim()
       
         
         // Do any additional setup after loading the view.
@@ -104,7 +110,6 @@ class AccueilViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         // Show the Navigation Bar
-        FetchData()
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     

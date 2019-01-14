@@ -20,12 +20,14 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
     @IBOutlet weak var avis: UILabel!
     @IBOutlet weak var rating: CosmosView!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var textcommnt: UITextField!
     //utils
     let URL_TestAvis = Connexion.adresse + "/testavis"
     let URL_GetAvisById = Connexion.adresse + "/getavisById"
-    let url_simserv = Connexion.adresse + "/getSim/"
-    let url_getserv = Connexion.adresse + "/getService/"
+    let url_simserv = Connexion.adresse + "/getCategorieByCategorie/"
+    let url_getserv = Connexion.adresse + "/getServiceWithId/"
     let url_addavis = Connexion.adresse + "/ajoutAvis"
+    let url_addcomm = Connexion.adresse + "/addCommentaire"
     var serviceNam:String?
     var serviceText:String?
     var previousService:Int?
@@ -36,9 +38,32 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
     
     let UserDefault = UserDefaults.standard
     
+    //Retourner à la page précédente
     @IBAction func retour(_ sender: Any) {
          dismiss(animated: true, completion: nil)
     }
+    
+    //Aller à la page des commentaire
+    @IBAction func voirCom(_ sender: Any) {
+         performSegue(withIdentifier: "afficherCommentaire", sender: indexPath)
+    }
+    
+    
+    //AJouter commentaire
+    @IBAction func ajouterCommentaire(_ sender: Any) {
+        
+        let parameters: Parameters = ["commentaires": textcommnt.text!, "name": self.UserDefault.string(forKey: "username")!,"id_annonce": self.previousService!,"id_utilisateur": self.UserDefault.string(forKey: "id")!]
+        Alamofire.request( url_addcomm, method: .post, parameters: parameters).responseJSON { response in
+            print("Request: \(String(describing: response.request))")   // original url request
+            print("Response: \(String(describing: response.response))") // http url response
+            print("Result: \(response.result)")
+            // print(response)
+            //print(response.result.value)
+            self.textcommnt.text = ""
+        }
+            
+    }
+    
     
     //Récupérer l'avis de l'utilisateur'
     func testAvis() {
@@ -112,8 +137,8 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
     
     //Récupérer les services ayant une catégorie similaire
     func AffichCatSim() {
-        
-        let parameters: Parameters = ["categorie":String("'"+previousCategorie!+"'")]
+        print(previousCategorie!)
+        let parameters: Parameters = ["categorie":previousCategorie!]
         Alamofire.request( url_simserv, method: .post, parameters: parameters).responseJSON { response in
             print("Request: \(String(describing: response.request))")   // original url request
             print("Response: \(String(describing: response.response))") // http url response
@@ -218,6 +243,21 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
             
         }
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "afficherCommentaire"{
+            
+            if let destinationViewController =  segue.destination as? AfficherCommentaireViewController{
+                
+                destinationViewController.previousService = self.previousService!
+                
+                
+                
+                
+            }
+        }
     }
     
     
