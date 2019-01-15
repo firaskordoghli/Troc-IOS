@@ -33,7 +33,12 @@ class InscriptionViewController: UIViewController {
     }
     
     @IBAction func Inscription(_ sender: Any) {
-        
+        if nom.text == "" || prenom.text == "" || email.text == "" || indentifiant.text == "" || mdp.text == "" || telephone.text == "" {
+            let alert = UIAlertController(title: "Echec", message: "Veuillez remplir tous les champs", preferredStyle: .alert)
+            let action = UIAlertAction(title: "ok", style: .cancel, handler: nil)
+            alert.addAction(action)
+            self.present(alert,animated: true,completion: nil)
+        }
         let parameters: Parameters = ["first_name": prenom.text!,"last_name": nom.text!,"username": indentifiant.text!,"email": email.text!,"password": mdp.text!,"phone": telephone.text!]
 
         Alamofire.request( URL_SIGNUP, method: .post, parameters: parameters).responseJSON { response in

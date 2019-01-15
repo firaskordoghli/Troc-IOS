@@ -214,7 +214,8 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
             let serviceshow = self.servicesshow[0] as! Dictionary<String,Any>
             self.serviceName.text = (serviceshow["titre"] as! String)
             self.serviceDesc.text = (serviceshow["description"] as! String)
-            self.imageBanner.af_setImage(withURL:URL(string: Connexion.adresse + "/Ressources/Services/" + (serviceshow["image"] as! String))!)
+            let urlImage = Connexion.adresse + "/Ressources/Services/" + ( serviceshow["image"] as! String )
+           self.imageBanner.af_setImage(withURL:URL(string: urlImage)!)
             
         }
         
