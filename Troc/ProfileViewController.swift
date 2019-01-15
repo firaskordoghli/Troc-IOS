@@ -32,22 +32,13 @@ class ProfileViewController: UIViewController {
     
     
     @IBAction func modifProfil(_ sender: Any) {
+        
     }
-   /* func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
-        UserDefault.removeObject(forKey: "id")
-        UserDefault.removeObject(forKey: "username")
-        UserDefault.removeObject(forKey: "phone")
-        UserDefault.removeObject(forKey: "email")
-        UserDefault.removeObject(forKey: "login")
-        if UserDefault.string(forKey: "login") == nil {
-            let next = self.storyboard!.instantiateViewController(withIdentifier: "LoginView")
-            self.present(next, animated: true, completion: nil)
-        }
-        print("User Logged Out")
-    }*/
+   
     @IBAction func deconnexion(_ sender: Any) {
-        
-        
+        if((FBSDKAccessToken.current()) != nil){
+            
+            FBSDKLoginManager().logOut()
             UserDefault.removeObject(forKey: "id")
             UserDefault.removeObject(forKey: "username")
             UserDefault.removeObject(forKey: "phone")
@@ -56,8 +47,22 @@ class ProfileViewController: UIViewController {
             if UserDefault.string(forKey: "login") == nil {
                 let next = self.storyboard!.instantiateViewController(withIdentifier: "LoginView")
                 self.present(next, animated: true, completion: nil)
+            }
+        
+            print("User Logged Out")
+        }else{
             
-        }
+            UserDefault.removeObject(forKey: "id")
+            UserDefault.removeObject(forKey: "username")
+            UserDefault.removeObject(forKey: "phone")
+            UserDefault.removeObject(forKey: "email")
+            UserDefault.removeObject(forKey: "login")
+                if UserDefault.string(forKey: "login") == nil {
+                    let next = self.storyboard!.instantiateViewController(withIdentifier: "LoginView")
+                    self.present(next, animated: true, completion: nil)
+            
+                }
+            }
         
         //Defaults.clearUserData()
     }
@@ -65,7 +70,7 @@ class ProfileViewController: UIViewController {
     func FetchData() {
         
         //let parameters: Parameters = ["id":String("'"+Defaults.getLogAndId.id!+"'")]
-        let parameters: Parameters = ["id":String("'"+UserDefault.string(forKey: "id")!+"'")]
+        let parameters: Parameters = ["id":UserDefault.string(forKey: "id")!]
         Alamofire.request( url_profile, method: .post, parameters: parameters).responseJSON { response in
             print("Request: \(String(describing: response.request))")   // original url request
             print("Response: \(String(describing: response.response))") // http url response
@@ -91,9 +96,9 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         FetchData()
-        //self.username.text = self.UserDefault.string(forKey: "username")!
-        //self.email.text = self.UserDefault.string(forKey: "email")!
-        //self.nom.text = String(self.UserDefault.string(forKey: "phone")!)
+        self.username.text = self.UserDefault.string(forKey: "username")!
+        self.email.text = self.UserDefault.string(forKey: "email")!
+        self.nom.text = String(self.UserDefault.string(forKey: "phone")!)
         self.imageProfile.layer.cornerRadius = 20
         self.imageProfile.clipsToBounds = true
         self.imageProfile.layer.borderColor = UIColor.black.cgColor

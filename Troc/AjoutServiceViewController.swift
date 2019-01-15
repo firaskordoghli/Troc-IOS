@@ -85,35 +85,7 @@ class AjoutServiceViewController: UIViewController, UIPickerViewDelegate, UIPick
     
     //Action pour ajouter le service
     @IBAction func addService(_ sender: Any) {
-        
-       /*
-        let parameters: Parameters = ["titre": titre.text!,"description": desc.text!,"categorie": categories!,"type":types!,"id":self.UserDefault.string(forKey: "id")! ]
-        
-        Alamofire.request( URL_SIGNUP, method: .post, parameters: parameters).responseJSON { response in
-            print("Request: \(String(describing: response.request))")   // original url request
-            print("Response: \(String(describing: response.response))") // http url response
-            print("Result: \(response.result)")                         // response serialization result
-            
-            if let json = response.result.value {
-                print("JSON: \(json)") // serialized json response
-            }
-            
-            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
-                print("Data: \(utf8Text)") // original server data as UTF8 string
-            }
-            switch(response.result) {
-            case .success(_):
-            self.dismiss(animated: true, completion: nil)
-            let next = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
-            self.present(next, animated: true, completion: nil)
-                case .failure(_):
-                    let alert = UIAlertController(title: "Echec", message: "Votre n'a pas été ajouter, veuillez vérifier vos données", preferredStyle: .alert)
-                    let action = UIAlertAction(title: "ok", style: .cancel, handler: nil)
-                    alert.addAction(action)
-                    self.present(alert,animated: true,completion: nil)
-            }
-        }
- */
+      
         if(titre.text! == "" || desc.text! == "") {
             let alert = UIAlertController(title: "Echec", message: "Veuillez remplir tous les champs", preferredStyle: .alert)
             let action = UIAlertAction(title: "ok", style: .cancel, handler: nil)

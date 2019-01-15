@@ -19,8 +19,12 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
     @IBOutlet weak var serviceName: UILabel!
     @IBOutlet weak var serviceDesc: UITextView!
     @IBOutlet weak var avis: UILabel!
+    @IBOutlet weak var imagestar: UIImageView!
     @IBOutlet weak var rating: CosmosView!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var update: UIBarButtonItem!
+    @IBOutlet weak var view2: UIView!
+    
     //Utils
     let URL_TestAvis = Connexion.adresse + "/testavis"
     let URL_GetAvisById = Connexion.adresse + "/getavisById"
@@ -29,7 +33,9 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
     let url_addavis = Connexion.adresse + "/ajoutAvis"
     var serviceNam:String?
     var serviceText:String?
+    var serviceType:String?
     var previousService:Int?
+    var idUser:String?
     var previousCategorie:String?
     var servicesshow : NSArray = []
     var similaresshow : NSArray = []
@@ -46,7 +52,12 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
          performSegue(withIdentifier: "afficherCommentaire", sender: self)
     }
     
+    @IBAction func updateServ(_ sender: Any) {
+         performSegue(withIdentifier: "updateServ", sender: self)
+    }
     
+    @IBAction func profilCreateur(_ sender: Any) {
+    }
     //Récupérer l'avis de l'utilisateur'
     func testAvis() {
         
@@ -99,6 +110,7 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
             case .success(_):
                 self.rating.isHidden = true
                 self.avis.isHidden = false
+                self.imagestar.isHidden = false
                 let note = self.avisshow[0] as! Dictionary<String,Any>
                 self.avis.text = (String(format: "%@", note["note"] as! CVarArg))
             case .failure(_):
@@ -140,10 +152,11 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
         let contentView = cell.viewWithTag(0)
         
         let serviceTitre = contentView?.viewWithTag(1) as! UILabel
-        
         let serviceDesc = contentView?.viewWithTag(2) as! UITextView
+        let serviceImg = contentView?.viewWithTag(3) as! UIImageView
         let similareshow  = similaresshow[indexPath.item] as! Dictionary<String,Any>
-        
+        let urlImage = Connexion.adresse + "/Ressources/Services/" + ( similareshow["image"] as! String )
+        serviceImg.af_setImage(withURL:URL(string: urlImage)!)
         serviceTitre.text = (similareshow["titre"] as! String)
         serviceDesc.text = (similareshow["description"] as! String)
         
@@ -156,6 +169,9 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
     @IBAction func insertCoreData(_ sender: Any) {
         serviceNam = serviceName.text
         serviceText = serviceDesc.text
+        let serviceshow = self.servicesshow[0] as! Dictionary<String,Any>
+        let imagecore = (serviceshow["image"] as! String)
+        let idcore = (serviceshow["id"] as! Int)
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let persistantContainer = appDelegate.persistentContainer
         
@@ -165,6 +181,7 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
         
         request.predicate = NSPredicate(format: "titre == %@", serviceName!)
         request.predicate = NSPredicate(format: "desc == %@", serviceText!)
+        request.predicate = NSPredicate(format: "img == %@", serviceText!)
         
         
         
@@ -175,9 +192,10 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
                 let movieDesc = NSEntityDescription.entity(forEntityName: "Service", in: context)
                 
                 let newService = NSManagedObject (entity: movieDesc!, insertInto: context)
-                
-                newService.setValue(serviceNam, forKey: "titre")
-                newService.setValue(serviceText, forKey: "desc")
+                 newService.setValue(idcore, forKey: "id")
+                 newService.setValue(imagecore, forKey: "img")
+                 newService.setValue(serviceNam, forKey: "titre")
+                 newService.setValue(serviceText, forKey: "desc")
                 
                 
                 
@@ -214,9 +232,17 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
             let serviceshow = self.servicesshow[0] as! Dictionary<String,Any>
             self.serviceName.text = (serviceshow["titre"] as! String)
             self.serviceDesc.text = (serviceshow["description"] as! String)
+            self.idUser = (serviceshow["idUser"] as! String)
+            if self.UserDefault.string(forKey: "id")! == self.idUser! {
+                self.update.isEnabled = true
+                self.view2.isHidden = true
+            }else{
+                self.update.isEnabled = false
+                self.view2.isHidden = false
+            }
             let urlImage = Connexion.adresse + "/Ressources/Services/" + ( serviceshow["image"] as! String )
            self.imageBanner.af_setImage(withURL:URL(string: urlImage)!)
-            
+            self.serviceType = (serviceshow["type"] as! String)
         }
         
     }
@@ -233,6 +259,62 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
                 
                 
             }
+        } else if segue.identifier == "updateServ"{
+            
+            if let destinationViewController =  segue.destination as? UpdateServiceViewController{
+                
+                destinationViewController.idService = self.previousService!
+                destinationViewController.titre = serviceName.text!
+                destinationViewController.descriptionserv = serviceDesc.text!
+                destinationViewController.type = self.serviceType!
+                destinationViewController.categorie = self.previousCategorie
+                
+                
+                
+            }
+        }
+        
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        testAvis()
+        AfficheService()
+        AffichCatSim()
+        
+        rating.didFinishTouchingCosmos = { rating in
+            
+            let parameters: Parameters = ["id_user": self.UserDefault.string(forKey: "id")!, "id_service": self.previousService!,"note": rating]
+            Alamofire.request( self.url_addavis, method: .post, parameters: parameters).responseJSON { response in
+                print("Request: \(String(describing: response.request))")   // original url request
+                print("Response: \(String(describing: response.response))") // http url response
+                print("Result: \(response.result)")
+                
+                switch(response.result) {
+                case .success(_):
+                    let alert = UIAlertController(title: "Succés", message: "Votre avis à été ajouter avec succés", preferredStyle: .alert)
+                    let action = UIAlertAction(title: "ok", style: .cancel, handler: {(UIAlertAction) in
+                        self.testAvis()
+                    })
+                    alert.addAction(action)
+                    self.present(alert,animated: true,completion: nil)
+                    
+                    
+                    
+                case .failure(_):
+                    let alert = UIAlertController(title: "Echec", message: "Votre avis n'a pas pu être ajouter", preferredStyle: .alert)
+                    let action = UIAlertAction(title: "ok", style: .cancel, handler: nil)
+                    alert.addAction(action)
+                    self.present(alert,animated: true,completion: nil)
+                    
+                }
+                
+                // print(response)
+                //print(response.result.value)
+                
+                
+            }
+            
         }
     }
     
@@ -242,6 +324,7 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
         testAvis()
         AfficheService()
         AffichCatSim()
+        
         rating.didFinishTouchingCosmos = { rating in
             
             let parameters: Parameters = ["id_user": self.UserDefault.string(forKey: "id")!, "id_service": self.previousService!,"note": rating]

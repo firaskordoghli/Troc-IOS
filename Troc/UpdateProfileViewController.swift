@@ -38,6 +38,10 @@ class UpdateProfileViewController: UIViewController,UIImagePickerControllerDeleg
         self.identifiant.text = UserDefault.string(forKey: "username")!
         self.email.text = UserDefault.string(forKey: "email")!
         self.telephone.text = String(UserDefault.string(forKey: "phone")!)
+        self.imageProfile.layer.cornerRadius = 20
+        self.imageProfile.clipsToBounds = true
+        self.imageProfile.layer.borderColor = UIColor.black.cgColor
+        self.imageProfile.layer.borderWidth = 1
         // Do any additional setup after loading the view.
     }
     
@@ -73,7 +77,6 @@ class UpdateProfileViewController: UIViewController,UIImagePickerControllerDeleg
             }else{
           self.profils = response.result.value as! NSArray
             let profil  = self.profils[0] as! Dictionary<String,Any>
-            self.imageProfile.setRounded()
             let urlImage = Connexion.adresse + "/Ressources/Profiles/" + ( profil["image"] as! String )
             self.imageProfile.af_setImage(withURL:URL(string: urlImage)!)
             self.ancienneimage = profil["image"] as! String

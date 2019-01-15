@@ -200,7 +200,6 @@ class LoginViewController: UIViewController {
     }
    
     
-    
     ////Navigation bar control//////
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -216,8 +215,6 @@ class LoginViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        
         
         if segue.identifier == "toInscription"{
             

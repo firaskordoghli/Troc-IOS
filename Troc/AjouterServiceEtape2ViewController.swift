@@ -16,7 +16,7 @@ class AjouterServiceEtape2ViewController: UIViewController,UIImagePickerControll
     //Utils
     var pickedImageProduct = UIImage()
     let imagePicker = UIImagePickerController()
-    var imageName:String = ""
+    var imageName: String = ""
     var categories : String?
     var titre : String?
     var descriptionserv: String?
