@@ -77,8 +77,14 @@ class InscriptionViewController: UIViewController {
                         
                         let loginsh = self.logind[0] as! Dictionary<String,Any>
                         let idInf = (loginsh["Id"]! as! Int)
+                        let nameInf = (loginsh["username"]! as! String)
+                        let emailInf = (loginsh["email"]! as! String)
+                        let phoneInf = (loginsh["phone"]! as! Int)
                         //Defaults.saveLogAndId("true",String(idInf))
                         self.UserDefault.set(String(idInf), forKey: "id")
+                        self.UserDefault.set(nameInf, forKey: "username")
+                        self.UserDefault.set(emailInf, forKey: "email")
+                        self.UserDefault.set(phoneInf, forKey: "phone")
                         self.UserDefault.set("true", forKey: "login")
                         self.UserDefault.synchronize()
                         if  self.UserDefault.string(forKey: "id") != nil{

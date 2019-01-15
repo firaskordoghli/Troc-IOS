@@ -17,6 +17,9 @@ class BookmarksViewController: UIViewController,UITableViewDataSource, UITableVi
         return servicesArray.count
     }
     
+    @IBAction func retour(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Services") 
