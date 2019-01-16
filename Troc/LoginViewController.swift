@@ -44,7 +44,12 @@ class LoginViewController: UIViewController {
 
     
     @IBAction func login(_ sender: Any) {
-        
+        if (email.text! == "") || (password.text! == ""){
+            let alert = UIAlertController(title: "", message: "Veuillez remplir tous les champs", preferredStyle: .alert)
+            let action = UIAlertAction(title: "ok", style: .cancel, handler: nil)
+            alert.addAction(action)
+            self.present(alert,animated: true,completion: nil)
+        }else{
         let parameters: Parameters = ["email": email.text!,"password": password.text!]
         
         Alamofire.request( URL_SIGNUP, method: .post, parameters: parameters).responseJSON { response in
@@ -116,7 +121,7 @@ class LoginViewController: UIViewController {
             
             }
         }
-        
+    }
     }
     
     

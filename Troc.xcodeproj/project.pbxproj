@@ -148,7 +148,6 @@
 		BF913E9721AAD2D0001A76BA = {
 			isa = PBXGroup;
 			children = (
-				FC073E2021EF833600320D25 /* InscriptionEtape2ViewController.swift */,
 				BF913EA221AAD2D0001A76BA /* Troc */,
 				BF913EBA21AAD2D2001A76BA /* TrocTests */,
 				BF913EC521AAD2D2001A76BA /* TrocUITests */,
@@ -171,6 +170,7 @@
 		BF913EA221AAD2D0001A76BA /* Troc */ = {
 			isa = PBXGroup;
 			children = (
+				FC073E2021EF833600320D25 /* InscriptionEtape2ViewController.swift */,
 				FCE89F3521BC9D9600C1120D /* Troc.entitlements */,
 				BF913EA321AAD2D0001A76BA /* AppDelegate.swift */,
 				BF913EA521AAD2D0001A76BA /* LoginViewController.swift */,
