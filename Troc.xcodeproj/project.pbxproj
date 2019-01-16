@@ -19,6 +19,7 @@
 		BF913EB121AAD2D2001A76BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF913EAF21AAD2D2001A76BA /* LaunchScreen.storyboard */; };
 		BF913EBC21AAD2D2001A76BA /* TrocTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF913EBB21AAD2D2001A76BA /* TrocTests.swift */; };
 		BF913EC721AAD2D2001A76BA /* TrocUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF913EC621AAD2D2001A76BA /* TrocUITests.swift */; };
+		FC073E1F21EF3C2200320D25 /* CreateurViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC073E1E21EF3C2200320D25 /* CreateurViewController.swift */; };
 		FC116A8F21BB33500073ED8E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC116A8E21BB33500073ED8E /* ProfileViewController.swift */; };
 		FC41F5D021BD767100C8157D /* AccueilTrocTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC41F5CF21BD767100C8157D /* AccueilTrocTableViewController.swift */; };
 		FC69EC7E21B1F51F00EF6492 /* AjoutServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC69EC7D21B1F51F00EF6492 /* AjoutServiceViewController.swift */; };
@@ -76,6 +77,7 @@
 		BF913EC821AAD2D2001A76BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C16992C939D78F921F013265 /* Pods_TrocUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrocUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8A8ECFDA8A19FF826FA16EC /* Pods_TrocTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrocTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC073E1E21EF3C2200320D25 /* CreateurViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateurViewController.swift; sourceTree = "<group>"; };
 		FC116A8E21BB33500073ED8E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FC41F5CF21BD767100C8157D /* AccueilTrocTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccueilTrocTableViewController.swift; sourceTree = "<group>"; };
 		FC69EC7D21B1F51F00EF6492 /* AjoutServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AjoutServiceViewController.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				FCE5B8FB21EB45530010AE1A /* Connexion.swift */,
 				BF806B8B21ABFE2A005F4F17 /* Extentions.swift */,
 				BF913EA721AAD2D0001A76BA /* Main.storyboard */,
+				FC073E1E21EF3C2200320D25 /* CreateurViewController.swift */,
 				FCFE353121EE7B0D0001C06E /* UpdateServiceViewController.swift */,
 				FCFE352B21EDD4350001C06E /* UpdateProfileViewController.swift */,
 				FC7DC47D21ED069B00A9AF36 /* AfficherCommentaireViewController.swift */,
@@ -416,6 +419,7 @@
 			files = (
 				FCFE352C21EDD4350001C06E /* UpdateProfileViewController.swift in Sources */,
 				FC9380D221EB526800797A8E /* AjouterServiceEtape2ViewController.swift in Sources */,
+				FC073E1F21EF3C2200320D25 /* CreateurViewController.swift in Sources */,
 				FC6FE67621B4B94D004D24CF /* BookmarksViewController.swift in Sources */,
 				BF02930821AB3CE300B2FB37 /* AccueilViewController.swift in Sources */,
 				FC9380D421EB785900797A8E /* AjouterServiceEtape3ViewController.swift in Sources */,

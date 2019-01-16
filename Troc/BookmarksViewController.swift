@@ -30,8 +30,11 @@ class BookmarksViewController: UIViewController,UITableViewDataSource, UITableVi
         let servicesDesc = content!.viewWithTag(2) as! UILabel
         let servicesImg = content!.viewWithTag(3) as! UIImageView
         let service = servicesArray[indexPath.row]
+        if (service.value(forKey: "img") as! String) != ""{
         let urlImage = Connexion.adresse + "/Ressources/Services/" + (service.value(forKey: "img") as! String)
-        servicesImg.af_setImage(withURL:URL(string: urlImage)!)
+            servicesImg.af_setImage(withURL:URL(string: urlImage)!)
+            
+        }
         servicesTitre.text =  (service.value(forKey: "titre") as! String)
         servicesDesc.text = (service.value(forKey: "desc") as! String)
         

@@ -13,6 +13,7 @@ import Photos
 
 class UpdateServiceViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
+    //Utils
     var pickedImageProduct = UIImage()
     let imagePicker = UIImagePickerController()
     var idService: Int?
@@ -29,19 +30,22 @@ class UpdateServiceViewController: UIViewController,UIImagePickerControllerDeleg
     var latitude : Double?
     var longitude : Double?
 
-    
+    //Outlets
     @IBOutlet weak var typeService: UISegmentedControl!
     @IBOutlet weak var DescService: UITextField!
     @IBOutlet weak var titreService: UITextField!
     @IBOutlet weak var imageService: UIImageView!
     
     
+    
+    
+    //Bouton retour
     @IBAction func retour(_ sender: Any) {
          dismiss(animated: true, completion: nil)
     }
     
     
-    
+    //Bouton supprimer
     @IBAction func suppService(_ sender: Any) {
         let deleteAlert = UIAlertController(title: "Suppression", message: "Voulez vous vraiment supprimer ce service ?", preferredStyle: UIAlertController.Style.alert)
         
@@ -53,6 +57,8 @@ class UpdateServiceViewController: UIViewController,UIImagePickerControllerDeleg
         
         self.present(deleteAlert, animated: true, completion: nil)
     }
+    
+    //Bouton Enregistrer
     @IBAction func updateService(_ sender: Any) {
         if titreService.text! == "" || DescService.text! == "" {
             let alert = UIAlertController(title: "Echec", message: "Veuillez remplir les champs", preferredStyle: .alert)
@@ -161,6 +167,8 @@ class UpdateServiceViewController: UIViewController,UIImagePickerControllerDeleg
         
     }
     
+    
+    //Get l'image du service
     func uploadImage () {
         
         //Ajouter image sous serveur
@@ -191,11 +199,15 @@ class UpdateServiceViewController: UIViewController,UIImagePickerControllerDeleg
         })
         
     }
+    
+    //Bouron changer image
     @IBAction func addPhoto(_ sender: Any) {
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .photoLibrary
         present(self.imagePicker, animated: true, completion: nil)
     }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         FetchData()
@@ -210,11 +222,11 @@ class UpdateServiceViewController: UIViewController,UIImagePickerControllerDeleg
         }
         
         
-        
-
-        // Do any additional setup after loading the view.
     }
     
+    
+    
+    //Service pour l'imagePicker
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -236,15 +248,4 @@ class UpdateServiceViewController: UIViewController,UIImagePickerControllerDeleg
         self.dismiss(animated: true, completion: nil)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

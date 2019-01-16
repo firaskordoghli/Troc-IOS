@@ -57,6 +57,7 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
     }
     
     @IBAction func profilCreateur(_ sender: Any) {
+        performSegue(withIdentifier: "createur", sender: self)
     }
     //Récupérer l'avis de l'utilisateur'
     func testAvis() {
@@ -141,7 +142,7 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
         
     }
     
-    
+    //Remplir la collectionView
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return similaresshow.count
     }
@@ -268,6 +269,16 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
                 destinationViewController.descriptionserv = serviceDesc.text!
                 destinationViewController.type = self.serviceType!
                 destinationViewController.categorie = self.previousCategorie
+                
+                
+                
+            }
+        }
+        else if segue.identifier == "createur"{
+            
+            if let destinationViewController =  segue.destination as? CreateurViewController{
+                
+                destinationViewController.previousId = self.idUser!
                 
                 
                 

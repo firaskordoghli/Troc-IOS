@@ -40,11 +40,14 @@ class AccueilTrocTableViewController: UITableViewController,UICollectionViewDele
         Alamofire.request(url_Cat).responseJSON{
             response in
             print(response)
+            if response.result.value as? NSArray == nil {
+                print("erreuuuur")
+            }else{
             self.categories = response.result.value as! NSArray
             self.collecCatg.reloadData()
             
         }
-        
+        }
     }
     
     //Afficher les services ayant comme catégorie 'Animaux'
@@ -53,9 +56,14 @@ class AccueilTrocTableViewController: UITableViewController,UICollectionViewDele
         Alamofire.request(url_ani).responseJSON{
             response in
             print(response)
+            if response.result.value as? NSArray == nil {
+                print("erreuuuur")
+            }else{
             self.similaresserv = response.result.value as! NSArray
             self.collecServ.reloadData()
             }
+        }
+        
     }
     
     //Afficher les services ayant comme catégorie 'Informatique/multimédia'
@@ -63,9 +71,13 @@ class AccueilTrocTableViewController: UITableViewController,UICollectionViewDele
         Alamofire.request(url_Inf).responseJSON{
             response in
             print(response)
+            if response.result.value as? NSArray == nil {
+                print("erreuuuur")
+            }else{
             self.similaresshow = response.result.value as! NSArray
             self.collecInf.reloadData()
             
+        }
         }
          
     }

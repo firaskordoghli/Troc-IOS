@@ -36,11 +36,39 @@ class AjoutServiceFinViewController: UIViewController {
         
     }
     
-    
-    @IBAction func enregistrer(_ sender: Any) {
+    func addservice(){
+        //Ajout service
+        let parameters: Parameters = ["titre": self.titreService.text!,"description": self.descriptionService.text!,"categorie": self.categorieService.text!,"type": self.typeService.text!,"image":self.imageName,"longitude":self.longitude!,"latitude":self.latitude!,"idUser":self.UserDefault.string(forKey: "id")! ]
         
+        Alamofire.request( self.URL_SIGNUP, method: .post, parameters: parameters).responseJSON { response in
+            print("Request: \(String(describing: response.request))")   // original url request
+            print("Response: \(String(describing: response.response))") // http url response
+            print("Result: \(response.result)")                         // response serialization result
+            
+            if let json = response.result.value {
+                print("JSON: \(json)") // serialized json response
+            }
+            
+            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+                print("Data: \(utf8Text)") // original server data as UTF8 string
+            }
+            switch(response.result) {
+            case .success(_):
+                let next = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+                self.present(next, animated: true, completion: nil)
+            case .failure(_):
+                let alert = UIAlertController(title: "Echec", message: "Votre service n'a pas été ajouter, veuillez vérifier vos données", preferredStyle: .alert)
+                let action = UIAlertAction(title: "ok", style: .cancel, handler: nil)
+                alert.addAction(action)
+                self.present(alert,animated: true,completion: nil)
+            }
+        }
+    }
+    
+    func uploadImage(){
         //Ajouter image sous serveur
         guard let imageData = image.jpegData(compressionQuality: 0.5) else {
+            self.addservice()
             print("Could not get JPEG representation of UIImage")
             return
         }
@@ -58,33 +86,8 @@ class AjoutServiceFinViewController: UIViewController {
                     upload.responseJSON { response in
                         debugPrint(response)
                         self.imageName = response.result.value as! String
+                        self.addservice()
                         
-                        //Ajout service
-                        let parameters: Parameters = ["titre": self.titreService.text!,"description": self.descriptionService.text!,"categorie": self.categorieService.text!,"type": self.typeService.text!,"image":self.imageName,"longitude":self.longitude!,"latitude":self.latitude!,"idUser":self.UserDefault.string(forKey: "id")! ]
-                        
-                        Alamofire.request( self.URL_SIGNUP, method: .post, parameters: parameters).responseJSON { response in
-                            print("Request: \(String(describing: response.request))")   // original url request
-                            print("Response: \(String(describing: response.response))") // http url response
-                            print("Result: \(response.result)")                         // response serialization result
-                            
-                            if let json = response.result.value {
-                                print("JSON: \(json)") // serialized json response
-                            }
-                            
-                            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
-                                print("Data: \(utf8Text)") // original server data as UTF8 string
-                            }
-                            switch(response.result) {
-                            case .success(_):
-                                let next = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
-                                self.present(next, animated: true, completion: nil)
-                            case .failure(_):
-                                let alert = UIAlertController(title: "Echec", message: "Votre service n'a pas été ajouter, veuillez vérifier vos données", preferredStyle: .alert)
-                                let action = UIAlertAction(title: "ok", style: .cancel, handler: nil)
-                                alert.addAction(action)
-                                self.present(alert,animated: true,completion: nil)
-                            }
-                        }
                     }
                 case .failure(let encodingError):
                     print(encodingError)
@@ -92,6 +95,12 @@ class AjoutServiceFinViewController: UIViewController {
                 
         })
         
+    }
+    
+    
+    @IBAction func enregistrer(_ sender: Any) {
+        
+      uploadImage()
         
         
     }

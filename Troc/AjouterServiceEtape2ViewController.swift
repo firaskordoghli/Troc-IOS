@@ -62,14 +62,9 @@ class AjouterServiceEtape2ViewController: UIViewController,UIImagePickerControll
     }
     
     @IBAction func etapeSuivante(_ sender: Any) {
-        if (pickedImageProduct == nil){
-            let alert = UIAlertController(title: "Echec", message: "Il faut ajouter une image", preferredStyle: .alert)
-            let action = UIAlertAction(title: "ok", style: .cancel, handler: nil)
-            alert.addAction(action)
-            self.present(alert,animated: true,completion: nil)
-        }else{
+      
         self.performSegue(withIdentifier: "etape3", sender: self)
-    }
+    
     }
     
 
