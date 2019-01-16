@@ -18,13 +18,11 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
     @IBOutlet weak var imageBanner: UIImageView!
     @IBOutlet weak var serviceName: UILabel!
     @IBOutlet weak var serviceDesc: UITextView!
-    @IBOutlet weak var avis: UILabel!
-    @IBOutlet weak var imagestar: UIImageView!
     @IBOutlet weak var rating: CosmosView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var update: UIBarButtonItem!
     @IBOutlet weak var view2: UIView!
-    
+    @IBOutlet weak var rating2: CosmosView!
     //Utils
     let URL_TestAvis = Connexion.adresse + "/testavis"
     let URL_GetAvisById = Connexion.adresse + "/getavisById"
@@ -110,10 +108,12 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
             switch(response.result) {
             case .success(_):
                 self.rating.isHidden = true
-                self.avis.isHidden = false
-                self.imagestar.isHidden = false
+                self.rating2.isHidden = false
+                
                 let note = self.avisshow[0] as! Dictionary<String,Any>
-                self.avis.text = (String(format: "%@", note["note"] as! CVarArg))
+                self.rating2.settings.updateOnTouch = false
+                self.rating2.rating = (Double(note["note"] as! Int))
+                
             case .failure(_):
                 let alert = UIAlertController(title: "Echec", message: "Echec de reception des données", preferredStyle: .alert)
                 let action = UIAlertAction(title: "ok", style: .cancel, handler: nil)
@@ -182,7 +182,7 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
         
         request.predicate = NSPredicate(format: "titre == %@", serviceName!)
         request.predicate = NSPredicate(format: "desc == %@", serviceText!)
-        request.predicate = NSPredicate(format: "img == %@", serviceText!)
+        request.predicate = NSPredicate(format: "img == %@", imagecore)
         
         
         
@@ -335,6 +335,10 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
         testAvis()
         AfficheService()
         AffichCatSim()
+        self.imageBanner.layer.cornerRadius = 20
+        self.imageBanner.clipsToBounds = true
+        self.imageBanner.layer.borderColor = UIColor.black.cgColor
+        self.imageBanner.layer.borderWidth = 2
         
         rating.didFinishTouchingCosmos = { rating in
             

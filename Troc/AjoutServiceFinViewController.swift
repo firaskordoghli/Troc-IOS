@@ -33,7 +33,7 @@ class AjoutServiceFinViewController: UIViewController {
     
     
     @IBAction func retour(_ sender: Any) {
-        
+         dismiss(animated: true, completion: nil)
     }
     
     func addservice(){
