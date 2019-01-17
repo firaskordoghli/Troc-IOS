@@ -20,14 +20,11 @@ class MapAccueilViewController: UIViewController , MGLMapViewDelegate{
     var e = 0
     
    
-
+   
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-        
         let mapView = MGLMapView(frame: view.bounds)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.setCenter(CLLocationCoordinate2D(latitude: 40.74699, longitude: -73.98742), zoomLevel: 9, animated: false)
@@ -44,7 +41,7 @@ class MapAccueilViewController: UIViewController , MGLMapViewDelegate{
                 let listeService  = self.listeServices[self.e] as! Dictionary<String,Any>
                 let point = MGLPointAnnotation()
                 print(listeService["latitude"] as! Double)
-                point.coordinate = CLLocationCoordinate2D(latitude: (listeService["longitude"] as! Double), longitude: (listeService["latitude"] as! Double))
+                point.coordinate = CLLocationCoordinate2D(latitude: (listeService["latitude"] as! Double), longitude: (listeService["longitude"] as! Double))
                 point.title = (listeService["titre"] as! String)
                 point.subtitle = (listeService["description"] as! String)
                 mapView.addAnnotation(point)
@@ -53,12 +50,18 @@ class MapAccueilViewController: UIViewController , MGLMapViewDelegate{
             }
             
             
-            }
+        }
+        // Do any additional setup after loading the view.
+        
+        
         
         
     }
     
     
+    func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
+        return true
+    }
     
     
     func mapViewDidFinishLoadingMap(_ mapView: MGLMapView) {

@@ -48,6 +48,20 @@ class CreateurViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         let contentView = cell.viewWithTag(0)
         
+        contentView!.layer.cornerRadius = 6.0
+        contentView!.layer.borderWidth = 1.0
+        contentView!.layer.borderColor = UIColor.black.cgColor
+        contentView!.layer.masksToBounds = true
+        
+        contentView!.layer.shadowColor = UIColor.lightGray.cgColor
+        contentView!.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+        contentView!.layer.shadowRadius = 6.0
+        contentView!.layer.shadowOpacity = 1.0
+        contentView!.layer.masksToBounds = false
+        contentView!.layer.backgroundColor = UIColor.clear.cgColor
+        
+        
+        
         let serviceTitre = contentView?.viewWithTag(2) as! UILabel
         let serviceCat = contentView?.viewWithTag(3) as! UILabel
         let serviceImg = contentView?.viewWithTag(1) as! UIImageView

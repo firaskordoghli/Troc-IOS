@@ -154,7 +154,7 @@ class UpdateServiceViewController: UIViewController,UIImagePickerControllerDeleg
                 let alert = UIAlertController(title: "Echec", message: "Echec de reception des données", preferredStyle: .alert)
                 let action = UIAlertAction(title: "ok", style: .cancel, handler: {(UIAlertAction) in
                     
-                    self.dismiss(animated: true, completion: nil)
+                self.dismiss(animated: true, completion: nil)
                     
                 })
                 alert.addAction(action)

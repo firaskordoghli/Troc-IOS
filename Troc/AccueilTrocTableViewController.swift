@@ -25,7 +25,7 @@ class AccueilTrocTableViewController: UITableViewController,UICollectionViewDele
    let url_Cat = Connexion.adresse + "/getcategorie"
    let url_ani = Connexion.adresse + "/getCategorieAnimaux"
    let url_Inf = Connexion.adresse + "/getCategorieInformatique"
-   let url_Vet = Connexion.adresse + "/getCategorieVetement'"
+   let url_Vet = Connexion.adresse + "/getCategorieVetement"
    //Outlets
    @IBOutlet weak var collecInf: UICollectionView!
    @IBOutlet weak var collecCatg: UICollectionView!
@@ -80,6 +80,7 @@ class AccueilTrocTableViewController: UITableViewController,UICollectionViewDele
         
     }
     
+    //Afficher les services ayant comme catégorie 'Vêtements et accessoires'
     func fetchVet () {
     
         Alamofire.request(url_Vet).responseJSON{
@@ -132,8 +133,11 @@ class AccueilTrocTableViewController: UITableViewController,UICollectionViewDele
             let cellA = collectionView.dequeueReusableCell(withReuseIdentifier: "Informatiques", for: indexPath)
             
             let contentView = cellA.viewWithTag(0)
+            
             let serviceImage = contentView?.viewWithTag(1) as! UIImageView
             let serviceTitre = contentView?.viewWithTag(2) as! UILabel
+            let view = contentView?.viewWithTag(8)
+            view!.dropShadow(color: UIColor.lightGray, opacity: 1, radius: 4, scale: true)
             let similareshow  = similaresshow[indexPath.item] as! Dictionary<String,Any>
             serviceTitre.text = (similareshow["titre"] as! String)
             let urlImage = Connexion.adresse + "/Ressources/Services/" + ( similareshow["image"] as! String )
@@ -148,6 +152,8 @@ class AccueilTrocTableViewController: UITableViewController,UICollectionViewDele
             let contentView = cellB.viewWithTag(0)
             let serviceImage = contentView?.viewWithTag(7) as! UIImageView
             let serviceTitre2 = contentView?.viewWithTag(4) as! UILabel
+            let view = contentView?.viewWithTag(10)
+            view!.dropShadow(color: UIColor.lightGray, opacity: 1, radius: 4, scale: true)
             let similareserv  = similaresserv[indexPath.item] as! Dictionary<String,Any>
             let urlImage = Connexion.adresse + "/Ressources/Services/" + ( similareserv["image"] as! String )
             serviceImage.af_setImage(withURL:URL(string: urlImage)!)
@@ -162,6 +168,8 @@ class AccueilTrocTableViewController: UITableViewController,UICollectionViewDele
             let contentView = cellD.viewWithTag(0)
             let serviceImage = contentView?.viewWithTag(3) as! UIImageView
             let serviceTitre2 = contentView?.viewWithTag(6) as! UILabel
+            let view = contentView?.viewWithTag(9)
+            view!.dropShadow(color: UIColor.lightGray, opacity: 1, radius: 4, scale: true)
             let similarevet  = similarvets[indexPath.item] as! Dictionary<String,Any>
             let urlImage = Connexion.adresse + "/Ressources/Services/" + ( similarevet["image"] as! String )
             serviceImage.af_setImage(withURL:URL(string: urlImage)!)
@@ -171,9 +179,12 @@ class AccueilTrocTableViewController: UITableViewController,UICollectionViewDele
         }
         else {
             let cellC = collectionView.dequeueReusableCell(withReuseIdentifier: "Categories", for: indexPath)
-            cellC.layer.borderColor = UIColor.black.cgColor
-            cellC.layer.borderWidth = 0.5
+            
             let contentView = cellC.viewWithTag(0)
+            contentView!.layer.cornerRadius = 6.0
+            contentView!.layer.borderWidth = 1.0
+            contentView!.layer.borderColor = UIColor.black.cgColor
+            contentView!.layer.masksToBounds = true
             let serviceTitre2 = contentView?.viewWithTag(5) as! UILabel
             let categorie  = categories[indexPath.item] as! Dictionary<String,Any>
             serviceTitre2.text = (categorie["categorie"] as! String)
@@ -188,7 +199,10 @@ class AccueilTrocTableViewController: UITableViewController,UICollectionViewDele
          performSegue(withIdentifier: "accueilDetails", sender: indexPath)
         }else if collectionView == collecServ{
          performSegue(withIdentifier: "serviceDetails", sender: indexPath)
-        }else{
+        }else if collectionView == collecVet{
+            performSegue(withIdentifier: "vetDetails", sender: indexPath)
+        }
+        else if collectionView == collecCatg{
          performSegue(withIdentifier: "afficherPlus", sender: indexPath)
         }
     }
@@ -197,10 +211,6 @@ class AccueilTrocTableViewController: UITableViewController,UICollectionViewDele
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         let index = sender as? NSIndexPath
-        
-        
-        
-        
         
         
         
@@ -217,6 +227,17 @@ class AccueilTrocTableViewController: UITableViewController,UICollectionViewDele
             }
         }else if segue.identifier == "serviceDetails"{
             let similareserv  = similaresserv[ index!.item] as! Dictionary<String,Any>
+            serviceId = (similareserv["id"] as! Int)
+            serviceCategorie = (similareserv["categorie"] as! String)
+            if let destinationViewController =  segue.destination as? DetailsViewController{
+                
+                destinationViewController.previousService = serviceId
+                destinationViewController.previousCategorie = serviceCategorie
+                
+            }
+        }
+        else if segue.identifier == "vetDetails"{
+            let similareserv  = similarvets[ index!.item] as! Dictionary<String,Any>
             serviceId = (similareserv["id"] as! Int)
             serviceCategorie = (similareserv["categorie"] as! String)
             if let destinationViewController =  segue.destination as? DetailsViewController{

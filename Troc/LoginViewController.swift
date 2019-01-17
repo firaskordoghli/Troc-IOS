@@ -23,6 +23,7 @@ class LoginViewController: UIViewController {
     var dict : [String : AnyObject]!
     let URL_SIGNUP = Connexion.adresse + "/login"
     let URL_TEST = Connexion.adresse + "/testemail"
+    let URL_loginfb = Connexion.adresse + "/loginfb"
     var Infos : String?
     var emailfb : String = ""
     var first_namefb : String = ""
@@ -39,7 +40,67 @@ class LoginViewController: UIViewController {
         password.resignFirstResponder()
     }
     
-
+    func loginfb(){
+        let parameters: Parameters = ["email": emailfb]
+        
+        Alamofire.request( URL_loginfb, method: .post, parameters: parameters).responseJSON { response in
+            print("Request: \(String(describing: response.request))")   // original url request
+            print("Response: \(String(describing: response.response))") // http url response
+            print("Result: \(response.result)")                         // response serialization result
+            
+            if response.result.value == nil {
+                let alert = UIAlertController(title: "Echec", message: "Echec d'envoie des données", preferredStyle: .alert)
+                let action = UIAlertAction(title: "ok", style: .cancel, handler: nil)
+                alert.addAction(action)
+                self.present(alert,animated: true,completion: nil)
+            }else{
+                
+                if let json = response.result.value {
+                    print("JSON: \(json)") // serialized json response
+                    
+                }
+                
+                
+                if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+                    print("Data: \(utf8Text)") // original server data as UTF8 string
+                    //self.status = (utf8Text["msg"] as! String)
+                }
+            }
+            self.logind = response.result.value as! NSArray
+            switch(response.result) {
+            case .success(_):
+                
+                
+                    let loginsh = self.logind[0] as! Dictionary<String,Any>
+                    let idInf = (loginsh["Id"]! as! Int)
+                    let nameInf = (loginsh["username"]! as! String)
+                    let emailInf = (loginsh["email"]! as! String)
+                    let phoneInf = (loginsh["phone"]! as! Int)
+                    //Defaults.saveLogAndId("true",String(idInf))
+                    self.UserDefault.set(String(idInf), forKey: "id")
+                    self.UserDefault.set(nameInf, forKey: "username")
+                    self.UserDefault.set(emailInf, forKey: "email")
+                    self.UserDefault.set(phoneInf, forKey: "phone")
+                    self.UserDefault.set("true", forKey: "login")
+                    self.UserDefault.synchronize()
+                    
+                    if  self.UserDefault.string(forKey: "id") != nil{
+                        let next = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
+                        self.present(next, animated: true, completion: nil)
+                    }
+                
+            case .failure(_):
+                let alert = UIAlertController(title: "Echec", message: "Echec d'envoie des données", preferredStyle: .alert)
+                let action = UIAlertAction(title: "ok", style: .cancel, handler: nil)
+                alert.addAction(action)
+                self.present(alert,animated: true,completion: nil)
+                
+            }
+            
+        }
+                
+        
+    }
     
 
     
@@ -161,9 +222,7 @@ class LoginViewController: UIViewController {
                             let status = true
                             let reponse = response.result.value as? [String: Any]
                             if status == reponse!["status"] as! Bool {
-                                self.dismiss(animated: true, completion: nil)
-                                let next = self.storyboard?.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
-                                self.present(next, animated: true, completion: nil)
+                                self.loginfb()
                             }else{
                                 let refreshAlert = UIAlertController(title: "Inscription", message: "Continuer l'inscription", preferredStyle: UIAlertController.Style.alert)
                                 
@@ -171,7 +230,7 @@ class LoginViewController: UIViewController {
                                     self.performSegue(withIdentifier: "toInscription", sender: self)
                                 }))
                                 
-                                refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+                                refreshAlert.addAction(UIAlertAction(title: "Annuler", style: .cancel, handler: { (action: UIAlertAction!) in
                                     FBSDKLoginManager().logOut()
                                 }))
                                 
@@ -225,10 +284,6 @@ class LoginViewController: UIViewController {
             
             if let destinationViewController =  segue.destination as? InscriptionViewController{
                 
-                
-                // destinationViewController.movieNam = moviesNames[index!.item]
-                
-                // destinationViewController.movieImg = moviesImg[index!.item]
                 
                 destinationViewController.first_nam = self.first_namefb
                 destinationViewController.last_nam = self.last_namefb

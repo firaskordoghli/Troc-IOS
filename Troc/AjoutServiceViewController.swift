@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Alamofire
+
 class AjoutServiceViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
    
     
@@ -17,31 +17,9 @@ class AjoutServiceViewController: UIViewController, UIPickerViewDelegate, UIPick
     @IBOutlet weak var categorie: UIPickerView!
     @IBOutlet weak var type: UISegmentedControl!
     //utils
-    let URL_SIGNUP = Connexion.adresse + "/addService"
-    let URL_CAT =    Connexion.adresse + "/getcategorie"
-    var categoriesGet : NSArray = []
     var categorieData : [String] = [String]()
-    var categories : String?
-    var types : String?
-    let UserDefault = UserDefaults.standard
-    
-
-    func FetchData() {
-        Alamofire.request(URL_CAT).responseJSON{
-            response in
-             print(response)
-            
-            self.categoriesGet = response.result.value as! NSArray
-            print(self.categoriesGet)
-            
-            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
-                print("Data: \(utf8Text)") // original server data as UTF8 string
-                
-                
-            }
-        }
-        
-    }
+    var categories = ""
+    var types = ""
     
     
     
@@ -86,13 +64,15 @@ class AjoutServiceViewController: UIViewController, UIPickerViewDelegate, UIPick
     //Action pour ajouter le service
     @IBAction func addService(_ sender: Any) {
       
-        if(titre.text! == "" || desc.text! == "") {
-            let alert = UIAlertController(title: "Echec", message: "Veuillez remplir tous les champs", preferredStyle: .alert)
+        if (titre.text! == "") || (desc.text! == "") || (categories == "") || (types == "") {
+            
+            let alert = UIAlertController(title: "", message: "Veuillez remplir tous les champs et choisir une catégorie", preferredStyle: .alert)
             let action = UIAlertAction(title: "ok", style: .cancel, handler: nil)
             alert.addAction(action)
             self.present(alert,animated: true,completion: nil)
+            
         }else{
-            self.performSegue(withIdentifier: "etape2", sender: self)
+                self.performSegue(withIdentifier: "etape2", sender: self)
             
         }
     }
@@ -105,10 +85,10 @@ class AjoutServiceViewController: UIViewController, UIPickerViewDelegate, UIPick
             
             if let destinationViewController =  segue.destination as? AjouterServiceEtape2ViewController{
                 
-                destinationViewController.categories = self.categories!
+                destinationViewController.categories = self.categories
                 destinationViewController.descriptionserv = self.desc.text!
                 destinationViewController.titre = self.titre.text!
-                destinationViewController.type = self.types!
+                destinationViewController.type = self.types
                 
                 
             }
@@ -123,7 +103,7 @@ class AjoutServiceViewController: UIViewController, UIPickerViewDelegate, UIPick
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        FetchData()
+     
         categorieData = ["Alimentation", "Animaux", "Arts et spectacle", "Collectionneurs", "Coup de main", "Bricolage", "Beauté/Bien être", "Enfance", "Informatique/Multimédia", "Jardin et plantes", "Maison", "Vacances/Weekend", "Livre/CD/DVD", "Vêtements et accessoires",  "Sports et loisirs", "Transports/Véhicules",  "Autre"]
         self.navigationController?.setNavigationBarHidden(true, animated: true)
 

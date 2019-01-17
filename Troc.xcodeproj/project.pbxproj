@@ -23,6 +23,8 @@
 		FC073E2121EF833600320D25 /* InscriptionEtape2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC073E2021EF833600320D25 /* InscriptionEtape2ViewController.swift */; };
 		FC116A8F21BB33500073ED8E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC116A8E21BB33500073ED8E /* ProfileViewController.swift */; };
 		FC41F5D021BD767100C8157D /* AccueilTrocTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC41F5CF21BD767100C8157D /* AccueilTrocTableViewController.swift */; };
+		FC4E508421F0C0F7009F7D46 /* MesAnnoncesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4E508321F0C0F6009F7D46 /* MesAnnoncesViewController.swift */; };
+		FC4E508621F0C430009F7D46 /* MesFavorisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4E508521F0C430009F7D46 /* MesFavorisViewController.swift */; };
 		FC69EC7E21B1F51F00EF6492 /* AjoutServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC69EC7D21B1F51F00EF6492 /* AjoutServiceViewController.swift */; };
 		FC6FE67421B47540004D24CF /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6FE67321B47540004D24CF /* DetailsViewController.swift */; };
 		FC6FE67621B4B94D004D24CF /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6FE67521B4B94C004D24CF /* BookmarksViewController.swift */; };
@@ -82,6 +84,8 @@
 		FC073E2021EF833600320D25 /* InscriptionEtape2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InscriptionEtape2ViewController.swift; sourceTree = "<group>"; };
 		FC116A8E21BB33500073ED8E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FC41F5CF21BD767100C8157D /* AccueilTrocTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccueilTrocTableViewController.swift; sourceTree = "<group>"; };
+		FC4E508321F0C0F6009F7D46 /* MesAnnoncesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MesAnnoncesViewController.swift; path = ../../../../.Trash/MesAnnoncesViewController.swift; sourceTree = "<group>"; };
+		FC4E508521F0C430009F7D46 /* MesFavorisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MesFavorisViewController.swift; sourceTree = "<group>"; };
 		FC69EC7D21B1F51F00EF6492 /* AjoutServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AjoutServiceViewController.swift; sourceTree = "<group>"; };
 		FC6FE67321B47540004D24CF /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		FC6FE67521B4B94C004D24CF /* BookmarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
@@ -177,6 +181,7 @@
 				FCE5B8FB21EB45530010AE1A /* Connexion.swift */,
 				BF806B8B21ABFE2A005F4F17 /* Extentions.swift */,
 				BF913EA721AAD2D0001A76BA /* Main.storyboard */,
+				FC4E508521F0C430009F7D46 /* MesFavorisViewController.swift */,
 				FC073E1E21EF3C2200320D25 /* CreateurViewController.swift */,
 				FCFE353121EE7B0D0001C06E /* UpdateServiceViewController.swift */,
 				FCFE352B21EDD4350001C06E /* UpdateProfileViewController.swift */,
@@ -193,6 +198,7 @@
 				FC69EC7D21B1F51F00EF6492 /* AjoutServiceViewController.swift */,
 				BF02930B21AB481C00B2FB37 /* InscriptionViewController.swift */,
 				BF02930721AB3CE300B2FB37 /* AccueilViewController.swift */,
+				FC4E508321F0C0F6009F7D46 /* MesAnnoncesViewController.swift */,
 				BF913EAD21AAD2D2001A76BA /* Assets.xcassets */,
 				BF913EAF21AAD2D2001A76BA /* LaunchScreen.storyboard */,
 				BF913EB221AAD2D2001A76BA /* Info.plist */,
@@ -423,6 +429,7 @@
 				FCFE352C21EDD4350001C06E /* UpdateProfileViewController.swift in Sources */,
 				FC9380D221EB526800797A8E /* AjouterServiceEtape2ViewController.swift in Sources */,
 				FC073E1F21EF3C2200320D25 /* CreateurViewController.swift in Sources */,
+				FC4E508421F0C0F7009F7D46 /* MesAnnoncesViewController.swift in Sources */,
 				FC6FE67621B4B94D004D24CF /* BookmarksViewController.swift in Sources */,
 				BF02930821AB3CE300B2FB37 /* AccueilViewController.swift in Sources */,
 				FC9380D421EB785900797A8E /* AjouterServiceEtape3ViewController.swift in Sources */,
@@ -434,6 +441,7 @@
 				FCFE353221EE7B0D0001C06E /* UpdateServiceViewController.swift in Sources */,
 				FC116A8F21BB33500073ED8E /* ProfileViewController.swift in Sources */,
 				FC7DC47E21ED069C00A9AF36 /* AfficherCommentaireViewController.swift in Sources */,
+				FC4E508621F0C430009F7D46 /* MesFavorisViewController.swift in Sources */,
 				FCE5B8FC21EB45530010AE1A /* Connexion.swift in Sources */,
 				FC7DC47C21ECA07600A9AF36 /* MapAccueilViewController.swift in Sources */,
 				FC69EC7E21B1F51F00EF6492 /* AjoutServiceViewController.swift in Sources */,

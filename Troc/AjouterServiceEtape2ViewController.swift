@@ -49,6 +49,7 @@ class AjouterServiceEtape2ViewController: UIViewController,UIImagePickerControll
         self.imageServiceImgView.image = pickedImageProduct
         self.dismiss(animated: true, completion: nil)
     }
+    
     @IBAction func addImage(_ sender: Any) {
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .photoLibrary

@@ -23,6 +23,7 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
     @IBOutlet weak var update: UIBarButtonItem!
     @IBOutlet weak var view2: UIView!
     @IBOutlet weak var rating2: CosmosView!
+    @IBOutlet weak var viewColl: UIView!
     //Utils
     let URL_TestAvis = Connexion.adresse + "/testavis"
     let URL_GetAvisById = Connexion.adresse + "/getavisById"
@@ -100,10 +101,12 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
             print("Result: \(response.result)")
             // print(response)
             //print(response.result.value)
-            
+            if response.result.value as? NSArray == nil {
+                print("erreuuuur")
+            }else{
             self.avisshow = response.result.value as! NSArray
             
-           
+            }
             
             switch(response.result) {
             case .success(_):
@@ -135,9 +138,12 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
             print("Result: \(response.result)")
             // print(response)
             //print(response.result.value)
-            
+            if response.result.value as? NSArray == nil {
+                print("erreuuuur")
+            }else{
             self.similaresshow = response.result.value as! NSArray
             self.collectionView.reloadData()
+            }
         }
         
     }
@@ -151,9 +157,10 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ServiceSim", for: indexPath)
         
         let contentView = cell.viewWithTag(0)
-        
+      
+        let view = contentView?.viewWithTag(4)
         let serviceTitre = contentView?.viewWithTag(1) as! UILabel
-        let serviceDesc = contentView?.viewWithTag(2) as! UITextView
+        let serviceDesc = contentView?.viewWithTag(2) as! UILabel
         let serviceImg = contentView?.viewWithTag(3) as! UIImageView
         let similareshow  = similaresshow[indexPath.item] as! Dictionary<String,Any>
         let urlImage = Connexion.adresse + "/Ressources/Services/" + ( similareshow["image"] as! String )
@@ -161,6 +168,16 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
         serviceTitre.text = (similareshow["titre"] as! String)
         serviceDesc.text = (similareshow["description"] as! String)
         
+        /// Adds a shadow to our view
+        /*
+        view!.layer.cornerRadius = 4.0
+        view!.layer.shadowColor = UIColor.black.cgColor
+        view!.layer.shadowOpacity = 1
+        view!.layer.shadowRadius = 5
+        view!.layer.shadowOffset = CGSize.zero
+        */
+        view!.dropShadow(color: UIColor.lightGray, opacity: 1, radius: 4, scale: true)
+        cell.layer.cornerRadius = 4.0
         return cell
     }
     
@@ -228,7 +245,9 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
             print("Result: \(response.result)")
             // print(response)
             //print(response.result.value)
-            
+            if response.result.value as? NSArray == nil {
+                print("erreuuuur")
+            }else{
             self.servicesshow = response.result.value as! NSArray
             let serviceshow = self.servicesshow[0] as! Dictionary<String,Any>
             self.serviceName.text = (serviceshow["titre"] as! String)
@@ -244,6 +263,7 @@ class DetailsViewController: UIViewController, UICollectionViewDataSource,UIColl
             let urlImage = Connexion.adresse + "/Ressources/Services/" + ( serviceshow["image"] as! String )
            self.imageBanner.af_setImage(withURL:URL(string: urlImage)!)
             self.serviceType = (serviceshow["type"] as! String)
+        }
         }
         
     }

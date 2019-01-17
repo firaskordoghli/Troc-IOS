@@ -77,22 +77,30 @@ class ProfileViewController: UIViewController {
             print("Result: \(response.result)")
             // print(response)
             //print(response.result.value)
+            switch(response.result) {
+            case .success(_):
+                
+                self.profils = response.result.value as! NSArray
+                let profil  = self.profils[0] as! Dictionary<String,Any>
+                let urlImage = Connexion.adresse + "/Ressources/Profiles/" + ( profil["image"] as! String )
+                self.imageProfile.af_setImage(withURL:URL(string: urlImage)!)
+                
+            case .failure(_):
+                let alert = UIAlertController(title: "Erreur", message: "Erreur lor de l'obtention des donnéeq", preferredStyle: .alert)
+                let action = UIAlertAction(title: "ok", style: .cancel, handler: nil)
+                alert.addAction(action)
+                self.present(alert,animated: true,completion: nil)
+                
+            }
+        
             
-            self.profils = response.result.value as! NSArray
-            let profil  = self.profils[0] as! Dictionary<String,Any>
-            let urlImage = Connexion.adresse + "/Ressources/Profiles/" + ( profil["image"] as! String )
-            self.imageProfile.af_setImage(withURL:URL(string: urlImage)!)
             
             
         }
         
     }
     
-    
-    
-    
-    
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         FetchData()
