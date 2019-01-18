@@ -50,9 +50,11 @@ class AccueilViewController: UIViewController, UITableViewDelegate, UITableViewD
         let serviceTitre = contentView?.viewWithTag(1) as! UILabel
         
         let serviceDesc = contentView?.viewWithTag(2) as! UILabel
+        let serviceImage = contentView?.viewWithTag(3) as! UIImageView
         
         let listeService  = similaresshow[indexPath.item] as! Dictionary<String,Any>
-        
+        let urlImage = Connexion.adresse + "/Ressources/Services/" + ( listeService["image"] as! String )
+        serviceImage.af_setImage(withURL:URL(string: urlImage)!)
         serviceTitre.text = (listeService["titre"] as! String)
         serviceDesc.text = (listeService["description"] as! String)
        

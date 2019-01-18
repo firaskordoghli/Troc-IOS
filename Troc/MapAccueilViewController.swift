@@ -39,12 +39,20 @@ class MapAccueilViewController: UIViewController , MGLMapViewDelegate{
             while self.e < self.listeServices.count {
                 
                 let listeService  = self.listeServices[self.e] as! Dictionary<String,Any>
-                let point = MGLPointAnnotation()
+                let point = MyPointAnnotation()
                 print(listeService["latitude"] as! Double)
                 point.coordinate = CLLocationCoordinate2D(latitude: (listeService["latitude"] as! Double), longitude: (listeService["longitude"] as! Double))
                 point.title = (listeService["titre"] as! String)
                 point.subtitle = (listeService["description"] as! String)
+                self.serviceId = (listeService["id"] as! Int)
+                point.id = (listeService["id"] as! Int)
+                point.categorie = (listeService["categorie"] as! String)
+                
+                
+                
                 mapView.addAnnotation(point)
+                
+                
                 self.e = self.e + 1
                 
             }
@@ -70,16 +78,39 @@ class MapAccueilViewController: UIViewController , MGLMapViewDelegate{
         
         
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func mapView(_ mapView: MGLMapView, annotation: MGLAnnotation, calloutAccessoryControlTapped control: UIControl) {
+        // Hide the callout view.
+        // mapView.deselectAnnotation(annotation, animated: true)
+        
+        performSegue(withIdentifier: "detailsMap", sender: view)
     }
-    */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "detailsMap"{
+            
+            if let destinationViewController =  segue.destination as? DetailsViewController{
+                
+                
+                // destinationViewController.movieNam = moviesNames[index!.item]
+                
+                // destinationViewController.movieImg = moviesImg[index!.item]
+                
+                destinationViewController.previousService = (sender as! MyPointAnnotation).id
+                destinationViewController.previousCategorie = (sender as! MyPointAnnotation).categorie
+                
+                
+            }
+        }
+    }
+    
+  
 
+    
+}
+
+class MyPointAnnotation: MGLPointAnnotation {
+    var id: Int?
+    var categorie: String?
+    
 }

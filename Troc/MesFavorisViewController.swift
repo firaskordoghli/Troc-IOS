@@ -37,6 +37,12 @@ class MesFavorisViewController: UIViewController, UICollectionViewDelegate, UICo
     
     
     
+    @IBAction func supprimerFavoris(_ sender: UIButton) {
+        
+       
+        
+    }
+    
     //Avoir les favoris depuis le coreData
     func GetFavoris() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -111,3 +117,6 @@ class MesFavorisViewController: UIViewController, UICollectionViewDelegate, UICo
     }
     
 }
+
+
+
